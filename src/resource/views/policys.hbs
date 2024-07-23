@@ -1,0 +1,69 @@
+ <div class="fix wrapper-policy-page">
+    <div id="preloader" style="display:block">
+        <div id="loader"></div>
+    </div>
+
+    <section id="site-breadcumb">
+        <div class="site-breadcumb-wrapper bg-breadcumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="breadcumb-content">
+                            <h1 class="breadcumb-title">Chính sách</h1>
+                            <ul class="page-navigator">
+                                <li><a href="/">Trang chủ</a></li>
+                                <li><a href="/blog">Chính sách</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="policy-content service-details sec-ptb">
+        <div class="container">
+            <div class="row flex-column-reverse flex-xl-row">
+                <div class="col-xl-4 hide-on-mobile">
+                    <div class="sidebar me-xl-4">
+                        <div class="sidebar-item service-list">
+                            <h4 class="stitle">Chính sách</h4>
+                            <ul class="cat-list ">
+                                {{#each content}}
+                                <li
+                                    class="policys-item"
+                                    id="{{this.name}}"><a> {{this.title}}<i
+                                            class="flaticon-right-arrow child"></i></a></li>
+
+                                {{/each}}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <div class="service-details-wrapper">
+                        <select class="hide-on-pc show-on-mobile form-select policys-item-mobile"
+                           id="policys-item-mobile">
+                            {{#each content}}
+                            <option value="{{this.name}}">
+                               {{this.title}}
+                            </option>
+                            {{/each}}
+
+                        </select>
+                        <div
+                            class="service-details-content     policys-content">
+                            {{{content.0.content}}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<script>
+    const dataP =
+    {{{dataP}}}
+    console.log(dataP)
+</script>

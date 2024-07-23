@@ -1,0 +1,46 @@
+<div class='product-wrapper'>
+
+    <div class='product-area-wrapper'>
+        <div><h3>{{q}}</h3></div>
+        {{#each filterProduct}}
+            <div class='product-group'>
+                <div class='product-group-title' id='cate-{{this.id}}'>
+                    <div class='product-group-title-main'>
+                        <h3>{{this.name}}</h3>
+                    </div>
+
+                </div>
+                <div class='product-item-area'>
+                    <div class='container'>
+                        <div class='row'>
+                            {{#each this.products}}
+                                <div class='product-item'>
+                                    <a href='/san-pham/{{this.slug}}'>
+                                        <div class='product-image'>
+                                            <img alt='hinh-anh-san-pham' src='{{this.thumbnail}}' />
+                                        </div>
+                                        <div class='product-infor'>
+                                            <div class='product-name'>
+                                                <span>{{this.title}}</span>
+                                            </div>
+                                            <div class='product-price'>
+                                                {{#formatPrice this.price this.discount}}{{/formatPrice}}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class='product-action'>
+                                        <div class='action-btn add-to-cart' data-product='{{this.id}}'>
+                                            <i class='bi bi-cart-plus'></i>&nbsp;
+                                            <span>THÊM VÀO GIỎ</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

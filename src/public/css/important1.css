@@ -1,0 +1,9 @@
+input,
+textarea {
+  border: 1px solid #dbdbdb;
+  transition: border-color 0.3s ease; }
+
+input.invalid,
+textarea.invalid {
+  border: 1px solid #f80606;
+  transition: border-color 0.3s ease; }

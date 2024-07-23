@@ -1,0 +1,36 @@
+<div class='service-page-wrapper'>
+    <div class='page-title'>
+        <h2>DỊCH VỤ CỦA CHÚNG TÔI</h2>
+    </div>
+    <div class='product-item-area'>
+        <div class='container'>
+            <div class='row'>
+                {{#each services}}
+                    <div class='product-item'>
+                        <a href='/dich-vu/{{this.slug}}'>
+                            <div class='product-image'>
+                                <img alt='hinh-anh-san-pham' src='{{this.image}}' />
+                            </div>
+                            <div class='product-infor'>
+                                <div class='product-name'>
+                                    <span>{{this.name}}</span>
+                                </div>
+                                <div class='product-price'>
+                                    <span>{{this.discription}}</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class='product-action'>
+                            <a href='/dich-vu/{{this.slug}}'>
+                                <div class='see-product action-btn'>
+                                    <span>XEM CHI TIẾT</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

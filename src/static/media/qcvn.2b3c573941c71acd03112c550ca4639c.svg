@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.9 57.41">
+                        <defs>
+                            <style>
+                                .cls-1,
+                                .cls-2 {
+                                  
+                                }
+            
+                                .cls-2 {
+                                    font-size: 14.12px;
+                                    font-family: UTM_neo_sans_intel;
+                                    font-weight: 700;
+                                }
+                            </style>
+                        </defs>
+                        <g id="Layer_2" data-name="Layer 2">
+                            <g id="Layer_1-2" data-name="Layer 1">
+                                <path class="cls-1" d="M26.44,28.24a11.71,11.71,0,0,1,0-23.2V0a16.71,16.71,0,0,0,0,33.26Z"></path>
+                                <polygon class="cls-1" points="29.57 16.5 29.57 33.27 34.7 33.27 34.71 29.13 39.05 33.47 46.52 33.27 29.57 16.5"></polygon>
+                                <path class="cls-1" d="M39.81,16.64a11.7,11.7,0,0,1-1.13,4.94l3.75,3.6A16.67,16.67,0,0,0,29.57,0V5A11.72,11.72,0,0,1,39.81,16.64Z"></path><text class="cls-2" transform="translate(0 53.59)">QCVN 31</text>
+                            </g>
+                        </g>
+                    </svg>

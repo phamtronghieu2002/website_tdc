@@ -1,0 +1,100 @@
+<div class="footer-top">
+  <div class="inner-footer">
+    <div class="footer-item-1">
+      <h3>LIÊN HỆ</h3>
+      <p>
+        <i class="bi bi-envelope-fill"></i>
+        {{#each companyInfor.emails}}
+        <a
+          href="mailto:{{this.email}}">{{this.email}}
+        </a>&emsp;
+        {{/each}}
+      </p>
+      <p><i class="bi bi-telephone-fill"></i>
+        {{#each companyInfor.phones}}<a
+          href="tel:{{this.phone}}">{{this.phone}}</a>&emsp;{{/each}}</p>
+      <p><i class="bi bi-globe"></i><a href="https://taixecongnghe.com/">
+          https://taixecongnghe.com</a></p>
+
+      <p><i class="bi bi-geo-alt-fill"></i>
+        <a href="https://goo.gl/maps/7YC2We4kM56LtaV6A">
+          {{companyInfor.address.0.location}}</a></p>
+
+    </div>
+    <div class="footer-item-3">
+      <h3>CHÍNH SÁCH</h3>
+      {{#each companyInfor.policys}}
+      <p>
+        <a href="./chinh-sach?id={{this.name}}">
+          +
+          {{this.title}}
+        </a>
+      </p>
+      {{/each}}
+
+    </div>
+
+    <div class="footer-item-2">
+
+      <div class="map-gg-area">
+
+        {{! <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1252.140885803832!2d106.73959911928844!3d10.864235782499415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1678439864639!5m2!1svi!2s"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe> }}
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d526.8504903802589!2d106.73976512751898!3d10.86386008040743!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527205f83292f%3A0x6d927aebd4ae2ea6!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVMOgaSBY4bq_IEPDtG5nIE5naOG7hw!5e0!3m2!1svi!2s!4v1708928815388!5m2!1svi!2s"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="icon-group">
+        {{!-- <a target='_blank' href='{{companyInfor.information.0.gov_link}}'>
+          <div class='footer-icon'>
+            <img alt='social-link'
+              src='https://midvietnam.com/upload/logo/safety.png' />
+          </div>
+        </a> --}}
+        <div class="icon-group-right">
+
+          <a target="_blank" href="{{companyInfor.information.0.link_youtube}}">
+            <div class="footer-icon">
+              <img
+                alt="social-link"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/YouTube_social_red_circle_%282017%29.svg/300px-YouTube_social_red_circle_%282017%29.svg.png" />
+            </div>
+          </a>
+          <a
+            target="_blank"
+            href="{{companyInfor.information.0.link_facebook}}">
+            <div class="footer-icon">
+              <img
+                alt="social-link"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png" />
+            </div>
+          </a>
+          {{!-- <a href='{{companyInfor.information.0.link_zalo}}'>
+            <div class='footer-icon'>
+              <img alt='social-link'
+                src='https://classic.vn/wp-content/uploads/2022/07/zalo-icon.png' />
+            </div>
+          </a> --}}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="footer-bottom">
+  <span>Copyright 2022 © {{companyInfor.information.0.footer}}</span>
+</div>

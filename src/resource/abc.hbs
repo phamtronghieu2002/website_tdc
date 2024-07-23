@@ -1,0 +1,26 @@
+<div class='policys-page-wrapper'>
+    <div class='page-title'>
+        <h2>CHÍNH SÁCH</h2>
+    </div>
+    <div class='policys-wrapper'>
+        <div class='policys-list-item'>
+            <div class='policys-list-item-l2'>
+                {{#each content}}
+                    <div class='policys-item' id='{{this.name}}'>
+                        <p>
+                            {{this.title}}
+                        </p>
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+        <div class='policys-content'>
+            {{{content.0.content}}}
+        </div>
+    </div>
+</div>
+<script>
+    const dataP =
+    {{{dataP}}}
+</script>

@@ -1,0 +1,151 @@
+@import 'variables';
+
+.recr-detail-page-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    & .title-recr-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px dashed $black-l4;
+
+        & h3 {
+            font-size: 1.6rem;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+    }
+
+    & .recr-overview {
+        width: 25%;
+
+        & .recr-overview-inner {
+            padding: 10px;
+            border: 1px solid $black-l4;
+        }
+
+        & .recr-overview-content {
+            & .recr-overview-content-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 7px 0;
+                border-bottom: 1px dashed $black-l4;
+
+                & span:nth-child(1) {
+                    font-weight: 600;
+                }
+                &.work-place {
+                    flex-direction: column;
+                }
+            }
+        }
+
+        & .submit-cv-btn {
+            display: flex;
+            padding: 10px;
+            padding-bottom: 0;
+            justify-content: center;
+
+            & button {
+                padding: 3px 8px;
+                border-radius: 20px;
+                outline: none;
+                border: 1px solid $black-l4;
+                background-color: var(--main_color);
+                color: $white;
+                cursor: pointer;
+                transition: $transition-opacity;
+                font-size: 1.4rem;
+
+                &:hover {
+                    opacity: 0.8;
+                    transition: $transition-opacity;
+                }
+            }
+        }
+    }
+
+    & .recr-detail {
+        padding: 10px;
+        width: 73%;
+        border: 1px solid $black-l4;
+
+        & .expiration-date {
+            padding: 7px 0;
+            border-bottom: 1px dashed $black-l4;
+        }
+
+        & .recr-content {
+            padding: 10px 0;
+        }
+    }
+}
+.recr-page-wrapper {
+    margin-top: 20px;
+    & .main-recr {
+        & .recr-group-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            border: 0.5px solid $black-l4;
+
+            & .recr-item-title {
+                transition: $transition-color, $transition-bg-color;
+                & h3 {
+                    font-size: 1.6rem;
+                }
+            }
+            &:hover {
+                & .recr-item-title {
+                    color: $hight-light;
+                    transition: $transition-color, $transition-bg-color;
+                }
+            }
+
+            & .recr-item-image {
+                width: 35%;
+                height: 150px;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            & .rect-item-infor {
+                padding: 10px 0;
+                padding-right: 10px;
+                width: 63%;
+                max-height: 130px;
+                overflow: hidden;
+                text-align: justify;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 769px) {
+    .recr-detail-page-wrapper {
+        flex-direction: column;
+    }
+    .recr-detail-page-wrapper .recr-overview {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .recr-detail-page-wrapper .recr-detail {
+        width: 100%;
+    }
+
+    .recr-page-wrapper .main-recr .recr-group-item {
+        flex-direction: column;
+    }
+    .recr-page-wrapper .main-recr .recr-group-item .recr-item-image {
+        width: 100%;
+    }
+    .recr-page-wrapper .main-recr .recr-group-item .rect-item-infor {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: unset;
+    }
+}

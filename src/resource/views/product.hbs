@@ -1,0 +1,160 @@
+<div class='product-wrapper'>
+    <div class='product-top-wrapper'>
+        {{!-- <div class='product-category-table'>
+            <div class='header-category-table'>
+                <h3>DANH MỤC</h3>
+            </div>
+            <ul>
+                {{#each filterProduct}}
+                    <li class='category-name-item' data='cate-{{this.id}}'><i class='fas fa-angle-right'></i>
+                        {{this.name}}
+                    </li>
+                {{/each}}
+            </ul>
+        </div> --}}
+
+        <div class='product-banner'>
+            {{!-- <div id='banner-main' class='carousel slide' data-ride='carousel'>
+                <ol class='carousel-indicators'>
+                    {{#liAdv adv}}{{/liAdv}}
+                </ol>
+                <div class='carousel-inner'>
+
+                    {{#eachBanner adv}}{{/eachBanner}}
+
+                </div>
+                <a class='carousel-control-prev' href='#banner-main' role='button' data-slide='prev'>
+                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>Previous</span>
+                </a>
+                <a class='carousel-control-next' href='#banner-main' role='button' data-slide='next'>
+                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                    <span class='sr-only'>Next</span>
+                </a>
+            </div> --}}
+            <div class='banner-content'>
+                <div class='section3-left-wrapper section-content-left'>
+                    <h2>Giám sát hành trình với công nghệ mới</h2>
+                    <h1>5G_GPS với Esim</h1>
+
+                    <p>
+                        - Đáp ứng tốt mọi tính năng giám sát, định vị.
+
+                    </p>
+                    <p>
+                        - Sẵn sàng tích hợp cảm biến nhiệt và dầu.
+
+                    </p>
+                    <p>
+                        - Hỗ trợ giám sát liên tục hành trình xuyên Việt, xuyên quốc tế.
+
+                    </p>
+                    <p>
+                        - eSim trọn đời, không lo lỗi hay hỏng sim.
+
+                    </p>
+                    <a target='_blank' href='/san-pham/thiet-bi-giam-sat-hanh-trinh-5g_gps--901478'>
+
+                        <button class='button-section-1 animate__animated animate__fadeInUp'>Xem chi tiết</button>
+                    </a>
+                    {{! <button class='button-section-1 animate__animated animate__fadeInUp'>Mua ngay</button> }}
+
+                </div>
+                <div class='section3-right-wrapper section-content-right'>
+                    <img src='./static/images/interface/prd_main.png' />
+                    {{! <div class='app-info-group'>
+                        <div class='app-info-qr-code'>
+                            <img src='./static/images/interface/qr_app.png' />
+                        </div>
+                        <div class='app-info-store-link'>
+                            <img src='./static/images/interface/app_store_icon.png' />
+                            <img src='./static/images/interface/google_play_icon.png' />
+
+                        </div>
+                    </div> }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='product-area-wrapper'>
+        {{#each filterProduct}}
+            <div class='product-group'>
+                <div class='product-group-title' id='cate-{{this.id}}'>
+                    <div class='product-group-title-main'>
+                        <h3>{{this.name}}</h3>
+                    </div>
+
+                    <div class='product-group-title-main'>
+                        <a>
+                            Xem chi tiết
+                        </a>
+                    </div>
+                    {{! <div class='title-border'></div> }}
+                </div>
+                <div class='product-item-area'>
+                    <div class='container'>
+                        <div class='row'>
+                            {{#each this.products}}
+                                <div class='product-item'>
+                                    <a href='/san-pham/{{this.slug}}'>
+                                        <div class='top-discount'>- {{this.discount}}%</div>
+                                        <div class='product-image'>
+                                            <img alt='hinh-anh-san-pham' src='{{this.thumbnail}}' />
+                                        </div>
+                                        <div class='product-infor'>
+                                            <div class='product-category'>
+                                                <span>{{this.cateName}}</span>
+                                            </div>
+                                            <div class='product-name'>
+                                                <span>{{this.title}}</span>
+                                            </div>
+                                            <div class='stars'>
+                                                <svg width='15' height='15' viewBox='0 0 940.688 940.688'>
+                                                    <path
+                                                        d='M885.344,319.071l-258-3.8l-102.7-264.399c-19.8-48.801-88.899-48.801-108.6,0l-102.7,264.399l-258,3.8 c-53.4,3.101-75.1,70.2-33.7,103.9l209.2,181.4l-71.3,247.7c-14,50.899,41.1,92.899,86.5,65.899l224.3-122.7l224.3,122.601 c45.4,27,100.5-15,86.5-65.9l-71.3-247.7l209.2-181.399C960.443,389.172,938.744,322.071,885.344,319.071z'
+                                                    ></path>
+                                                </svg>
+                                                <svg width='15' height='15' viewBox='0 0 940.688 940.688'>
+                                                    <path
+                                                        d='M885.344,319.071l-258-3.8l-102.7-264.399c-19.8-48.801-88.899-48.801-108.6,0l-102.7,264.399l-258,3.8 c-53.4,3.101-75.1,70.2-33.7,103.9l209.2,181.4l-71.3,247.7c-14,50.899,41.1,92.899,86.5,65.899l224.3-122.7l224.3,122.601 c45.4,27,100.5-15,86.5-65.9l-71.3-247.7l209.2-181.399C960.443,389.172,938.744,322.071,885.344,319.071z'
+                                                    ></path>
+                                                </svg>
+                                                <svg width='15' height='15' viewBox='0 0 940.688 940.688'>
+                                                    <path
+                                                        d='M885.344,319.071l-258-3.8l-102.7-264.399c-19.8-48.801-88.899-48.801-108.6,0l-102.7,264.399l-258,3.8 c-53.4,3.101-75.1,70.2-33.7,103.9l209.2,181.4l-71.3,247.7c-14,50.899,41.1,92.899,86.5,65.899l224.3-122.7l224.3,122.601 c45.4,27,100.5-15,86.5-65.9l-71.3-247.7l209.2-181.399C960.443,389.172,938.744,322.071,885.344,319.071z'
+                                                    ></path>
+                                                </svg>
+                                                <svg width='15' height='15' viewBox='0 0 940.688 940.688'>
+                                                    <path
+                                                        d='M885.344,319.071l-258-3.8l-102.7-264.399c-19.8-48.801-88.899-48.801-108.6,0l-102.7,264.399l-258,3.8 c-53.4,3.101-75.1,70.2-33.7,103.9l209.2,181.4l-71.3,247.7c-14,50.899,41.1,92.899,86.5,65.899l224.3-122.7l224.3,122.601 c45.4,27,100.5-15,86.5-65.9l-71.3-247.7l209.2-181.399C960.443,389.172,938.744,322.071,885.344,319.071z'
+                                                    ></path>
+                                                </svg>
+                                                <svg width='15' height='15' viewBox='0 0 940.688 940.688'>
+                                                    <path
+                                                        d='M885.344,319.071l-258-3.8l-102.7-264.399c-19.8-48.801-88.899-48.801-108.6,0l-102.7,264.399l-258,3.8 c-53.4,3.101-75.1,70.2-33.7,103.9l209.2,181.4l-71.3,247.7c-14,50.899,41.1,92.899,86.5,65.899l224.3-122.7l224.3,122.601 c45.4,27,100.5-15,86.5-65.9l-71.3-247.7l209.2-181.399C960.443,389.172,938.744,322.071,885.344,319.071z'
+                                                    ></path>
+                                                </svg>
+
+                                                <div class='overlay' style='width: 37%'></div>
+                                            </div>
+                                            <div class='product-price'>
+                                                {{#formatPrice this.price this.discount}}{{/formatPrice}}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class='product-action'>
+                                        <div class='action-btn add-to-cart' data-product='{{this.id}}'>
+                                            <i class='bi bi-cart-plus'></i>&nbsp;
+                                            <span>Thêm vào giỏ</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

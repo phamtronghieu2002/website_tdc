@@ -1,0 +1,87 @@
+<div class='product-detail-wrapper'>
+    <div class='product-briefing'>
+        <div class='product-images-area'>
+            <div class='product-images-slider flexslider'>
+
+                <ul class='slides'>
+                    {{#each imgList}}
+                        <li data-thumb='{{this}}'>
+                            <img src='{{this}}' />
+                        </li>
+                    {{/each}}
+                </ul>
+                <div id='img-zoom-area' class='img-zoom-result'></div>
+            </div>
+        </div>
+        <div class='product-infor-area'>
+            <div class='page-product-link'>
+                <a href='/san-pham'>Sản phẩm</a>
+                {{#arrowRightIcon}}{{/arrowRightIcon}}
+                <a href='/danh-muc'>{{category.name}}</a>
+            </div>
+            <div class='product-infor-main'>
+                <div class='product-name'>
+                    <h2>{{product.title}}</h2>
+                </div>
+                <div class='product-price'>
+                    {{#formatPrice product.price product.discount}}{{/formatPrice}}
+                </div>
+                <div class='product-description'>
+                    {{{product.description}}}
+                </div>
+                <div class='product-action'>
+                    <div><span>Số lượng: </span><span>{{product.inventory_num}}</span></div>
+                    <div class='pr-main-action'>
+                        <div class='action-btn action-add-btn add-to-cart' data-product='{{product.id}}'><i
+                                class='bi bi-cart-plus'
+                            ></i>
+                            Thêm vào giỏ hàng</div>
+                        <div class='action-btn action-contact-btn'><i class='bi bi-telephone'></i>Liên hệ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class='nav nav-tabs' id='myTab' role='tablist'>
+        <li class='nav-item' role='presentation'>
+            <button
+                class='nav-link active'
+                id='home-tab'
+                data-bs-toggle='tab'
+                data-bs-target='#home'
+                type='button'
+                role='tab'
+                aria-controls='home'
+                aria-selected='true'
+            >Tính năng</button>
+        </li>
+        <li class='nav-item' role='presentation'>
+            <button
+                class='nav-link'
+                id='profile-tab'
+                data-bs-toggle='tab'
+                data-bs-target='#profile'
+                type='button'
+                role='tab'
+                aria-controls='profile'
+                aria-selected='false'
+            >Chi tiết thông số kĩ thuật</button>
+        </li>
+
+    </ul>
+    <div class='tab-content' id='myTabContent'>
+        <div class='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>
+
+            {{{product.description_all}}}
+
+        </div>
+        <div
+            class='tab-pane fade'
+            id='profile'
+            role='tabpanel'
+            aria-labelledby='profile-tab'
+        >{{{product.technique}}}</div>
+
+    </div>
+
+</div>

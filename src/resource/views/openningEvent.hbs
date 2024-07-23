@@ -1,0 +1,183 @@
+<section class='ftco-section' style='display: none;'>
+    <div class='container'>
+        <div
+            style='    display: flex;
+    justify-content: center;'
+        >
+            <img style='width: 50%' src='https://taixecongnghe.com/static/images/interface/image-1681463953042.png' />
+        </div>
+        <div class='row justify-content-center'>
+            <div class='col-md-6 text-center'>
+                <h2 class='heading-section'>Xác nhận tham gia lễ khai trương TDC
+                </h2>
+            </div>
+            <p>TDC kính chào quý khách,</p>
+
+            <p>Để tiện việc đón tiếp được trang trọng, Quý khách vui lòng xác nhận tham gia và số lượng người cùng tham
+                gia giúp TDC nhé!</p>
+
+            <p>TDC xin chân thành cảm ơn và hy vọng quý khách sẽ dành ít thời gian của mình để cùng chung vui ngày đặc
+                biệt của chúng tôi!</p>
+        </div>
+        <div class='row justify-content-center'>
+
+            <div class='wrapper'>
+                {{! <div class='row mb-5'>
+                    <div class='col-md-3'>
+                        <div class='dbox w-100 text-center'>
+                            <div class='icon d-flex align-items-center justify-content-center'>
+                                <span class='fa fa-map-marker'></span>
+                            </div>
+                            <div class='text'>
+                                <p><span>Address:</span>
+                                    198 West 21th Street, Suite 721 New York NY 10016</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-3'>
+                        <div class='dbox w-100 text-center'>
+                            <div class='icon d-flex align-items-center justify-content-center'>
+                                <span class='fa fa-phone'></span>
+                            </div>
+                            <div class='text'>
+                                <p><span>Phone:</span> <a href='tel://1234567920'>+ 1235 2355 98</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-3'>
+                        <div class='dbox w-100 text-center'>
+                            <div class='icon d-flex align-items-center justify-content-center'>
+                                <span class='fa fa-paper-plane'></span>
+                            </div>
+                            <div class='text'>
+                                <p><span>Email:</span>
+                                    <a href='mailto:info@yoursite.com'>info@yoursite.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-3'>
+                        <div class='dbox w-100 text-center'>
+                            <div class='icon d-flex align-items-center justify-content-center'>
+                                <span class='fa fa-globe'></span>
+                            </div>
+                            <div class='text'>
+                                <p><span>Website</span> <a href='#'>yoursite.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> }}
+                <div class='row no-gutters'>
+                    <div class='col-md-7'>
+                        <div class='contact-wrap w-100 p-md-5 p-4'>
+
+                            <div id='form-message-warning' class='mb-4'></div>
+                            <div id='form-message-success' class='mb-4'>
+                                Your message was sent, thank you!
+                            </div>
+                            <form method='POST' id='contactForm' name='contactForm' class='contactForm'>
+                                <div class='row'>
+                                    <div class='col-md-6'>
+                                        <div class='form-group'>
+                                            <label class='label' for='name'>Họ Và Tên của Quý Khách?</label>
+                                            <input
+                                                type='text'
+                                                class='form-control'
+                                                name='name'
+                                                id='name'
+                                                placeholder='vd: Nguyễn Văn An'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class='col-md-6'>
+                                        <div class='form-group'>
+                                            <label class='label' for='email'>Số điện thoại của Quý Khách?</label>
+                                            <input
+                                                type='number'
+                                                class='form-control'
+                                                name='phone'
+                                                id='phone'
+                                                placeholder='vd: 0123456789'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class='col-md-12'>
+                                        <div class='form-group'>
+                                            <label class='label' for='uNum'>Quý khách sẽ đi cùng bao nhiêu người?</label>
+                                            <input
+                                                type='number'
+                                                class='form-control'
+                                                name='uNum'
+                                                id='uNum'
+                                                placeholder='vd: 1, 2, 3, 4, 5,...'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class='col-md-12'>
+                                        <div class='form-group'>
+                                            <label class='label' for='vehicle'>Quý khách đến dự tiệc bằng Phương Tiện
+                                                gì?</label>
+                                            {{! <textarea
+                                                name='vehicle'
+                                                class='form-control'
+                                                id='vehicle'
+                                                cols='30'
+                                                rows='4'
+                                               
+                                            ></textarea> }}
+                                            <input
+                                                type='text'
+                                                class='form-control'
+                                                name='vehicle'
+                                                id='vehicle'
+                                                placeholder='vd: Xe máy, Xe hơi, Xe dịch vụ, ...'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class='col-md-12'>
+                                        <div class='form-group'>
+                                            <div class='confirm-btn'>Xác nhận tham gia</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    {{! <div class='col-md-5 d-flex align-items-stretch'>
+                        <div class='info-wrap w-100 p-5 img' style='background-image: url(images/img.jpg);'>
+                        </div>
+                    </div> }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<div class='thank-letter-wrapper' style='display: none;'>
+    <img src='https://taixecongnghe.com/static/images/interface/thank_icon.png' />
+    <p>Cảm ơn Quý Khách đã xác nhận tham gia Lễ Khai Trương của TDC!</p>
+    <p>Hẹn gặp lại quý khách vào ngày <b>22/4/2023!</b></p>
+</div>
+
+<div class='loader' style='display: none;'>
+    <div class='lds-roller'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div
+        ></div></div>
+</div>
+
+<div class='option-wrapper'>
+    <div id='contact-map' class='contact-map' style='width: 90%; height: 50%;'></div>
+    <a href='https://maps.google.com/?q=10.863779,106.739802' target='_blank'>
+        <div>Chỉ đường (Google Map)</div>
+    </a>
+    <a>
+        <div class='confirm-option'>Xác nhận tham gia sự kiện</div>
+    </a>
+</div>
+<div class='bg'></div>
+<div class='bg bg2'></div>
+<div class='bg bg3'></div>
+
+{{! <a class='btn_wrapper' href='https://maps.google.com/?q=10.863779,106.739802' target='_blank'>
+    <div>Chỉ đường (Google Map)</div>
+</a> }}

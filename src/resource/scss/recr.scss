@@ -1,0 +1,59 @@
+@import 'variables';
+
+.recr-page-wrapper {
+    & .main-recr {
+        & .recr-group-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            border: 0.5px solid $black-l4;
+
+            & .recr-item-title {
+                transition: $transition-color, $transition-bg-color;
+            }
+            &:hover {
+                & .recr-item-title {
+                    color: $hight-light;
+                    transition: $transition-color, $transition-bg-color;
+                }
+            }
+
+            & .recr-item-image {
+                width: 35%;
+                height: 150px;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            & .rect-item-infor {
+                padding: 10px 0;
+                padding-right: 10px;
+                width: 63%;
+                max-height: 130px;
+                overflow: hidden;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    .recr-page-wrapper .main-recr .recr-group-item {
+        flex-direction: column;
+    }
+    .recr-page-wrapper .main-recr .recr-group-item .recr-item-image {
+        width: 100%;
+    }
+    .recr-page-wrapper .main-recr .recr-group-item .rect-item-infor {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        text-align: unset;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+}

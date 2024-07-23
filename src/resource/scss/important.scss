@@ -1,0 +1,11 @@
+@import 'variables';
+input,
+textarea {
+    border: 1px solid #dbdbdb;
+    transition: $transition-border-color;
+}
+input.invalid,
+textarea.invalid {
+    border: 1px solid $red;
+    transition: $transition-border-color;
+}

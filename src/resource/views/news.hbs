@@ -1,0 +1,134 @@
+ <div class="fix wrapper-news-page page">
+    <div id="preloader" style="display:block">
+        <div id="loader"></div>
+    </div>
+
+    <section id="site-breadcumb">
+        <div class="site-breadcumb-wrapper bg-breadcumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="breadcumb-content">
+                            <h1 class="breadcumb-title">Tin tức</h1>
+                            <ul class="page-navigator">
+                                <li><a href="/">Trang chủ</a></li>
+                                <li><a href="/blog">Tin tức</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog-page-sec sec-ptb">
+        <div class="container">
+            <div class="row mb-5">
+                <h3 class="title-hot-blog mb-4">Tin tức nổi bật</h3>
+                <div class="col-xl-7">
+                    <div class="blog-item-wrapper">
+                        <!-- map -->
+                        <a href="/tin-tuc/{{news.featuredMain.0.slug}}"
+                            class="blog-left-box blog-item">
+                            <div class="img-box">
+                                <img alt="blog" decoding="async" data-nimg="1"
+                                    class="h-100"
+                                    src="{{news.featuredMain.0.img}}">
+                            </div>
+                            <div class="content-box">
+                                <div class="meta-box">
+                                    <ul class="meta-info d-flex">
+                                        <li>
+                                            <i class="flaticon-calendar"></i>
+                                            <span>{{#dateFormatDDMMYY
+                                                news.featuredMain.0.date}}{{/dateFormatDDMMYY}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="title-box blog-title">
+                                    <h3>{{news.featuredMain.0.title}}</h3>
+                                </div>
+                                <div class="blog-body">
+                                    <p
+                                        class="mt-2">{{news.featuredMain.0.subcontent}}.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="sidebar ms-xl-5">
+                        <div class="sidebar-item">
+                            <div class="blog-recent-post footer-recent-post">
+                                {{#each news.featuredNews}}
+                                <a href='/tin-tuc/{{this.slug}}'
+                                    class="blog-sidebar-box-item blog-item d-flex">
+                                    <div class="img-box"><img alt="blog"
+                                            width="120" height="120"
+                                            decoding="async" data-nimg="1"
+                                            src="{{this.img}}"
+                                            style="color: transparent;"></div>
+                                    <div class="content-box">
+                                        <div class="meta-box">
+                                            <ul class="meta-info">
+                                                <li>
+                                                    <i
+                                                        class="flaticon-calendar"></i>
+                                                    <span>{{#dateFormatDDMMYY
+                                                        this.date
+                                                        }}{{/dateFormatDDMMYY}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="title-box">
+                                            <h3>{{this.title}}.</h3>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="new-blog">
+                <h3 class="mb-3">Tin tức</h3>
+                {{#each news.allNews}}
+                <a href="/tin-tuc/{{this.slug}}" class="new-blog-content">
+                    <div class="row">
+                        <div class="img-box col-xl-3 col-12">
+                            <div class="image-box">
+                                <img alt="blog" decoding="async" data-nimg="1"
+                                    class="h-100"
+                                    src="{{this.img}}">
+                            </div>
+                        </div>
+                        <div class="content-box col-xl-9 col-12">
+                            <div class="title-box">
+                                <h4>{{this.title}}</h4>
+                            </div>
+                            <div class="meta-box">
+                                <div class="meta-info d-flex">
+                                    <i class="flaticon-calendar"></i>
+                                    <span>{{#dateFormatDDMMYY this.date}}{{/dateFormatDDMMYY}} </span>
+                                </div>
+                            </div>
+                            <div class="sub-content-box">
+                                <p> {{{this.subcontent}}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+            <div class="paging">
+                <div class="blog-pagination">
+                    <ul>
+                      {{#paging news.pageNums news.pageActive}}{{/paging}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

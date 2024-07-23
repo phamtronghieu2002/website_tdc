@@ -1,0 +1,131 @@
+ <div class="fix  news-detail-page-wrapper ">
+    <div id="preloader" style="display:block">
+        <div id="loader"></div>
+    </div>
+    <section id="site-breadcumb"
+       >
+        <div class="site-breadcumb-wrapper bg-breadcumb">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="breadcumb-content">
+                            <h1 class="breadcumb-title">Chi tiết bài viết</h1>
+                            <ul class="page-navigator">
+                                <li><a href="/">Trang chủ</a></li>
+                                <li><a href="/blog">Chi tiết bài viết</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog-page-sec blog-detail-page sec-ptb">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="blog-item-wrapper">
+                        <div class="blog-left-box blog-item blog-item-details">
+                          
+                            <div class="content-box">
+                                <div class="meta-box">
+                                    <ul class="meta-info d-flex">
+
+                                        <li>
+                                            <div class="icon"><i
+                                                    class="flaticon-calendar"></i></div><span><a
+                                                    href="#">{{#dateFormatDDMMYY
+                                                    news.date}}{{/dateFormatDDMMYY}}</a></span>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="title-box blog-title wow fadeInUp"
+                                    data-wow-delay="0.5s"
+                                    data-wow-duration="1500ms"
+                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0.5s;">
+                                    <h3><a href="#">{{news.title}}</a></h3>
+                                </div>
+                                <div class="blog-body">
+                                    {{{news.content}}}
+                                </div>
+                                <div class="blog-tags-share wow fadeInUp"
+                                    data-wow-delay="0ms"
+                                    data-wow-duration="1500ms"
+                                    style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms;">
+                                    <div class="blog-tags">
+                                        <div class="tag-title">
+                                            <h6>Tag:</h6>
+                                        </div>
+                                        <ul>
+                                            <li><a href="/">#Technology</a></li>
+                                            <li><a href="/">#IT
+                                                    Business</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="blog-tags blog-share">
+                                        <div class="tag-title">
+                                            <h6>Share:</h6>
+                                        </div>
+                                        <ul>
+                                            <li><a href="/"><i
+                                                        class="fa-brands fa-facebook-f"></i></a></li>
+                                            <li><a href="/"><i
+                                                        class="fa-brands fa-linkedin-in"></i></a></li>
+                                            <li><a href="/"><i
+                                                        class="fa-brands fa-twitter"></i></a></li>
+                                            <li><a href="/"><i
+                                                        class="fa-brands fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="sidebar ms-xl-4">
+
+                        <div class="sidebar-item">
+                            <h4 class="stitle">Bài viết mới</h4>
+                            <div class="blog-recent-post footer-recent-post">
+                                <ul>
+                                    {{#each ortherNewsRows}}
+                                    <a
+                                        href='/tin-tuc/{{this.slug}}'
+                                        class="blog-sidebar-box-item blog-item d-flex">
+                                        <div class="img-box"><img alt="blog"
+                                                loading="lazy" width="109"
+                                                height="93" decoding="async"
+                                                data-nimg="1" class="h-100"
+                                                src="{{this.img}}"
+                                                style="color: transparent;"></div>
+                                        <div class="content-box">
+                                            <div class="meta-box">
+                                                <ul class="meta-info">
+                                                    <li>
+                                                        <div class="icon"><i
+                                                                class="flaticon-calendar"></i>
+                                                        </div><span>{{#dateFormatDDMMYY
+                                                            this.date}}{{/dateFormatDDMMYY}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="title-box">
+                                                <h3 class="c-black">
+                                                    {{this.title}}</h3>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

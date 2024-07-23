@@ -1,0 +1,70 @@
+@keyframes moveFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+    75% {
+        opacity: 0.75;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+.hero-tagline {
+    animation: moveFromRight 1.25s ease-in forwards;
+}
+.hero-title {
+    animation: moveFromLeft 1.25s ease-in;
+}
+.hero-feature-img{
+    animation: zoomIn 1.25s ease-in forwards;
+
+}
+.hero-desc{
+    animation: moveFromRight 1.25s ease-in forwards;
+}
+
+.smv .smv-button-fullscreen .smv-icon, .smv .smv-button-fullscreen .smv-icon:empty{
+    display: none !important;
+}

@@ -1,0 +1,181 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    :root {
+        --sidebar-width: 270px;
+    }
+    .sidebar {
+        display: none;
+        z-index: 9999998;
+    }
+    .root {
+        margin-left: 0;
+    }
+    .header {
+        left: 0;
+    }
+
+    .menu-icon-btn {
+        display: block;
+        font-size: 1.8rem;
+    }
+    .close-opacity-btn.close-menu-icon {
+        display: flex;
+    }
+    .close-menu-icon .close:before,
+    .close-menu-icon .close:after {
+        left: 9px;
+        position: absolute;
+        content: ' ';
+        height: 22px;
+        width: 1.6px;
+        background-color: var(--white);
+    }
+    /* PRODUCT PAGE  */
+    .products-wrapper {
+        flex-grow: 1;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+    }
+    .products-infor {
+        /* flex-grow: 1; */
+        /* bottom: 0; */
+        /* top: 0; */
+        position: relative;
+        width: unset;
+        background-color: var(--white);
+        border-radius: 5px;
+        box-shadow: var(--main-shadow);
+        display: flex;
+        flex-direction: column;
+    }
+    .main-products {
+        margin-left: 0;
+    }
+    .main-product-layout {
+        height: unset;
+    }
+    .products-infor.add-product-guide {
+        display: none;
+    }
+    .products-infor.preview-product-guide {
+        display: none;
+    }
+    .update-all-value {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .update-all-value .update-all-value-title {
+        width: unset;
+        display: inline-block;
+        text-align: left;
+        margin-right: 10px;
+    }
+    .update-all-value input {
+        width: 100%;
+    }
+    .basic-product-infor-edit-all.add-product-form {
+        padding: 0;
+    }
+    .add-pr-add-category-btn {
+        margin: 0;
+        margin-top: 5px;
+    }
+    .update-all-value .tox.tox-tinymce {
+        width: 100%;
+    }
+    .describe-input {
+        bottom: 0;
+    }
+    .image-tab-wrapper {
+        min-width: unset;
+    }
+    .opacity-children-content .image-tab-wrapper {
+        min-width: unset;
+    }
+    .opacity-children {
+        margin: 0 7px;
+    }
+    .main-content {
+        padding: 0;
+    }
+
+    /* INFOR PAGE  */
+    .infor-item {
+        flex-direction: column;
+    }
+    .infor-item .title-infor-item {
+        width: unset;
+        text-align: left;
+        padding: 0;
+    }
+    .infor-item input {
+        width: 100%;
+        padding-right: 100px;
+    }
+    .infor-page-inner-wrapper {
+        width: 100%;
+    }
+    .theme-choose-color-area {
+        flex-direction: column;
+    }
+    .theme-color-item {
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 5px 0px;
+    }
+    .theme-color-item .title-theme-color-item {
+        width: unset;
+        text-align: left;
+    }
+    .theme-color-item .select2-container {
+        display: none;
+    }
+    .combo-theme-wrapper {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .theme-choose-color-area .theme-choose-color-area-right {
+        padding: 0;
+    }
+    .theme-choose-color-area .theme-choose-color-area-right-l1 {
+        padding: 0;
+    }
+    .color-picker-theme {
+        width: 100%;
+    }
+    .combo-theme-wrapper-title {
+        margin-bottom: 5px;
+    }
+    .news-content-edit-content.cv-area {
+        flex-direction: column;
+    }
+    .image-ui img {
+        height: unset;
+        max-width: 95%;
+        max-height: 95%;
+    }
+    .image-tab-wrapper.img-manange-page .image-tab-title {
+        top: 0px;
+    }
+    .icon-circle {
+        height: unset;
+        width: unset;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

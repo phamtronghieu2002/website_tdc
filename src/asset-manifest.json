@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8acb5953.css",
+    "main.js": "/static/js/main.8c1d1df0.js",
+    "static/js/27.721339a8.chunk.js": "/static/js/27.721339a8.chunk.js",
+    "static/media/UTM_neo_sans_intel.ttf": "/static/media/UTM_neo_sans_intel.e70fb01e0dc3e4fa3055.ttf",
+    "static/media/finish_icon.png": "/static/media/finish_icon.7403c1f1b56953276d9a.png",
+    "static/media/paking_icon.png": "/static/media/paking_icon.ce0015873e38112afb89.png",
+    "static/media/insurance.svg": "/static/media/insurance.31f0815e84bf8d4e1da134ab9d73d20f.svg",
+    "static/media/iso.svg": "/static/media/iso.9b8cd7ca8886f051704bc77211757af5.svg",
+    "static/media/ship.svg": "/static/media/ship.bdd09348493518badc93c5d9105b9009.svg",
+    "static/media/container.svg": "/static/media/container.9650475810dbd4bf075d15be972d64bf.svg",
+    "static/media/truck.svg": "/static/media/truck.7e65a03e0c3d1a0e7191252da340d230.svg",
+    "static/media/bus.svg": "/static/media/bus.45a39ac946c9684d49e982a353da19c3.svg",
+    "static/media/car.svg": "/static/media/car.71317a7ad069f7565e219a8619490535.svg",
+    "static/media/tcvn.svg": "/static/media/tcvn.9b152a49efd4021a0399b7155d506a5a.svg",
+    "static/media/qcvn.svg": "/static/media/qcvn.2b3c573941c71acd03112c550ca4639c.svg",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.8acb5953.css",
+    "static/js/main.8c1d1df0.js"
+  ]
+}

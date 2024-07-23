@@ -1,0 +1,100 @@
+.recr-detail-page-wrapper {
+  display: flex;
+  justify-content: space-between; }
+  .recr-detail-page-wrapper .title-recr-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px dashed #00000031; }
+    .recr-detail-page-wrapper .title-recr-content h3 {
+      font-size: 1.6rem;
+      margin: 0;
+      padding-bottom: 10px; }
+  .recr-detail-page-wrapper .recr-overview {
+    width: 25%; }
+    .recr-detail-page-wrapper .recr-overview .recr-overview-inner {
+      padding: 10px;
+      border: 1px solid #00000031; }
+    .recr-detail-page-wrapper .recr-overview .recr-overview-content .recr-overview-content-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px dashed #00000031; }
+      .recr-detail-page-wrapper .recr-overview .recr-overview-content .recr-overview-content-item span:nth-child(1) {
+        font-weight: 600; }
+      .recr-detail-page-wrapper .recr-overview .recr-overview-content .recr-overview-content-item.work-place {
+        flex-direction: column; }
+    .recr-detail-page-wrapper .recr-overview .submit-cv-btn {
+      display: flex;
+      padding: 10px;
+      padding-bottom: 0;
+      justify-content: center; }
+      .recr-detail-page-wrapper .recr-overview .submit-cv-btn button {
+        padding: 3px 8px;
+        border-radius: 20px;
+        outline: none;
+        border: 1px solid #00000031;
+        background-color: var(--main_color);
+        color: #ffffff;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        font-size: 1.4rem; }
+        .recr-detail-page-wrapper .recr-overview .submit-cv-btn button:hover {
+          opacity: 0.8;
+          transition: opacity 0.3s ease; }
+  .recr-detail-page-wrapper .recr-detail {
+    padding: 10px;
+    width: 73%;
+    border: 1px solid #00000031; }
+    .recr-detail-page-wrapper .recr-detail .expiration-date {
+      padding: 7px 0;
+      border-bottom: 1px dashed #00000031; }
+    .recr-detail-page-wrapper .recr-detail .recr-content {
+      padding: 10px 0; }
+
+.recr-page-wrapper {
+  margin-top: 20px; }
+  .recr-page-wrapper .main-recr .recr-group-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border: 0.5px solid #00000031; }
+    .recr-page-wrapper .main-recr .recr-group-item .recr-item-title {
+      transition: color 0.3s ease, background-color 0.3s ease; }
+      .recr-page-wrapper .main-recr .recr-group-item .recr-item-title h3 {
+        font-size: 1.6rem; }
+    .recr-page-wrapper .main-recr .recr-group-item:hover .recr-item-title {
+      color: #288ad6;
+      transition: color 0.3s ease, background-color 0.3s ease; }
+    .recr-page-wrapper .main-recr .recr-group-item .recr-item-image {
+      width: 35%;
+      height: 150px; }
+      .recr-page-wrapper .main-recr .recr-group-item .recr-item-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
+    .recr-page-wrapper .main-recr .recr-group-item .rect-item-infor {
+      padding: 10px 0;
+      padding-right: 10px;
+      width: 63%;
+      max-height: 130px;
+      overflow: hidden;
+      text-align: justify; }
+
+@media only screen and (max-width: 769px) {
+  .recr-detail-page-wrapper {
+    flex-direction: column; }
+  .recr-detail-page-wrapper .recr-overview {
+    width: 100%;
+    margin-bottom: 15px; }
+  .recr-detail-page-wrapper .recr-detail {
+    width: 100%; }
+  .recr-page-wrapper .main-recr .recr-group-item {
+    flex-direction: column; }
+  .recr-page-wrapper .main-recr .recr-group-item .recr-item-image {
+    width: 100%; }
+  .recr-page-wrapper .main-recr .recr-group-item .rect-item-infor {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: unset; } }

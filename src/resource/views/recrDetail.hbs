@@ -1,0 +1,73 @@
+<div class='recr-detail-page-wrapper'>
+    <div class='recr-overview'>
+        <div class='recr-overview-inner'>
+            <div class='title-recr-content'>
+                <h3>THÔNG TIN TỔNG QUAN</h3>
+            </div>
+            <div class='recr-overview-content'>
+                <div class='recr-overview-content-item'>
+                    <span>Số lượng:</span>
+                    <span>{{recr.quantity}}</span>
+                </div>
+                <div class='recr-overview-content-item'>
+                    <span>Ngày hết hạn:</span>
+                    <span>{{#dateFormatDDMMYY recr.expiration_date}}{{/dateFormatDDMMYY}}</span>
+                </div>
+                <div class='recr-overview-content-item'>
+                    <span>Mức lương:</span>
+                    <span>{{recr.salary}}</span>
+                </div>
+                <div class='recr-overview-content-item work-place'>
+                    <span>Nơi làm việc:</span>
+                    <span>{{recr.workplace}}</span>
+                </div>
+            </div>
+            <div class='submit-cv-btn'>
+                <button>
+                    NỘP CV ỨNG TUYỂN
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class='recr-detail'>
+        <div class='title-recr-content'>
+            <h3>{{recr.title}}</h3>
+        </div>
+        <div class='expiration-date'>
+            <span><i class='far fa-calendar-alt'></i>
+                <b>Ngày hết hạn:</b>
+                {{#dateFormatDDMMYY recr.expiration_date}}{{/dateFormatDDMMYY}}
+            </span>
+        </div>
+        <div class='recr-content'>
+            {{{recr.content}}}
+        </div>
+    </div>
+</div>
+
+<div class='recr-page-wrapper'>
+    <div class='page-title'>
+        <h3>TIN TUYỂN DỤNG KHÁC</h3>
+    </div>
+    <div class='main-recr'>
+        {{#each recrs}}
+            {{#ifnotEquals this.id this.active}}
+                <a href='/tuyen-dung/{{slug}}'>
+                    <div class='recr-group-item'>
+                        <div class='recr-item-image'>
+                            <img alt='hinh-anh-banner-tuyen-dung' src='{{this.image}}' />
+                        </div>
+                        <div class='rect-item-infor'>
+                            <div class='recr-item-title'>
+                                <h3>{{this.title}}</h3>
+                            </div>
+                            <div class='recr-item-des'>
+                                <p>{{this.des}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {{/ifnotEquals}}
+        {{/each}}
+    </div>
+</div>

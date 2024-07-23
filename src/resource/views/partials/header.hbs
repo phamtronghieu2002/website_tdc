@@ -1,0 +1,398 @@
+<header class="main-header main-header-one main-header-two scroll-snap-center">
+  <div id="sticky-header" class="menu-area">
+    <div class="main-header-one__outer">
+      <div class="main-header-one__right">
+        <div class="container">
+          <div class="menu-area__inner">
+            <div class="mobile-nav-toggler align-items-center position-relative">
+              <div class="site-ligo">
+                <a href="/"><img alt="site-logo" loading="lazy" width="80" height="80"
+                    src="{{companyInfor.information.0.logo}}" /></a>
+              </div>
+              <i onclick="ToggleMenuMobile(true)" class="fas fa-bars position-absolute start-0"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
+              {{!-- <div class="change-lang-wrapper  position-absolute end-0">
+                <div class="div flag d-none">
+                  <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
+                </div>
+                <div class="flag">
+                  <img width="48" height="35" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
+                </div>
+              </div> --}}
+            </div>
+            <div class="menu-wrap">
+              <nav class="menu-nav">
+                <div class="main-header-one__inner">
+                  <div class="main-header-one__top">
+                    <div class="main-header-one__top-pattern"></div>
+                    <div class="main-header-one__top-inner">
+                      <div class="main-header-one__top-left">
+                        <div class="header-contact-info">
+                          <ul>
+                            <li>
+                              <div class="icon-box">
+                                <i class="flaticon-gmail-logo"></i>
+                              </div>
+                              <p>
+                                <a href="mailto:{{companyInfor.emails.0.email}}">
+                                    {{companyInfor.emails.0.email}}
+                                </a>
+                              </p>
+                            </li>
+                            <li>
+                              <div class="icon-box">
+                                <i class="flaticon-call"></i>
+                              </div>
+                              <p>
+                                <a href="tel:{{companyInfor.phones.0.phone}}"> {{companyInfor.phones.0.phone}}</a>
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="main-header-one__top-right">
+                        <div class="inner">
+                          <div class="header-social-links">
+                            <ul>
+                              <li>
+                                <a target="_blank" aria-label="Facebook"
+                                  href="https://www.facebook.com/taixecongnghe.online"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                              </li>
+                              <li>
+                                <a target="_blank" aria-label="youtube"
+                                  href="https://www.youtube.com/@taixecongnghe.online"><i
+                                    class="fa-brands fa-youtube"></i></a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="main-header-one__bottom">
+                    <div class="main-header-one__bottom-left d-flex">
+                      <div class="site-ligo d-flex align-items-center">
+                        <a href="/"><img alt="site-logo" loading="lazy" width="80" height="80"
+                            src="{{companyInfor.information.0.logo}}" /></a>
+                      </div>
+                      <div class="navbar-wrap main-menu">
+                        <ul class="navigation">
+                          <li class="menu-item-has-children">
+                            <a class="nav-link" href="/">Trang chủ</a>
+                          </li>
+                          <li class>
+                            <a class="nav-link" href='/gioi-thieu'>Giới thiệu</a>
+                          </li>
+                          <li class>
+                            <a class="nav-link" href="/solution">Giải pháp</a>
+                          </li>
+                          <li class="menu-item-has-children">
+                            <a class="nav-link" href='/tin-tuc'>Tin tức</a>
+                          </li>
+                          <li class="menu-item-has-children">
+                            <a class="nav-link" href='/lien-he'>Liên hệ</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="main-header-one__bottom-right">
+
+                      <div class="btn-box">
+                        <a target="_blank" aria-label="Đăng Nhập" class="thm-btn"
+                          href="https://my.taixecongnghe.com/login">
+                          <span class="txt">Đăng Nhập</span>
+                        </a>
+                      </div>
+                      {{!-- <div style="margin-right: -22px;
+    margin-left: 30px;" class="change-lang-wrapper">
+                        <div class="div flag d-none">
+                          <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
+                        </div>
+                        <div class="flag">
+                          <img width="43" height="30" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
+                        </div>
+                      </div> --}}
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel"
+    style="z-index: 999999">
+    <div class="offcanvas-header border-bottom pt-0 pb-0">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+        <a href="/"><img alt="site-logo" loading="lazy" width="80" height="80" decoding="async" data-nimg="1"
+            style="color: transparent"
+            src="{{companyInfor.information.0.logo}}" /></a>
+      </h5>
+      <button onclick="ToggleMenuMobile(false)" type="button" class="btn-close btn-close-menu-mobile"
+        data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div id="overlay">
+      <div class="offcanvas-body">
+        <style data-emotion="css 1wvake5">
+          .css-1wvake5 {
+            position: relative;
+            border-right-width: 1px;
+            border-right-style: solid;
+            border-color: #efefef;
+            -webkit-transition: width, left, right, 300ms;
+            transition: width, left, right, 300ms;
+            width: 250px;
+            min-width: 250px;
+          }
+
+          .css-1wvake5.ps-collapsed {
+            width: 80px;
+            min-width: 80px;
+          }
+
+          .css-1wvake5.ps-rtl {
+            direction: rtl;
+            border-right-width: none;
+            border-left-width: 1px;
+            border-right-style: none;
+            border-left-style: solid;
+          }
+
+          .css-1wvake5.ps-broken {
+            position: fixed;
+            height: 100%;
+            top: 0px;
+            z-index: 100;
+            left: -250px;
+          }
+
+          .css-1wvake5.ps-broken.ps-collapsed {
+            left: -80px;
+          }
+
+          .css-1wvake5.ps-broken.ps-toggled {
+            left: 0;
+          }
+
+          .css-1wvake5.ps-broken.ps-rtl {
+            right: -250px;
+          }
+
+          .css-1wvake5.ps-broken.ps-rtl.ps-collapsed {
+            right: -80px;
+          }
+
+          .css-1wvake5.ps-broken.ps-rtl.ps-toggled {
+            right: 0;
+          }
+        </style>
+        <aside data-testid="ps-sidebar-root-test-id" width="250px" class="ps-sidebar-root css-1wvake5">
+          <style data-emotion="css dip3t8">
+            .css-dip3t8 {
+              position: relative;
+              height: 100%;
+              overflow-y: auto;
+              overflow-x: hidden;
+              z-index: 3;
+              background-color: rgb(249, 249, 249, 0.7);
+            }
+          </style>
+          <div data-testid="ps-sidebar-container-test-id" class="ps-sidebar-container css-dip3t8">
+            <nav class="ps-menu-root css-vj11vy">
+              <style data-emotion="css ewdv3l">
+                .css-ewdv3l {
+                  list-style-type: none;
+                  padding: 0;
+                  margin: 0;
+                }
+              </style>
+              <ul class="css-ewdv3l">
+                <style data-emotion="css 16jesut">
+                  .css-16jesut {
+                    position: relative;
+                    width: 100%;
+                  }
+
+                  .css-16jesut>.ps-menu-button {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-align-items: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    height: 50px;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    color: inherit;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    padding-right: 20px;
+                    padding-left: 20px;
+                  }
+
+                  .css-16jesut>.ps-menu-button:hover {
+                    background-color: #f3f3f3;
+                  }
+                </style>
+                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
+                
+                   <a class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0" href="/trang-chu"><span
+                      class="ps-menu-label css-12w9als">
+                      <div data-bs-dismiss="offcanvas" aria-label="Close">
+                        Trang chủ
+                      </div>
+                    </span></a>
+                      <style data-emotion="css honxw6">
+                        .css-honxw6 {
+                          display: inline-block;
+                          -webkit-transition: -webkit-transform 0.3s;
+                          transition: transform 0.3s;
+                          border-right: 2px solid currentcolor;
+                          border-bottom: 2px solid currentcolor;
+                          width: 5px;
+                          height: 5px;
+                          -webkit-transform: rotate(-45deg);
+                          -moz-transform: rotate(-45deg);
+                          -ms-transform: rotate(-45deg);  
+                          transform: rotate(-45deg);
+                        }
+                      </style>
+                    </span>
+                  </a>
+                  <style data-emotion="css 18unl23">
+                    .css-18unl23 {
+                      height: 0px;
+                      overflow: hidden;
+                      z-index: 999;
+                      -webkit-transition: height 300ms;
+                      transition: height 300ms;
+                      box-sizing: border-box;
+                      background-color: white;
+                      position: static !important;
+                      -webkit-transform: none !important;
+                      -moz-transform: none !important;
+                      -ms-transform: none !important;
+                      transform: none !important;
+                    }
+                  </style>
+                  <div data-testid="ps-submenu-content-test-id" class="ps-submenu-content css-18unl23">
+                    <ul class="css-ewdv3l">
+                      <style data-emotion="css 1tqrhto">
+                        .css-1tqrhto {
+                          width: 100%;
+                          position: relative;
+                        }
+
+                        .css-1tqrhto>.ps-menu-button {
+                          display: -webkit-box;
+                          display: -webkit-flex;
+                          display: -ms-flexbox;
+                          display: flex;
+                          -webkit-align-items: center;
+                          -webkit-box-align: center;
+                          -ms-flex-align: center;
+                          align-items: center;
+                          height: 50px;
+                          -webkit-text-decoration: none;
+                          text-decoration: none;
+                          color: inherit;
+                          box-sizing: border-box;
+                          cursor: pointer;
+                          padding-right: 20px;
+                          padding-left: 40px;
+                        }
+
+                        .css-1tqrhto>.ps-menu-button:hover {
+                          background-color: #f3f3f3;
+                        }
+                      </style>
+                    </ul>
+                  </div>
+                </li>
+                <style data-emotion="css 1t8x7v1">
+                  .css-1t8x7v1 {
+                    width: 100%;
+                    position: relative;
+                  }
+
+                  .css-1t8x7v1>.ps-menu-button {
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-align-items: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    height: 50px;
+                    -webkit-text-decoration: none;
+                    text-decoration: none;
+                    color: inherit;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    padding-right: 20px;
+                    padding-left: 20px;
+                  }
+
+                  .css-1t8x7v1>.ps-menu-button:hover {
+                    background-color: #f3f3f3;
+                  }
+                </style>
+                <li class="ps-menuitem-root css-1t8x7v1">
+                  <a class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0" href="/gioi-thieu"><span
+                      class="ps-menu-label css-12w9als">
+                      <div data-bs-dismiss="offcanvas" aria-label="Close">
+                        Giới thiệu
+                      </div>
+                    </span></a>
+                </li>
+                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
+                  <a 
+                  href="/giai-phap"
+                  class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0"><span>Giải pháp</span>
+                  </a>
+                </li>
+                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
+                  <a 
+                  href='/tin-tuc'
+                  class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0"><span>Tin tức</span>
+                  </a>
+                </li>
+                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
+                  <a 
+                  href='/lien-he'
+                  class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0">Liên hệ</span></span></a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </aside>
+        <div class="mobile-menu mobile-menu-unset">
+          <div class="contact-info">
+            <div class="icon-box"><i class="flaticon-call"></i></div>
+            <p><a href="tel:123456789">+84 899 662 662</a></p>
+          </div>
+          <div class="social-links">
+            <ul class="clearfix list-wrap">
+              <li>
+                <a target="_blank" href="https://www.facebook.com/taixecongnghe.online"><i
+                    class="fab fa-facebook-f"></i></a>
+              </li>
+
+              <li>
+                <a target="_blank" href="https://www.youtube.com/@taixecongnghe.online"><i
+                    class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
