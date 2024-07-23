@@ -27,7 +27,8 @@
         "mysql": "^2.18.1",
         "path": "^0.12.7",
         "sass": "^1.77.8",
-        "socket.io": "^4.5.2"
+        "socket.io": "^4.5.2",
+        "uuid": "^10.0.0"
     },
     "devDependencies": {
         "morgan": "^1.10.0",

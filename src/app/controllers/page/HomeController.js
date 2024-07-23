@@ -1,10 +1,8 @@
 const pageInterface = require("../../models/PageInterface");
 const tools = require("..//..//..//util/tools");
 
-
-
 class HomeController {
- async index(req, res, next) {
+  async index(req, res, next) {
     const dbName = req.dbName;
     const inforBasicPage = req.inforBasicPage;
 
@@ -13,10 +11,35 @@ class HomeController {
         "Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source."
       );
     }
+    pageInterface.createTable(dbName, (err, results, fields) => {
+      if (err) {
+            console.log("Error create table" + err);
+      }
+      else{
+        console.log("Create table success");
+      }
+    });
+
+    //   pageInterface.dropTableDB(dbName, (err, results, fields) => {
+    //   if (err) {
+    //         console.log("Error create table" + err);
+    //   }
+    //   else{
+    //     console.log("drop table success");
+    //   }
+    // });
+    // pageInterface.getTableDB(dbName, (err, results, fields) => {
+    //   if (err) {
+    //     console.log("Error get table" + err);
+    //   }
+    //   console.log(results);
+    // });
     const template_id =
       inforBasicPage.companyInfor.information[0].template_id || "";
-      const agencysImages = await tools.getImagesFromDirectory(tools.agencys_img_folder);
-    
+    const agencysImages = await tools.getImagesFromDirectory(
+      tools.agencys_img_folder
+    );
+
     pageInterface.getDataHomePage(dbName, (err, results, fields) => {
       if (err) {
         return res.render("error", {
@@ -52,8 +75,6 @@ class HomeController {
             products: products,
           });
         });
-
- 
 
         pageInterface.getDataNewsPage(dbName, (err, results, fields) => {
           if (err) {

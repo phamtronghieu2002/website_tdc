@@ -1,7 +1,11 @@
 const render = {
   solutionPage() {
-    mainContent.innerHTML = components.solutionPage();   
-
+    mainContent.innerHTML = components.solutionPage({});   
+    handleEvent.handleSolutionPage();
+  },
+  solutionPageAddUI() {
+    mainContent.innerHTML = components.solutionPage({});   
+    handleEvent.handleSolutionPage();
   },
   agencyPage() {
     mainContent.innerHTML = components.agencyPage();   

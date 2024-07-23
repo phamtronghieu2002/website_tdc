@@ -10,7 +10,6 @@ const handleEvent = {
         const fileName = url.split("/").pop();
         return new File([blob], fileName, { type: blob.type });
       };
-      console.log(agencysImages);
       // Thêm ảnh từ URL vào FilePond
       (async () => {
         agencysImages.forEach(async (url) => {
@@ -20,6 +19,52 @@ const handleEvent = {
       })();
     }
     // Đăng ký plugin
+
+    const btn_save_agency = document.querySelector(".save-img-btn");
+    btn_save_agency.addEventListener("click", async () => {
+      const pond = FilePond.find(document.querySelector(".filepond"));
+      const files = pond.getFiles();
+
+      const formData = new FormData();
+
+      files.forEach((fileItem) => {
+        const file = fileItem.file;
+        const fileSizeInBytes = file.size;
+        // Thêm file vào formData
+        formData.append("files", file);
+      });
+      try {
+           tools.displayOpacity("show", `đang upload ảnh?`);
+        const response = await axios.post(ADD_AGENCYS_API, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            authorization: "Bearer " + auth_token,
+          },
+        });
+        window.location.reload();
+        tools.displayOpacity("hidden");
+        showToast(
+          "Đã lưu",
+          "success",
+          "Lưu thành công Nhãn hàng hợp tác",
+          toast_duration
+        );
+      } catch (error) {
+        console.log("error", error);
+      }
+    });
+  },
+  handleSolutionPage : function async() {
+  
+
+    //handle when click button add solutions
+    const addSolutionBtn = $_(".add-solutions-btn");
+    const saveSolutionBtn = $_(".save-solutions-btn");
+    addSolutionBtn.onclick = (e) => {
+    render.solutionPageAddUI();
+
+    };
+
     FilePond.registerPlugin(
       FilePondPluginFileEncode,
       FilePondPluginFileValidateSize,
@@ -39,38 +84,40 @@ const handleEvent = {
       labelIdle:
         'Kéo & thả ảnh của bạn hoặc <span class="filepond--label-action">Chọn Ảnh</span>',
     });
-    const btn_save_agency = document.querySelector(".save-img-btn");
-    btn_save_agency.addEventListener("click", async () => {
-      const pond = FilePond.find(document.querySelector(".filepond"));
-      const files = pond.getFiles();
+    setTimeout(() => {
+      tinymce.remove("#edit-content-solution");
+      tinymce.remove("#edit-technum-solution");
+      tools.config.tinymceInit("#edit-content-solution", "400");
+      tools.config.tinymceInit("#edit-technum-solution", "400");
 
-      const formData = new FormData();
+    }, 100);
+    saveSolutionBtn.onclick = (e) => {
 
-      files.forEach((fileItem) => {
-        const file = fileItem.file;
-        const fileSizeInBytes = file.size;
-        // Thêm file vào formData
-        formData.append("files", file);
-      });
-      try {
-           tools.displayOpacity("show", `Xác nhận xoá bài viết này?`);
-        const response = await axios.post(ADD_AGENCYS_API, formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            authorization: "Bearer " + auth_token,
-          },
-        });
-        tools.displayOpacity("none");
-        showToast(
-          "Đã lưu",
-          "success",
-          "Lưu thành công Nhãn hàng hợp tác",
-          toast_duration
-        );
-      } catch (error) {
-        console.log("error", error);
-      }
+    const nameSolution = $_(".solution_input");
+    const prioritySolution = $_(".solutions_select").value;
+    const contentSolution =  tinymce.get("edit-content-solution").getContent();
+    const technumSolution =  tinymce.get("edit-technum-solution").getContent();
+    const files = pond.getFiles();
+    const images = [];
+    files.forEach((fileItem) => {
+      const file = fileItem.file;
+      const fileSizeInBytes = file.size;
+      images.push(file);
     });
+
+    const body = new FormData();
+    images.forEach((image) => {
+      body.append("images", image);
+    });
+
+ 
+    
+    
+    
+
+
+
+    }
   },
   imgClick: function () {
     allImage = $$_("img");

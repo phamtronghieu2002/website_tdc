@@ -34,7 +34,7 @@ const tools = {
           });
         });
       },
-      deleteAllImagesFromDirectory: function (directoryPath) {
+      deleteImagesFromDirectory: function(directoryPath) {
         return new Promise((resolve, reject) => {
           fs.readdir(directoryPath, (err, files) => {
             if (err) {
@@ -45,20 +45,18 @@ const tools = {
               const ext = path.extname(file).toLowerCase();
               return ext === '.jpg' || ext === '.jpeg' || ext === '.png' || ext === '.gif';
             });
-            // Xóa tất cả các tệp ảnh tìm được
-            Promise.all(imageFiles.map(file => {
+      
+            // Xóa từng tệp ảnh
+            imageFiles.forEach(file => {
               const filePath = path.join(directoryPath, file);
-              return new Promise((resolve, reject) => {
-                fs.unlink(filePath, err => {
-                  if (err) {
-                    return reject(err);
-                  }
-                  resolve();
-                });
+              fs.unlink(filePath, err => {
+                if (err) {
+                  console.error(`Lỗi khi xóa tệp: ${filePath}`, err);
+                }
               });
-            }))
-            .then(() => resolve())
-            .catch(err => reject(err));
+            });
+      
+            resolve(); // Hoàn thành xóa các tệp ảnh
           });
         });
       },

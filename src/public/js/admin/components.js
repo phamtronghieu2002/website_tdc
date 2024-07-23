@@ -2,12 +2,57 @@
   /* <button class="edit-text-home-save-btn button-circle" ><i class="fas fa-save"></i></button> */
 }
 const components = {
-  solutionPage() {
+  solutionPage({
+    name = "",
+    priority = "",
+    content = "",
+    technum = "",
+    action = "",
+  }) {
     return `
-                <div class="container">
+                <div class="wrapper-solution-page">
+                <div class="main-title-layout">
+                        <h3 class="orange main-title-text">Các giải pháp hiện có</h3>
+                        <div class="main-title-right">
+                        <button class="add-solutions-btn high-light-btn-border"><svg viewBox="0 0 32 32"><path d="M17.5 2.5h-3v12h-12v3h12v12h3v-12h12v-3h-12v-12z"></path></svg> Thêm giải pháp mới</button> 
+                      ${
+                        action !== "add"
+                          ? `<button class="delete-solutions-btn high-light-btn-border">Xoá giải pháp</button>`
+                          :  `<button class="save-solutions-btn high-light-btn">Thêm</button> `
+                      }
+                        <button class="update-solutions-btn high-light-btn">Cập nhật</button> 
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="col-12">
-                            <h1>Giải pháp</h1>
+                      <div class="content-left">
+123
+                      </div>
+    
+                     <div class="content-right">
+                            <h3>Tên giải pháp</h3>
+                            <input 
+                            type="text"
+                            value="${name}"
+                            class="solution_input" name="name-solution" placeholder="tên giải pháp" />
+                                 <h3>Độ ưu tiên</h3>
+                             <select class="solutions_select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="3">4</option>
+                             </select>
+                            <h3>ảnh/video</h3>
+                            <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="500kb" data-max-files="20" />
+                       
+                            <h3>Nội dung</h3>
+                            <textarea id="edit-content-solution">
+                            
+                            </textarea>
+                            <h3>Thông số kĩ thuật</h3>
+                            <textarea id="edit-technum-solution">
+                            
+                            </textarea>
+                 
                         </div>
                     </div>
                 </div>
@@ -836,7 +881,9 @@ const components = {
                                 ? [...newsData]
                                     .map((newData, index) => {
                                       return `
-                                <div  news-id = ${newData.id} class='news-item ${
+                                <div  news-id = ${
+                                  newData.id
+                                } class='news-item ${
                                         index === 0 ? "active" : ""
                                       }'>
                                     <div class='news-name'>${

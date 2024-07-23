@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<link href="filepond.css" rel="stylesheet" />
-<script src="filepond.js"></script>
-
-<input type="file" />
-
-<script>
-    // Get a reference to the file input element
-    const inputElement = document.querySelector('input[type="file"]');
-
-    // Create a FilePond instance
-    const pond = FilePond.create(inputElement);
-</script>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="wrapper">
+        xin chao
+    </div>
+    <button onclick="handle()">
+        submit
+    </button>
 </body>
+   <script>
+    const wrapper = document.getElementById('wrapper');
+    const handle = () =>{
+        wrapper.innerHTML = 'Hello World';  
+    }
+
+   </script>
 </html>

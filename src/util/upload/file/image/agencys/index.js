@@ -1,7 +1,7 @@
 const multer = require('multer');
 const path = require('path');
 var appRoot = require('app-root-path');
-
+const { v4: uuidv4 } = require('uuid')
 // function uploadImage(saveFolder) {
 //     const imageFilter = function (req, file, cb) {
 //         // Accept images only
@@ -48,7 +48,7 @@ const storage = multer.diskStorage({
 
     // By default, multer removes file extensions so let's add them back
     filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+        cb(null, file.fieldname + '-' +  uuidv4() + path.extname(file.originalname));
     },
 });
 const upload = multer({

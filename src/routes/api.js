@@ -3,6 +3,7 @@ const router = express.Router();
 const ApiControllers = require("../app/controllers/ApiController");
 const DomainControllers = require("../app/controllers/DomainController");
 const ProductControllers = require("../app/controllers/ProductController");
+const SolutionControllers = require("../app/controllers/SolutionController");
 const auth_token = require("../util/auth");
 const upload = require("../util/upload/file/image/agencys");
 const tools = require("../util/tools");
@@ -66,7 +67,7 @@ router.post(
   auth_token.post([-1, 0, 1, 3]),
   async (req, res, next) => {
     try {
-      await tools.deleteAllImagesFromDirectory(
+      await tools.deleteImagesFromDirectory(
         tools.agencys_img_folder
       );
       next();
@@ -77,7 +78,15 @@ router.post(
         .json({ message: "Error when delete all images from directory" });
     }
   },
-  upload.array("files", 10),
+  upload.array("files", 20),
   ApiControllers.saveAgencys
+);
+
+router.post(
+  "/add-solutions",SolutionControllers.handleAddSolutions
+);
+router.get("/all-solutions",SolutionControllers.handleGetAllSolutions);
+router.delete(
+  "/solutions/:id",SolutionControllers.handleDeleteSolutionById
 );
 module.exports = router;
