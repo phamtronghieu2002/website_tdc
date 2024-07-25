@@ -1,8 +1,38 @@
+
+
+const registerMarkDownSolution = () => {
+  FilePond.registerPlugin(
+    FilePondPluginFileEncode,
+    FilePondPluginFileValidateSize,
+    FilePondPluginImageExifOrientation,
+    FilePondPluginImagePreview,
+    FilePondPluginMediaPreview
+
+  );
+
+   pond = FilePond.create(document.querySelector(".filepond"), {
+    allowVideoPreview: true,
+    allowAudioPreview: true,
+    dropOnPage: true,
+    dropOnElement: false,
+    allowReorder: true,
+    maxFiles: 20,
+    maxParallelUploads: 10,
+    labelIdle:
+      'Kéo & thả ảnh của bạn hoặc <span class="filepond--label-action">Chọn Ảnh</span>',
+  });
+
+  tinymce.remove("#edit-content-solution");
+  tools.config.tinymceInit("#edit-content-solution", "400");
+  tinymce.remove("#edit-technum-solution");
+  tools.config.tinymceInit("#edit-technum-solution", "400");
+};
+
 const handleEvent = {
   handleAgentPage: function async() {
     const auth_token = localStorage.getItem("admin_token");
     const toast_duration = 3000;
-  
+    registerMarkDownSolution();
     if (agencysImages) {
       const createFileFromUrl = async (url) => {
         const response = await fetch(url);
@@ -22,7 +52,7 @@ const handleEvent = {
 
     const btn_save_agency = document.querySelector(".save-img-btn");
     btn_save_agency.addEventListener("click", async () => {
-      const pond = FilePond.find(document.querySelector(".filepond"));
+
       const files = pond.getFiles();
 
       const formData = new FormData();
@@ -34,7 +64,7 @@ const handleEvent = {
         formData.append("files", file);
       });
       try {
-           tools.displayOpacity("show", `đang upload ảnh?`);
+        tools.displayOpacity("show", `đang upload ảnh?`);
         const response = await axios.post(ADD_AGENCYS_API, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -54,71 +84,209 @@ const handleEvent = {
       }
     });
   },
-  handleSolutionPage : function async() {
-  
-
+  handleSolutionMainPage: function () {
     //handle when click button add solutions
     const addSolutionBtn = $_(".add-solutions-btn");
-    const saveSolutionBtn = $_(".save-solutions-btn");
+    const solutionItems = $$_(".solution-item");
+    const deleteSolutionBtn = $_(".delete-solutions-btn");
+    const updateSolutionBtn = $_(".update-solutions-btn");
+    const contentRight = $_(".wrapper-solution-page .content-right");
     addSolutionBtn.onclick = (e) => {
-    render.solutionPageAddUI();
+      render.solutionPageAddUI();
+    };
+    registerMarkDownSolution();
+    solutionItems.forEach((solutionItem) => {
+      solutionItem.onclick = function (e) {
+        const solutionId = solutionItem.getAttribute("solution-id");
 
+        const solutionItemTarget = dataSolutions.find(
+          (solution) => Number(solution.id) === Number(solutionId)
+        );
+        const solutionImages = solutionItemTarget.images;
+        solutionItems.forEach((solutionItem) => {
+          solutionItem.classList.remove("active");
+        });
+
+        
+        this.classList.add("active");
+        contentRight.innerHTML =
+          components.solutionPage.contentRight(solutionItemTarget);
+        registerMarkDownSolution();
+        const handleEvent = () => {
+          if (solutionImages.length > 0) {
+            const createFileFromUrl = async (url) => {
+              const response = await fetch(url);
+              const blob = await response.blob();
+              const fileName = url.split("/").pop();
+              return new File([blob], fileName, { type: blob.type });
+            };
+            // Thêm ảnh từ URL vào FilePond
+            (async () => {
+              solutionImages.forEach(async (url) => {
+                const file = await createFileFromUrl(`/static/images/solutions/${url}`);
+                pond.addFile(file);
+              });
+            })();
+          }
+        };
+        handleEvent();
+      };
+    });
+    deleteSolutionBtn.onclick = (e) => {
+      const solutionItemActive = $_(".solution-item.active");
+      if (!solutionItemActive) {
+        return;
+      }
+      tools.displayOpacity("show", `Xác nhận xóa giải pháp này?`);
+      tools.confirm(() => {
+        const solutionId = solutionItemActive.getAttribute("solution-id");
+      
+        axios.delete(`/api/solutions/${solutionId}`).then((feedback) => {
+          if (feedback.data.status === 1) {
+            tools.displayOpacity("hidden");
+            showToast(
+              "Thành công",
+              "success",
+              "Đã xóa giải pháp",
+              toast_duration
+            );
+            reloadBtn.click();
+          } else {
+            tools.displayOpacity("hidden");
+            showToast(
+              `Có lỗi`,
+              "error",
+              `Mã lỗi: <b> UPDx0${feedback.data.status}</b>`,
+              toast_duration
+            );
+          }
+        });
+      });
+    }
+
+
+    updateSolutionBtn.onclick = (e) => {
+
+        tools.displayOpacity("show", `Xác nhận cập nhật giải pháp mới?`);
+        tools.confirm(() => {
+
+          const solutionItemActive = $_(".solution-item.active");
+          if (!solutionItemActive) {
+            return;
+          }
+          const solutionId = solutionItemActive.getAttribute("solution-id");
+          const nameSolution = $_(".solution_input").value;
+          const prioritySolution = $_(".solutions_select").value;
+          const contentSolution = tinymce
+            .get("edit-content-solution")
+            .getContent();
+          const technumSolution = tinymce
+            .get("edit-technum-solution")
+            .getContent();
+          const files = pond.getFiles();
+          const images = [];
+          files.forEach((fileItem) => {
+            const file = fileItem.file;
+            const fileSizeInBytes = file.size;
+            images.push(file);
+          });
+  
+          const body = new FormData();
+          images.forEach((image) => {
+            body.append("images", image);
+          });
+          const json = {
+            name: nameSolution,
+            priority: prioritySolution,
+            content: contentSolution,
+            technum: technumSolution,
+            id: solutionId
+          };
+          body.append("data", JSON.stringify(json));
+          axios
+            .put("/api/update-solutions", body)
+            .then((response) => {
+              tools.displayOpacity("hidden");
+              showToast("Thành công", "success", "Đã cập nhật", toast_duration);
+              reloadBtn.click();
+            })
+            .catch((error) => {
+              console.log(error);
+              tools.displayOpacity("hidden");
+              showToast(
+                "Có lỗi",
+                "error",
+                "Có lỗi khi cập nhật giải pháp mới",
+                toast_duration
+              );
+            });
+        });
+      };
+
+  },
+  handleSolutionAddPage: function async() {
+    //handle when click button add solutions
+
+    registerMarkDownSolution();
+
+    const saveSolutionBtn = $_(".save-solutions-btn");
+    const cancelSolutionBtn = $_(".cancel-solutions-btn");
+
+    saveSolutionBtn.onclick = (e) => {
+      tools.displayOpacity("show", `Xác nhận thêm giải pháp mới?`);
+      tools.confirm(() => {
+        const nameSolution = $_(".solution_input").value;
+        const prioritySolution = $_(".solutions_select").value;
+        const contentSolution = tinymce
+          .get("edit-content-solution")
+          .getContent();
+        const technumSolution = tinymce
+          .get("edit-technum-solution")
+          .getContent();
+        const files = pond.getFiles();
+        const images = [];
+        files.forEach((fileItem) => {
+          const file = fileItem.file;
+          const fileSizeInBytes = file.size;
+          images.push(file);
+        });
+
+        const body = new FormData();
+        images.forEach((image) => {
+          body.append("images", image);
+        });
+        const json = {
+          name: nameSolution,
+          priority: prioritySolution,
+          content: contentSolution,
+          technum: technumSolution,
+        };
+        body.append("data", JSON.stringify(json));
+        axios
+          .post("/api/add-solutions", body)
+          .then((response) => {
+            tools.displayOpacity("hidden");
+            showToast("Thành công", "success", "Đã cập nhật", toast_duration);
+            reloadBtn.click();
+          })
+          .catch((error) => {
+            console.log(error);
+            tools.displayOpacity("hidden");
+            showToast(
+              "Có lỗi",
+              "error",
+              "Có lỗi khi thêm giải pháp mới",
+              toast_duration
+            );
+          });
+      });
     };
 
-    FilePond.registerPlugin(
-      FilePondPluginFileEncode,
-      FilePondPluginFileValidateSize,
-      FilePondPluginImageExifOrientation,
-      FilePondPluginImagePreview
-    );
-    // Khởi tạo FilePond trên tất cả phần tử <input> có class='filepond'
-    const pond = FilePond.create(document.querySelector(".filepond"), {
-      // Tính năng kéo và thả: Kéo một thư mục vào
-      dropOnPage: true,
-      dropOnElement: false,
-      // Cho phép sắp xếp lại hình ảnh được upload
-      allowReorder: true,
-      // Xác định giới hạn file tối đa
-      maxFiles: 20,
-      maxParallelUploads:10,
-      labelIdle:
-        'Kéo & thả ảnh của bạn hoặc <span class="filepond--label-action">Chọn Ảnh</span>',
-    });
-    setTimeout(() => {
-      tinymce.remove("#edit-content-solution");
-      tinymce.remove("#edit-technum-solution");
-      tools.config.tinymceInit("#edit-content-solution", "400");
-      tools.config.tinymceInit("#edit-technum-solution", "400");
-
-    }, 100);
-    saveSolutionBtn.onclick = (e) => {
-
-    const nameSolution = $_(".solution_input");
-    const prioritySolution = $_(".solutions_select").value;
-    const contentSolution =  tinymce.get("edit-content-solution").getContent();
-    const technumSolution =  tinymce.get("edit-technum-solution").getContent();
-    const files = pond.getFiles();
-    const images = [];
-    files.forEach((fileItem) => {
-      const file = fileItem.file;
-      const fileSizeInBytes = file.size;
-      images.push(file);
-    });
-
-    const body = new FormData();
-    images.forEach((image) => {
-      body.append("images", image);
-    });
-
- 
-    
-    
-    
-
-
-
-    }
+    cancelSolutionBtn.onclick = (e) => {
+      reloadBtn.click();
+    };
   },
+
   imgClick: function () {
     allImage = $$_("img");
     if (allImage.length <= 1) {
@@ -661,7 +829,6 @@ const handleEvent = {
         $_(".hidden-news-btn").innerHTML = Number(newTarget.hidden)
           ? "Hiện bài"
           : "Ẩn bài";
-
         tinymce.remove("#news-content-input");
         tools.config.tinymceInit("#news-content-input", "600");
         handleEvent();

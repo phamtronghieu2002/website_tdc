@@ -16,6 +16,21 @@ module.exports = {
       callback
     );
   },
+  updateSolutions(dbName, data, callback) {
+    return connection.query(
+      dbName,
+      "UPDATE solutions SET name = ?, priority = ?, images = ?, content = ?, technum = ? WHERE id = ?",
+      [
+        data.name,
+        data.priority,
+        data.images,
+        data.content,
+        data.technum,
+        data.id // Assuming you have an 'id' field to identify the solution to update
+      ],
+      callback
+    );
+  },
   deleteSolutionById(dbName, solId, callback) {
     return connection.query(
       dbName,

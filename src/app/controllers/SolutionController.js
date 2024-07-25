@@ -3,9 +3,31 @@ const solutionModel = require("../models/Solutions");
 module.exports = {
   handleAddSolutions(req, res, next) {
     const dbName = req.dbName;
+    const jsonData = req.body.data;
+    const data = JSON.parse(jsonData);;
 
-    solutionModel.addSolutions(dbName, req.body, (err, results, fields) => {
+    data.images = req.images.toString();
+    console.log("data", data);
+    solutionModel.addSolutions(dbName, data, (err, results, fields) => {
       console.log("add solutions", fields);
+      if (err) {
+        return res.json({
+          status: 0,
+        });
+      } else {
+        return res.json({
+          status: 1,
+        });
+      }
+    });
+  },
+  handleUpdateSolutions(req, res, next) {
+    const dbName = req.dbName;
+    const jsonData = req.body.data;
+    const data = JSON.parse(jsonData);
+
+    data.images = req.images.toString();
+    solutionModel.updateSolutions(dbName, data, (err, results, fields) => {
       if (err) {
         return res.json({
           status: 0,

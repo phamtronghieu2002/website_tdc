@@ -1,11 +1,17 @@
 const render = {
   solutionPage() {
-    mainContent.innerHTML = components.solutionPage({});   
-    handleEvent.handleSolutionPage();
+    axios.get('/api/all-solutions').then((res) => {
+       dataSolutions = res.data;
+  
+      mainContent.innerHTML = components.solutionPage.mainPage(dataSolutions);
+      handleEvent.handleSolutionMainPage();
+    });
+
   },
   solutionPageAddUI() {
-    mainContent.innerHTML = components.solutionPage({});   
-    handleEvent.handleSolutionPage();
+    mainContent.innerHTML = components.solutionPage.addSolutionPage();
+    handleEvent.handleSolutionAddPage();
+  
   },
   agencyPage() {
     mainContent.innerHTML = components.agencyPage();   

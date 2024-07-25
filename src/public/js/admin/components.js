@@ -2,62 +2,107 @@
   /* <button class="edit-text-home-save-btn button-circle" ><i class="fas fa-save"></i></button> */
 }
 const components = {
-  solutionPage({
-    name = "",
-    priority = "",
-    content = "",
-    technum = "",
-    action = "",
-  }) {
-    return `
-                <div class="wrapper-solution-page">
-                <div class="main-title-layout">
+  solutionPage: {
+    header({ action }) {
+      return `
+          <div class="main-title-layout">
                         <h3 class="orange main-title-text">Các giải pháp hiện có</h3>
                         <div class="main-title-right">
-                        <button class="add-solutions-btn high-light-btn-border"><svg viewBox="0 0 32 32"><path d="M17.5 2.5h-3v12h-12v3h12v12h3v-12h12v-3h-12v-12z"></path></svg> Thêm giải pháp mới</button> 
+                       
                       ${
                         action !== "add"
-                          ? `<button class="delete-solutions-btn high-light-btn-border">Xoá giải pháp</button>`
-                          :  `<button class="save-solutions-btn high-light-btn">Thêm</button> `
+                          ? `
+                           <button class="add-solutions-btn high-light-btn-border"><svg viewBox="0 0 32 32"><path d="M17.5 2.5h-3v12h-12v3h12v12h3v-12h12v-3h-12v-12z"></path></svg> Thêm giải pháp mới</button> 
+                           <button class="delete-solutions-btn high-light-btn-border">Xoá giải pháp</button>
+                           <button class="update-solutions-btn high-light-btn-border">lưu</button>
+                          `
+                          : `<button class="save-solutions-btn high-light-btn-border">Thêm</button> 
+                             <button class="cancel-solutions-btn high-light-btn-border">Hủy</button>
+                          `
                       }
-                        <button class="update-solutions-btn high-light-btn">Cập nhật</button> 
+                      
                         </div>
-                    </div>
-                    <div class="row">
-                      <div class="content-left">
-123
-                      </div>
+         </div>
+        `;
+    },
+    sideBarLeft(data) {
+      console.log("data >> ", data);
+      return `
+          <div class="content-left">
+                                ${
+                                  data
+                                    ? data
+                                        .map((item) => {
+                                          return `
+                                        <div class="solution-item news-item " solution-id="${item.id}">
+                                            <div class="solution-name news-name">${item.name}</div>
+                                            <div class="solution-priority news-infor">${item.priority}</div>
+                                        </div>`;
+                                        })
+                                        .join("")
+                                    : `<div class="news-item active"> Thêm giải pháp mới</div>`
+                                }
+        </div>
     
-                     <div class="content-right">
+        `;
+    },
+    contentRight(data) {
+      return `
+         <div class="content-right">
                             <h3>Tên giải pháp</h3>
                             <input 
                             type="text"
-                            value="${name}"
+                            value="${data ? data.name : ""}"
                             class="solution_input" name="name-solution" placeholder="tên giải pháp" />
                                  <h3>Độ ưu tiên</h3>
-                             <select class="solutions_select">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="3">4</option>
-                             </select>
+                                    <select class="solutions_select">
+                                 ${priorities
+                                   .map((priority) => {
+                                     return `
+                         
+                                <option value="${priority}" ${data?.priority === priority ? "selected":""}>${priority}</option>
+                           
+                                      `;
+                                   })
+                                   .join("")}
+                          </select>
                             <h3>ảnh/video</h3>
-                            <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="500kb" data-max-files="20" />
+                            <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="15000KB" data-max-files="20" />
                        
                             <h3>Nội dung</h3>
                             <textarea id="edit-content-solution">
-                            
+                            ${data ? data.content : ""}
                             </textarea>
                             <h3>Thông số kĩ thuật</h3>
                             <textarea id="edit-technum-solution">
-                            
+                            ${data ? data.technum : ""}
                             </textarea>
                  
                         </div>
+`;
+    },
+    mainPage(data) {
+      return `
+            <div class="wrapper-solution-page">
+                        ${this.header({})}
+                    <div class="row">
+                        ${this.sideBarLeft(data)}
+                        ${this.contentRight()}                     
                     </div>
                 </div>
-                
-                `;
+        `;
+    },
+    addSolutionPage() {
+      return `
+        <div class="wrapper-solution-page">
+                    ${this.header({ action: "add" })}
+                <div class="row">
+                    ${this.sideBarLeft()}
+                    ${this.contentRight()}                     
+                </div>
+            </div>
+    `;
+    },
   },
   agencyPage() {
     return `
@@ -1241,8 +1286,7 @@ const components = {
             </div>
         `;
   },
-  addNewDetailUI: function (news) {
-    // console.log(news);
+  addNewDetailUI: function () {
     return `
         <div class="update-all-value">
             <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề </span>

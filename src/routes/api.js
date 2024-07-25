@@ -6,6 +6,7 @@ const ProductControllers = require("../app/controllers/ProductController");
 const SolutionControllers = require("../app/controllers/SolutionController");
 const auth_token = require("../util/auth");
 const upload = require("../util/upload/file/image/agencys");
+const uploadSolutions = require("../util/upload/file/image/solutions");
 const tools = require("../util/tools");
 router.get("/content/home", ApiControllers.index);
 router.post(
@@ -81,10 +82,26 @@ router.post(
   upload.array("files", 20),
   ApiControllers.saveAgencys
 );
+router.post("/add-solutions", uploadSolutions.array("images", 20),(req,res,next)=>{
+   const images =req.files.map((file)=>file.filename);
 
-router.post(
-  "/add-solutions",SolutionControllers.handleAddSolutions
-);
+  if(images.length>0){
+        req.images = images;
+       return next();
+    }
+
+    return res.status(400).json({message:"Error when upload images"});  
+},SolutionControllers.handleAddSolutions);
+
+router.put("/update-solutions", uploadSolutions.array("images", 20),(req,res,next)=>{
+  const images =req.files.map((file)=>file.filename);
+
+ if(images.length>0){
+       req.images = images;
+      return next();
+   }
+   return res.status(400).json({message:"Error when upload images"});  
+},SolutionControllers.handleUpdateSolutions);
 router.get("/all-solutions",SolutionControllers.handleGetAllSolutions);
 router.delete(
   "/solutions/:id",SolutionControllers.handleDeleteSolutionById

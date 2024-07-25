@@ -6,7 +6,6 @@ class ApiController {
     saveAgencys(req, res, next) {
         const data = req.body;
         const files = req.files;
-        console.log("files", files);
         return res.status(200).json({   
             status: 1,
             data: data,
@@ -185,7 +184,8 @@ class ApiController {
         });
     }
     addRecruitment(req, res, next) {
-        const data = req.body;
+        const jsonData = req.body.data;
+        const data = JSON.parse(jsonData);;
         const dbName = req.dbName;
         // data.dbName = dbName;
         const slug = tools.removeAccents(data.title).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);

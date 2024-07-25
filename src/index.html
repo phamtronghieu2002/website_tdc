@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-    <link href="https://unpkg.com/filepond/dist/filepond.css"
-        rel="stylesheet" />
-    <link
-        href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet" />
 
     <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-    <script
-        src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
     <script
         src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.min.js"></script>
     <script
         src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.min.js"></script>
-    <script
-        src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
 
 </head>
+
 <body>
 
-        <input
-        class="filepond"
-        
-        type="text">
+
 </body>
 <script>
-    FilePond.registerPlugin(
-        FilePondPluginFileEncode,
-        FilePondPluginFileValidateSize,
-        FilePondPluginImageExifOrientation,
-        FilePondPluginImagePreview
-      );
-      // Khởi tạo FilePond trên tất cả phần tử <input> có class='filepond'
-      const pond = FilePond.create(document.querySelector(".filepond"), {
-        // Tính năng kéo và thả: Kéo một thư mục vào
-        dropOnPage: true,
-        dropOnElement: false,
-        // Cho phép sắp xếp lại hình ảnh được upload
-        allowReorder: true,
-        // Xác định giới hạn file tối đa
-        maxFiles: 20,
-        maxParallelUploads:10,
-        labelIdle:
-          'Kéo & thả ảnh của bạn hoặc <span class="filepond--label-action">Chọn Ảnh</span>',
-      });
+    
+
+    function handle() {
+        console.log("data >>", data)
+    }
+
+    const myPromise = new Promise((resolve, reject) => {
+        resolve('foo');
+    });
+
+    const anCom = ()=>{
+        data = 10
+    
+        handle()
+
+    }
+    anCom()
 </script>
+
 </html>

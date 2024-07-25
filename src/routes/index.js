@@ -18,7 +18,7 @@ const searchPageRouter = require("./page/search");
 const policysPageRouter = require("./page/policys");
 const docsPageRouter = require("./page/docs");
 const eventPageRouter = require("./page/event");
-
+const solutionsPageRouter = require("./page/solutions");
 function route(app) {
   app.use("/", homePageRouter);
 
@@ -36,6 +36,7 @@ function route(app) {
   app.use("/tin-tuc", newsPageRouter);
   app.use("/tuyen-dung", recrPageRouter);
   app.use("/lien-he", contactPageRouter);
+  app.use( solutionsPageRouter);
   //   app.use("/gio-hang", cartPageRouter);
   app.use("/thanh-toan", orderPageRouter);
   app.use("/admin", adminPageRouter);

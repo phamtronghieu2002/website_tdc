@@ -95,115 +95,114 @@ const app = {
         }
         option.classList.add('active');
         mainContent.innerHTML = components.loader();
-        render.solutionPage();
-        // switch (tab) {
+        switch (tab) {
             
-        //     case 'dashboard': {
-        //         // console.log(tab);
+            case 'dashboard': {
+                // console.log(tab);
 
-        //         break;
-        //     }
-        //     case 'solutions-page': {
-        //         render.solutionPage();
-        //         break;
-        //     }
-        //     case 'agency-page': {
-        //         render.agencyPage();
-        //         break;
-        //     }
-        //     case 'products': {
-        //         render.productsPage();
-        //         break;
-        //     }
-        //     case 'add-products': {
-        //         render.addProductsPage();
-        //         break;
-        //     }
-        //     case 'orders': {
-        //         render.ordersPage();
-        //         break;
-        //     }
-        //     case 'header-page': {
-        //         render.headerPage();
-        //         break;
-        //     }
-        //     case 'footer-page': {
-        //         render.footerPage();
-        //         break;
-        //     }
-        //     case 'home-page': {
-        //         render.homePage();
-        //         break;
-        //     }
-        //     case 'products-page': {
-        //         render.wordProductsPage();
-        //         break;
-        //     }
-        //     case 'service-page': {
-        //         render.servicePage();
-        //         break;
-        //     }
-        //     case 'news-page': {
-        //         render.newsPage();
-        //         break;
-        //     }
+                break;
+            }
+            case 'solutions-page': {
+                render.solutionPage();
+                break;
+            }
+            case 'agency-page': {
+                render.agencyPage();
+                break;
+            }
+            case 'products': {
+                render.productsPage();
+                break;
+            }
+            case 'add-products': {
+                render.addProductsPage();
+                break;
+            }
+            case 'orders': {
+                render.ordersPage();
+                break;
+            }
+            case 'header-page': {
+                render.headerPage();
+                break;
+            }
+            case 'footer-page': {
+                render.footerPage();
+                break;
+            }
+            case 'home-page': {
+                render.homePage();
+                break;
+            }
+            case 'products-page': {
+                render.wordProductsPage();
+                break;
+            }
+            case 'service-page': {
+                render.servicePage();
+                break;
+            }
+            case 'news-page': {
+                render.newsPage();
+                break;
+            }
 
-        //     case 'contact': {
-        //         render.contactPage();
-        //         break;
-        //     }
-        //     case 'openning-event': {
-        //         render.oppenningEvent();
-        //         break;
-        //     }
-        //     case 'recruitment-page': {
-        //         render.recruitmentPage();
-        //         break;
-        //     }
-        //     case 'advertisement-page': {
-        //         render.advertisementPage();
-        //         break;
-        //     }
-        //     case 'policys-page': {
-        //         render.policysPage();
-        //         break;
-        //     }
-        //     case 'infor-page': {
-        //         render.inforPage();
-        //         break;
-        //     }
-        //     case 'theme-page': {
-        //         render.themePage();
-        //         break;
-        //     }
-        //     case 'cv-recruitment-page': {
-        //         render.cvRecruitmentPage();
-        //         break;
-        //     }
-        //     case 'config-manange': {
-        //         render.configPage();
-        //         break;
-        //     }
-        //     case 'seo-infor-page': {
-        //         render.seoConfigPage();
-        //         break;
-        //     }
-        //     case 'image-manange': {
-        //         render.imageManange();
-        //         break;
-        //     }
-        //     case 'acc-manage': {
-        //         render.accManagePage();
-        //         break;
-        //     }
-        //     case 'manager': {
-        //         render.managerPage();
-        //         break;
-        //     }
-        //     case 'log-out': {
-        //         break;
-        //     }
-        // }
+            case 'contact': {
+                render.contactPage();
+                break;
+            }
+            case 'openning-event': {
+                render.oppenningEvent();
+                break;
+            }
+            case 'recruitment-page': {
+                render.recruitmentPage();
+                break;
+            }
+            case 'advertisement-page': {
+                render.advertisementPage();
+                break;
+            }
+            case 'policys-page': {
+                render.policysPage();
+                break;
+            }
+            case 'infor-page': {
+                render.inforPage();
+                break;
+            }
+            case 'theme-page': {
+                render.themePage();
+                break;
+            }
+            case 'cv-recruitment-page': {
+                render.cvRecruitmentPage();
+                break;
+            }
+            case 'config-manange': {
+                render.configPage();
+                break;
+            }
+            case 'seo-infor-page': {
+                render.seoConfigPage();
+                break;
+            }
+            case 'image-manange': {
+                render.imageManange();
+                break;
+            }
+            case 'acc-manage': {
+                render.accManagePage();
+                break;
+            }
+            case 'manager': {
+                render.managerPage();
+                break;
+            }
+            case 'log-out': {
+                break;
+            }
+        }
     },
     config: {
         imageTab: function () {
