@@ -113,28 +113,14 @@ return `
                 <div class="col-lg-6 mb-5">
                   <div class="slider-product">
                         <div class=" slider fade1">
-                            <div style="height: 350px;">
-                                <img src="https://viet_node2.midvietnam.com/files/camnghidinh10.jpg" alt="Second slide">
+                            ${item.images.map(item=>`
+                                 
+                              <div style="height: 350px;">
+                                <img src="/static/images/solutions/${item}" alt="Second slide">
                             </div>
-                            <div style="height: 350px;">
-                                <img src="https://viet_node2.midvietnam.com/files/thietbidinhvi1.jpg" alt="Third slide">
-                            </div>
-                            <div style="height: 350px;">
-                                <img src="https://viet_node2.midvietnam.com/files/camgnghidinh2.jpg" alt="First slide">
-                            </div>
-                            <div style="height: 350px;">
-                                <img src="https://bagps.vinadigi.vn/public/media//thumb/banner-gallery-1920x418.jpg"
-                                    alt="Second slide">
-                            </div>
-                            <div style="height: 350px;">
-                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt1zzedchk9015"
-                                    alt="Third slide">
-                            </div>
-                            <div style="height: 350px;">
-                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt1zzedchk9015"
-                                    alt="Third slide">
-                            </div>
-
+                             `
+                            ).join('')}
+                   
                         </div>
                         <div class="slider slider-nav">
                             ${item.images.map(item=>`
@@ -303,4 +289,4 @@ const renderMainSection=()=>{
     })
 }
 renderHeaderSection()
-renderMainSection()
+// renderMainSection()
