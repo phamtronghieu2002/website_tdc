@@ -5239,3 +5239,7 @@ ul {
     border-color: var(--thm-primary);
     isolation: isolate;
 }
+.slider-nav .slick-prev,
+.slider-nav .slick-next {
+    display: none !important;
+}   
