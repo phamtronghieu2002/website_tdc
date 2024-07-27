@@ -89,7 +89,7 @@ return `
                             </div>
                         </div>
                         <div class="downPage">
-                            <a href='#section-solution-temp-${data.id}'><i class="fa-solid fa-angles-down"></i></a>
+                            <a href='#section-solution-temp-${item.id}'><i class="fa-solid fa-angles-down"></i></a>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ return `
     },
     mainSection:(data)=>{
         return data.map(item => `
-              <section id="section-solution-temp" class="solution sec-ptb  ">
+              <section id="section-solution-${item.id}" class="solution sec-ptb  ">
         <div class="container">
             <div class="title-solution">
                 <h2>THIẾT BỊ CẢM BIẾN DẦU</h2>
@@ -289,4 +289,4 @@ const renderMainSection=()=>{
     })
 }
 renderHeaderSection()
-// renderMainSection()
+renderMainSection()
