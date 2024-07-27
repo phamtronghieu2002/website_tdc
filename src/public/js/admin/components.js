@@ -105,8 +105,7 @@ const components = {
 
                    
                             <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="15000KB" data-max-files="20" />
-                            ${data ? data.content : ""}
-                            </textarea>
+
                                         
                             </div>
                             <div class="update-all-value">
