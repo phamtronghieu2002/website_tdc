@@ -4,7 +4,7 @@ function setInforPage() {
     const dbName = req.dbName;
     pageInterface.getBasicInfor(dbName, (err, results, fields) => {
         if (err) {
-            console.log('getBasic Data ERROR');
+            // console.log('getBasic Data ERROR');
         } else {
             const themeRows = results[0].map((row) => {
                 return row;

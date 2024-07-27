@@ -21,14 +21,14 @@ class SolutionsController {
                 const solutionsRow = results.map((row) => {
                     return row;
                 });
-                if (solutionsRow.length === 0) {
-                    return res.render('error', {
-                        title: 'ERROR',
-                        active: 1,
-                        root: inforBasicPage.root,
-                        companyInfor: inforBasicPage.companyInfor,
-                    });
-                }
+                // if (solutionsRow.length === 0) {
+                //     return res.render('error', {
+                //         title: 'ERROR',
+                //         active: 1,
+                //         root: inforBasicPage.root,
+                //         companyInfor: inforBasicPage.companyInfor,
+                //     });
+                // }
      
                 
                 return res.render('solutions' + template_id, {

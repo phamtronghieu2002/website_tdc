@@ -1,105 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta http-equiv="content-type"
-        content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 
-    <head>
-        <meta charset='UTF-8' />
-        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <title>{{title}}</title>
-        <meta name="google-site-verification"
-            content="bD9ebiIn1p4w8hFm7-DWjVIYUVCQ7Vj9CY5jwzjuJS0" />
-        <meta charset="utf-8">
-        <meta name="description"
-            content="{{companyInfor.information.0.description}}">
-        <meta name="keywords"
-            content="{{companyInfor.information.0.name}}, {{title}}" />
-        <meta property="og:title" content="{{title}}">
-        <meta property="og:description"
-            content="{{companyInfor.information.0.description}}">
-        <meta property="og:image"
-            content="{{companyInfor.information.0.image_shortlink}}">
-        <meta property="og:type"
-            content="{{companyInfor.information.0.name}} Short Link">
-        <meta property="og:image:alt"
-            content="{{companyInfor.information.0.name}}">
-        <meta name="geo.region" content="VN" />
-        <meta name="geo.position"
-            content="{{companyInfor.address.0.lat}};{{companyInfor.address.0.lng}}" />
+<head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{title}}</title>
+    <meta name="google-site-verification" content="bD9ebiIn1p4w8hFm7-DWjVIYUVCQ7Vj9CY5jwzjuJS0" />
+    <meta charset="utf-8">
+    <meta name="description" content="{{companyInfor.information.0.description}}">
+    <meta name="keywords" content="{{companyInfor.information.0.name}}, {{title}}" />
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{companyInfor.information.0.description}}">
+    <meta property="og:image" content="{{companyInfor.information.0.image_shortlink}}">
+    <meta property="og:type" content="{{companyInfor.information.0.name}} Short Link">
+    <meta property="og:image:alt" content="{{companyInfor.information.0.name}}">
+    <meta name="geo.region" content="VN" />
+    <meta name="geo.position" content="{{companyInfor.address.0.lat}};{{companyInfor.address.0.lng}}" />
 
-        <link href="https://fonts.cdnfonts.com/css/sf-pro-display"
-            rel="stylesheet" />
-        <!-- icon -->
-        <link rel='stylesheet'
-            href='https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-        <link rel='stylesheet'
-            href='https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-straight/css/uicons-regular-straight.css'>
-        <link rel='stylesheet'
-            href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-        <link rel='stylesheet'
-            href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-        <!-- jQuery -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <!-- icon -->
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- fancy box to preview image -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-        <!-- swiper -->
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- fancy box to preview image -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-        <!-- carousel -->
-        <link rel="stylesheet"
-            href="/static/plugins/owlCarousel/owl.carousel.min.css" />
-        <link rel="stylesheet"
-            href="/static/plugins/owlCarousel/owl.theme.default.min.css" />
-        <!-- style css -->
-        <link rel="stylesheet" href="/static/_next/static/css/style.css" />
-        <title>TDC: Giám sát hành trình 5G-GPS</title>
-        <!-- <meta name="description"
+    <!-- carousel -->
+    <link rel="stylesheet" href="/static/plugins/owlCarousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/static/plugins/owlCarousel/owl.theme.default.min.css" />
+    {{!-- bs5 --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/static/_next/static/css/style.css" />
+    <title>TDC: Giám sát hành trình 5G-GPS</title>
+    <!-- <meta name="description"
     content="Itco Nextjs 14 Template for agencies, businesses, consulting firms, creative ventures, cybersecurity providers, data management specialists, digital agencies, IT services, IT solutions providers, SaaS companies, software developers, startups, and technology service providers." /> -->
-        <link rel="shortcut icon" href="/_assets/images/product/logoTDC.png"
-            type="image/x-icon">
-        <meta name="next-size-adjust" />
+    <link rel="shortcut icon" href="/_assets/images/product/logoTDC.png" type="image/x-icon">
+    <meta name="next-size-adjust" />
 
-        <!-- animation -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    </head>
+    <!-- animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    {{!-- boostrap --}}
+    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> --}}
+</head>
 
-    <body class="{{classwrapper}}">
-        <button class="scroll-top scroll-to-target "><i
-                class="fa-solid fa-angles-up"></i></button>
-        {{> header}}
-        {{{body}}}
-        {{> footer}}
-    </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="/static/plugins/owlCarousel/owl.carousel.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="/static/_next/static/js/header.js"></script>
-    <script src="/static/_next/static/js/global.js"></script>
-    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
-    <script src="/static/plugins/owlCarousel/owl.carousel.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    {{#if style}}
-    <script src="/static/_next/static/js/{{style}}.js"></script>
-    {{else}}
+<body class="{{classwrapper}}">
+    <button class="scroll-top scroll-to-target "><i class="fa-solid fa-angles-up"></i></button>
+    {{> header}}
+    {{{body}}}
+    {{> footer}}
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="/static/plugins/owlCarousel/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="/static/_next/static/js/header.js"></script>
+<script src="/static/_next/static/js/global.js"></script>
+<script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
+<script src="/static/plugins/owlCarousel/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    {{/if}}
+
+{{#if style}}
+<script src="/static/_next/static/js/{{style}}.js"></script>
+{{else}}
+
+{{/if}}
 
 </html>

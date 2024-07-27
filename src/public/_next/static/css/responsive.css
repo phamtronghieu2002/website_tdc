@@ -198,6 +198,7 @@
   .about-sec2 .sec-images {
     margin-bottom: 20px;
   }
+
   .text-center-mobile {
     text-align: center;
   }
@@ -440,7 +441,7 @@
   }
 
   .mb-5 {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
   }
 
   #site-breadcumb .site-breadcumb-wrapper {
@@ -1112,6 +1113,23 @@
     margin-top: 20px;
   }
 
+  .fade1 .slick-track .slick-slide {
+    height: 250px !important;
+  }
+
+  /* solution */
+  .slider-nav img {
+    border: 1px solid;
+    border-radius: 15px;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+  }
+
+  .fade1 img {
+    width: 80%;
+    height: 100%;
+  }
 }
 
 @media (max-width: 375px) {

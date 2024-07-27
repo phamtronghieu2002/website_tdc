@@ -7,7 +7,7 @@ function getBasicInfor(req, res, next) {
 
     pageInterface.getBasicInfor(dbName, (err, results, fields) => {
         if (err) {
-            console.log('getBasic Data ERROR');
+            // console.log('getBasic Data ERROR');
             return res.send(
                 `<div style = "box-sizing: border-box;font-family: 'Source Code Pro', monospace; height: 90vh;display: flex;align-items: center;justify-content: center;" = >Website hiện đang tạm dừng để bảo trì, vui lòng quay lại sau!</div>`,
             );
@@ -15,7 +15,7 @@ function getBasicInfor(req, res, next) {
             const themeRows = results[0].map((row) => {
                 return row;
             });
-            console.log(themeRows);
+            // console.log(themeRows);
             const keys = Object.keys(themeRows[0]);
             const root = keys.map((key) => `--${key}: ${themeRows[0][key]};`).join(' ');
 
@@ -38,15 +38,15 @@ function getBasicInfor(req, res, next) {
             const socialRows = results[5].map((row) => {
                 return row;
             });
-            console.log("policyRows 6 >>",results[6])
+            // console.log("policyRows 6 >>",results[6])
             const policysRows = results[6].map((row) => {
                 return row;
             });
-            console.log("policyRows v2 >>",policysRows)
+            // console.log("policyRows v2 >>",policysRows)
             const advertisementRows = results[7].map((row) => {
                 return row;
             });
-                console.log("information >>",informationRows);
+                // console.log("information >>",informationRows);
             req.inforBasicPage = {
                 root: `:root { ${root} }`,
                 companyInfor: {
