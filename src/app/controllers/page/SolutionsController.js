@@ -18,8 +18,8 @@ class SolutionsController {
             } else {
            
              
-                const solutionsRow = results.map((row) => {
-                    return row;
+                results.forEach(sol => {
+                    sol.images = sol.images.split(',')
                 });
                 // if (solutionsRow.length === 0) {
                 //     return res.render('error', {
@@ -32,16 +32,14 @@ class SolutionsController {
      
                 
                 return res.render('solutions' + template_id, {
-                    title: 'Tin tức & Sự kiện',
+                    title: 'giải pháp',
                     layout: 'main' + template_id,
                     style: 'solutions' + template_id,
                     classwrapper: 'page',
                     active: 3,
                     root: inforBasicPage.root,
                     companyInfor: inforBasicPage.companyInfor,
-                    solutions: {
-                        solutions: solutionsRow,
-                    },
+                    solutions:JSON.stringify(results)
                    
                 });
             }

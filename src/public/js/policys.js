@@ -8,10 +8,7 @@ var c = url.searchParams.get('id');
 const fE = document.getElementById(c);
 const policysFirst = dataP.find((policys) => policys.name === c);
 
-if (policysFirst && fE) {
-    policysContent.innerHTML = policysFirst.content;
-    fE.classList.add('active');
-}
+
 
 policysItem.forEach((item) => {
     item.onclick = (e) => {
@@ -27,3 +24,7 @@ policysItem.forEach((item) => {
     };
 });
 
+if (policysFirst && fE) {
+    policysContent.innerHTML = policysFirst.content;
+    fE.click();
+}

@@ -5,7 +5,7 @@ const components = {
   solutionPage: {
     header({ action }) {
       return `
-          <div class="main-title-layout">
+    <div class="main-title-layout">
                         <h3 class="orange main-title-text">Các giải pháp hiện có</h3>
                         <div class="main-title-right">
                        
@@ -49,36 +49,105 @@ const components = {
     contentRight(data) {
       return `
          <div class="content-right">
-                            <h3>Tên giải pháp</h3>
+                          <div class="update-all-value">
+                           <span class="update-all-value-title"><span class="orange">*</span> Tên giải pháp </span>
                             <input 
+                             type="text"
+                             value="${data ? data.name : ""}"
+                             class="solution_input solution_name_input"
+                             name="name-solution"
+                             placeholder="Nhập Tên giải pháp" 
+                            />
+                          </div>
+                            <div class="update-all-value">
+                                  <span class="update-all-value-title"><span class="orange">*</span> Mô tả giải pháp </span>
+                            <input
+                            id="description"
                             type="text"
-                            value="${data ? data.name : ""}"
-                            class="solution_input" name="name-solution" placeholder="tên giải pháp" />
-                                 <h3>Độ ưu tiên</h3>
+                            value="${data ? data.description : ""}"
+                            class="solution_input " 
+                            name="desc-solution"
+                            placeholder="Nhập Mô tả giải pháp" />
+                            </div>
+
+                               <div class="update-all-value">
+            <span class="update-all-value-title"><span class="orange">*</span> Ảnh bìa </span>
+            <input
+             type="text" 
+             id="banner-image-input"
+             data-name="img"
+             class="news-image-input required-infor" style="display: none" 
+             value="">
+            <div class="set-image-item plus-image-item" style="background-image: url('');">
+                <div class="plus-alt-wrapper news-img-item">
+                    <div class="plus alt"></div>
+                    <span>Chọn hình ảnh</span>
+                </div>
+            </div>
+
+              <span class="update-all-value-title"><span class="orange">*</span> Ảnh dại diện </span>
+            <input 
+            type="text" 
+            id="thumbnail-image-input"
+            data-name="img"
+            class="news-image-input
+            required-infor" style="display: none"
+            value="">
+            <div class="set-image-item plus-image-item" style="background-image: url('');">
+                <div class="plus-alt-wrapper news-img-item">
+                    <div class="plus alt"></div>
+                    <span>Chọn hình ảnh</span>
+                </div>
+            </div>
+        </div>
+                            <div class="update-all-value">
+                            <span class="update-all-value-title"><span class="orange">*</span> ảnh/video </span>
+
+                   
+                            <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="15000KB" data-max-files="20" />
+                            ${data ? data.content : ""}
+                            </textarea>
+                                        
+                            </div>
+                            <div class="update-all-value">
+                                    <span class="update-all-value-title"><span class="orange">*</span> Độ ưu tiên </span>
                                     <select class="solutions_select">
                                  ${priorities
                                    .map((priority) => {
                                      return `
                          
-                                <option value="${priority}" ${data?.priority === priority ? "selected":""}>${priority}</option>
+                                <option value="${priority}" ${
+                                       data?.priority === priority
+                                         ? "selected"
+                                         : ""
+                                     }>${priority}</option>
                            
                                       `;
                                    })
                                    .join("")}
                           </select>
-                            <h3>ảnh/video</h3>
-                            <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="15000KB" data-max-files="20" />
-                       
-                            <h3>Nội dung</h3>
-                            <textarea id="edit-content-solution">
-                            ${data ? data.content : ""}
-                            </textarea>
-                            <h3>Thông số kĩ thuật</h3>
-                            <textarea id="edit-technum-solution">
+                            </div>
+     
+                            <div class="update-all-value">
+                                <span class="update-all-value-title"><span class="orange">*</span> Nội dung </span>
+
+                                <textarea id="edit-content-solution">
+                                    ${data ? data.content : ""}
+                                     </textarea>
+                                        
+                            </div>
+                        
+                        <div class="update-all-value">
+                            <span class="update-all-value-title"><span class="orange">*</span> Thông số kĩ thuật</span>
+
+                        <textarea id="edit-technum-solution">
                             ${data ? data.technum : ""}
                             </textarea>
-                 
                         </div>
+                  
+                           
+</div>       
+                        
 `;
     },
     mainPage(data) {
