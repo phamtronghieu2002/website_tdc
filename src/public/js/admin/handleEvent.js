@@ -1,4 +1,17 @@
+const splitUrlImage = (url) => {
 
+  const keyword = "interface";
+  const index = url.indexOf(keyword);
+  
+  if (index !== -1) {
+    // Add the length of the keyword to the index to start after the keyword
+    const result = url.substring(index + keyword.length + 1); // +1 to skip the '/'
+    return result
+  } else {
+
+  }
+  
+}
 
 const registerMarkDownSolution = () => {
   FilePond.registerPlugin(
@@ -27,7 +40,38 @@ const registerMarkDownSolution = () => {
   tinymce.remove("#edit-technum-solution");
   tools.config.tinymceInit("#edit-technum-solution", "400");
 };
+const refgisterImageSelectBox =()=>{
+  const plusImageItem = $$_(".plus-image-item");
 
+  plusImageItem.forEach((plusImageItem,index) => {
+    plusImageItem.onclick = (e) => {
+      tools.displayOpacity("show", "Hình ảnh");
+      tools.confirm(
+        () => {
+          const imageItem = $_('.image-item[is-selected="true"]');
+          if (imageItem) {
+            const url = imageItem.querySelector("img").src;
+            console.log("url", url);
+            plusImageItem.style.backgroundImage = `url('${url}')`;
+            $_(".news-img-item").innerHTML = "";
+            if(index ==0 ){
+            console.log("index",  document.getElementById("banner-image-input"));
+              document.getElementById("banner-image-input").setAttribute("value",url);
+            }else{
+              document.getElementById("thumbnail-image-input").setAttribute("value",url);
+            }
+  
+          } else {
+          
+          }
+          tools.displayOpacity("hidden");
+        },
+        components.imageTab(),
+        "Chọn"
+      );
+    };
+  });
+}
 const handleEvent = {
   handleAgentPage: function async() {
     const auth_token = localStorage.getItem("admin_token");
@@ -85,7 +129,9 @@ const handleEvent = {
     });
   },
   handleSolutionMainPage: function () {
-    //handle when click button add solutions
+
+
+    refgisterImageSelectBox();
     const addSolutionBtn = $_(".add-solutions-btn");
     const solutionItems = $$_(".solution-item");
     const deleteSolutionBtn = $_(".delete-solutions-btn");
@@ -93,6 +139,7 @@ const handleEvent = {
     const contentRight = $_(".wrapper-solution-page .content-right");
     addSolutionBtn.onclick = (e) => {
       render.solutionPageAddUI();
+
     };
     registerMarkDownSolution();
     solutionItems.forEach((solutionItem) => {
@@ -112,7 +159,10 @@ const handleEvent = {
         contentRight.innerHTML =
           components.solutionPage.contentRight(solutionItemTarget);
         registerMarkDownSolution();
+        refgisterImageSelectBox();
+     
         const handleEvent = () => {
+      
           if (solutionImages.length > 0) {
             const createFileFromUrl = async (url) => {
               const response = await fetch(url);
@@ -195,11 +245,17 @@ const handleEvent = {
           images.forEach((image) => {
             body.append("images", image);
           });
+          const description = document.getElementById("description").value;
+          const thumbnail = splitUrlImage(document.getElementById("thumbnail-image-input").value)
+          const banner = splitUrlImage(document.getElementById("banner-image-input").value);
           const json = {
             name: nameSolution,
             priority: prioritySolution,
             content: contentSolution,
             technum: technumSolution,
+            description: description,
+            thumbnail: thumbnail,
+            banner: banner,
             id: solutionId
           };
           body.append("data", JSON.stringify(json));
@@ -228,16 +284,17 @@ const handleEvent = {
     //handle when click button add solutions
 
     registerMarkDownSolution();
-
+    refgisterImageSelectBox();
     const saveSolutionBtn = $_(".save-solutions-btn");
     const cancelSolutionBtn = $_(".cancel-solutions-btn");
 
     saveSolutionBtn.onclick = (e) => {
       tools.displayOpacity("show", `Xác nhận thêm giải pháp mới?`);
       tools.confirm(() => {
-        const nameSolution = $_(".solution_input").value;
+        const nameSolution = $_(".solution_name_input").value;
         const prioritySolution = $_(".solutions_select").value;
         const contentSolution = tinymce
+        
           .get("edit-content-solution")
           .getContent();
         const technumSolution = tinymce
@@ -250,6 +307,9 @@ const handleEvent = {
           const fileSizeInBytes = file.size;
           images.push(file);
         });
+        const description = document.getElementById("description").value;
+        const thumbnail =splitUrlImage(document.getElementById("thumbnail-image-input").value)
+        const banner =splitUrlImage(document.getElementById("banner-image-input").value);
 
         const body = new FormData();
         images.forEach((image) => {
@@ -260,13 +320,16 @@ const handleEvent = {
           priority: prioritySolution,
           content: contentSolution,
           technum: technumSolution,
+          description: description,
+          thumbnail: thumbnail,
+          banner: banner
         };
         body.append("data", JSON.stringify(json));
         axios
           .post("/api/add-solutions", body)
           .then((response) => {
             tools.displayOpacity("hidden");
-            showToast("Thành công", "success", "Đã cập nhật", toast_duration);
+            showToast("Thành công", "success", "Đã thêm giải pháp", toast_duration);
             reloadBtn.click();
           })
           .catch((error) => {

@@ -11,23 +11,10 @@ class HomeController {
         "Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source."
       );
     }
-    pageInterface.createTable(dbName, (err, results, fields) => {
-      if (err) {
-            console.log("Error create table" + err);
-      }
-      else{
-        console.log("Create table success");
-      }
-    });
 
-    //   pageInterface.dropTableDB(dbName, (err, results, fields) => {
-    //   if (err) {
-    //         console.log("Error create table" + err);
-    //   }
-    //   else{
-    //     console.log("drop table success");
-    //   }
-    // });
+
+
+  
     // pageInterface.getTableDB(dbName, (err, results, fields) => {
     //   if (err) {
     //     console.log("Error get table" + err);

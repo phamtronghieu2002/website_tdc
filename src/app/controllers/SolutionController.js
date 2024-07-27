@@ -7,7 +7,7 @@ module.exports = {
     const data = JSON.parse(jsonData);;
 
     data.images = req.images.toString();
-    console.log("data", data);
+  
     solutionModel.addSolutions(dbName, data, (err, results, fields) => {
       console.log("add solutions", fields);
       if (err) {

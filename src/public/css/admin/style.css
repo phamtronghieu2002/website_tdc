@@ -2944,3 +2944,6 @@ embed.cv {
 .filepond--file .filepond--item{
   overflow: hidden;
 }
+.filepond--root{
+  flex: 1;
+}

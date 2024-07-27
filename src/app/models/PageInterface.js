@@ -17,12 +17,16 @@ var PageInterface = {
       images TEXT,
       content TEXT,
       technum TEXT,
+      banner TEXT,
+      thumbnail TEXT,
+      description TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
   `,
       callback
     );
   },
+
   dropTableDB: function (dbName, callback) {
     return connection.query(
       dbName,
