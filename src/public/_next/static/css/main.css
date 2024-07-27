@@ -4913,8 +4913,8 @@ ul {
 
 .boxer {
     padding: 15px 20px;
-    display: flex;
-    align-items: center;
+    /* display: flex; */
+    /* align-items: center; */
 }
 
 .downPage {

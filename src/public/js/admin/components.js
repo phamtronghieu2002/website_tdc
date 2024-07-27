@@ -78,7 +78,7 @@ const components = {
              data-name="img"
              class="news-image-input required-infor" style="display: none" 
              value="">
-            <div class="set-image-item plus-image-item" style="background-image: url('');">
+            <div class="set-image-item plus-image-item" style="background-image: url('/static/images/interface/${data ? data.banner : ''}');">
                 <div class="plus-alt-wrapper news-img-item">
                     <div class="plus alt"></div>
                     <span>Chọn hình ảnh</span>
@@ -93,7 +93,7 @@ const components = {
             class="news-image-input
             required-infor" style="display: none"
             value="">
-            <div class="set-image-item plus-image-item" style="background-image: url('');">
+            <div class="set-image-item plus-image-item" style="background-image: url('/static/images/interface/${data ? data.thumbnail :''}');">
                 <div class="plus-alt-wrapper news-img-item">
                     <div class="plus alt"></div>
                     <span>Chọn hình ảnh</span>
