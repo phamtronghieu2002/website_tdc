@@ -14,7 +14,7 @@ const components = {
                           ? `
                            <button class="add-solutions-btn high-light-btn-border"><svg viewBox="0 0 32 32"><path d="M17.5 2.5h-3v12h-12v3h12v12h3v-12h12v-3h-12v-12z"></path></svg> Thêm giải pháp mới</button> 
                            <button class="delete-solutions-btn high-light-btn-border">Xoá giải pháp</button>
-                           <button class="update-solutions-btn high-light-btn-border">lưu</button>
+                           <button class="update-solutions-btn high-light-btn-border">Lưu</button>
                           `
                           : `<button class="save-solutions-btn high-light-btn-border">Thêm</button> 
                              <button class="cancel-solutions-btn high-light-btn-border">Hủy</button>
@@ -36,7 +36,7 @@ const components = {
                                           return `
                                         <div class="solution-item news-item " solution-id="${item.id}">
                                             <div class="solution-name news-name">${item.name}</div>
-                                            <div class="solution-priority news-infor">${item.priority}</div>
+                                            <div class="solution-priority news-infor">Độ ưu tiên: ${item.priority}</div>
                                         </div>`;
                                         })
                                         .join("")
@@ -71,7 +71,7 @@ const components = {
                             </div>
 
                                <div class="update-all-value">
-            <span class="update-all-value-title"><span class="orange">*</span> Ảnh bìa </span>
+            <span class="update-all-value-title"><span class="orange">*</span> Banner </span>
             <input
              type="text" 
              id="banner-image-input"
@@ -85,7 +85,7 @@ const components = {
                 </div>
             </div>
 
-              <span class="update-all-value-title"><span class="orange">*</span> Ảnh dại diện </span>
+              <span class="update-all-value-title"><span class="orange">*</span> Ảnh GIF </span>
             <input 
             type="text" 
             id="thumbnail-image-input"
@@ -101,7 +101,7 @@ const components = {
             </div>
         </div>
                             <div class="update-all-value">
-                            <span class="update-all-value-title"><span class="orange">*</span> ảnh/video </span>
+                            <span class="update-all-value-title"><span class="orange">*</span> Ảnh/Video </span>
 
                    
                             <input type="file" id="fileInput" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="15000KB" data-max-files="20" />
@@ -186,7 +186,7 @@ const components = {
                               data-max-file-size="500kb"
                               data-max-files="20"
                             />
-                        <button class="save-img-btn btn-primary btn"><i class="fa-solid fa-floppy-disk"></i>lưu</button>
+                        <button class="save-img-btn btn-primary btn"><i class="fa-solid fa-floppy-disk"></i>Lưu</button>
                 </div>
             `;
   },

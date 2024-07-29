@@ -289,4 +289,4 @@ const renderMainSection=()=>{
     })
 }
 renderHeaderSection()
-// renderMainSection()
+renderMainSection()
