@@ -89,12 +89,11 @@ return `
                             </div>
                         </div>
                         <div class="downPage">
-                            <a href='#section-solution-temp-${item.id}'><i class="fa-solid fa-angles-down"></i></a>
+                            <a href='#section-solution-${item.id}'><i class="fa-solid fa-angles-down"></i></a>
                         </div>
                     </div>
                 </div>
             `).join('')
-
     },
     mainSection:(data)=>{
         return data.map(item => `
@@ -182,7 +181,7 @@ return `
                                 aria-selected="true">THÔNG SỐ KỸ THUẬT</button>
                             <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                                aria-selected="false">Tính năng</button>
+                                aria-selected="false">TÍNH NĂNG</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -209,10 +208,7 @@ return `
                             tabindex="0">
                             <div class="solution-des">
                                 <div class="solution-des-item">
-                                    <div class="number-item">
-                                        <h2 class="big-number">01</h2>
-                                        <div class="line"></div>
-                                    </div>
+                                 
                                     <div class="content-item">
                                        <p>
                                        ${item.content}
@@ -290,3 +286,5 @@ const renderMainSection=()=>{
 }
 renderHeaderSection()
 renderMainSection()
+
+
