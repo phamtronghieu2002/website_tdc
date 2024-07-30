@@ -32,7 +32,7 @@ class SolutionsController {
      
                 
                 return res.render('solutions' + template_id, {
-                    title: 'giải pháp',
+                    title: 'Giải pháp',
                     layout: 'main' + template_id,
                     style: 'solutions' + template_id,
                     classwrapper: 'page',

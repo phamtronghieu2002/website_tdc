@@ -2511,7 +2511,7 @@ label {
 
 .breadcumb-content ul.page-navigator li:last-child a {
     color: var(--thm-white);
-    cursor: inherit;
+    cursor: pointer;
 }
 
 .breadcumb-content ul.page-navigator li:last-child:after {
@@ -2661,12 +2661,12 @@ label {
 }
 
 .hero-content-style1:before {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     background: #8ec1ae;
-    top: -10%;
-    right: 20%;
+    top: -3%;
+    right: -80%;
     animation: zoomInOut 2s infinite;
 }
 
@@ -2802,7 +2802,7 @@ label {
     position: relative;
 }
 
-.about-sec .sec-images .sec-img-one {
+/* .about-sec .sec-images .sec-img-one {
     width: 80%;
     height: 100%;
 }
@@ -2833,7 +2833,7 @@ label {
 
 .about-sec .sec-images .sec-img-two img {
     width: 100%;
-}
+} */
 
 .about-sec2 .sec-img-one {
     width: 100% !important;
@@ -4018,7 +4018,9 @@ label {
     /* background: url(../media/footer.d3ce18c6.png) 50% / cover; */
     background-image: url(../../../_assets/images/footer/footer-bg.png);
 }
-
+.footer-sec .section-overlay{
+    padding-top: 90px !important;
+}
 .footer-sec .footer-hr {
     margin-bottom: 0;
     border: 1px solid hsla(0, 0%, 100%, 0.6);
@@ -4136,11 +4138,11 @@ label {
 }
 
 .newslatter-style2 {
-    background: var(--thm-teal);
+    background: var(--thm-primary);
     border-radius: 10px;
     padding: 38px 50px;
     overflow: hidden;
-    margin-bottom: -68px;
+    margin-bottom: -38px;
 }
 
 .newslatter-style2 .newslatter-text {
@@ -4161,7 +4163,7 @@ label {
 
 .newslatter-style2 .Subscribe-form button.thm-btn {
     position: absolute;
-    background: var(--thm-teal);
+    background: var(--thm-primary);
     margin-top: 4px;
     right: 5px;
     padding-left: 40px;
@@ -5275,3 +5277,8 @@ footer ul {
 .slider-nav .slick-next {
     display: none !important;
 }   
+.about-sec .sec-images .slick-slide img{
+    width: 100%;
+    height: 450px;
+    display: inline-block;
+}
