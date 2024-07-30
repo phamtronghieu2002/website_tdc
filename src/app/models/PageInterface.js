@@ -5,7 +5,7 @@ var then = new Date(jsonDate);
 var PageInterface = {
   getTableDB: function (dbName, callback) {
     // console.log(dbName);
-    return connection.query(dbName, "SHOW TABLES", callback);
+    return connection.query(dbName, "SHOW TABLES;", callback);
   },
   createTable(dbName, callback) {
     return connection.query(

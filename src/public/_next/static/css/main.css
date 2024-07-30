@@ -5275,3 +5275,12 @@ footer ul {
 .slider-nav .slick-next {
     display: none !important;
 }   
+
+.breadcumb-content ul{
+    list-style: none;
+    padding: 0;
+}
+.service-list ul {
+    list-style: none;
+    padding: 0;
+}

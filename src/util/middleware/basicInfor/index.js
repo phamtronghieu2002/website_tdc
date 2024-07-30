@@ -2,7 +2,13 @@ const pageInterface = require('../../../app/models/PageInterface');
 
 function getBasicInfor(req, res, next) {
     const dbName = req.dbName;
-   
+
+    pageInterface.getTableDB(dbName, (err, results, fields) => {
+        console.log("results >>", results);
+    }
+    );
+
+
 
 
     pageInterface.getBasicInfor(dbName, (err, results, fields) => {
@@ -46,7 +52,7 @@ function getBasicInfor(req, res, next) {
             const advertisementRows = results[7].map((row) => {
                 return row;
             });
-                // console.log("information >>",informationRows);
+            // console.log("information >>",informationRows);
             req.inforBasicPage = {
                 root: `:root { ${root} }`,
                 companyInfor: {
