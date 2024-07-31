@@ -3,7 +3,8 @@ const policysContent = document.querySelector('.policys-content');
 const policysItemMobile = document.getElementById('policys-item-mobile');
 var url_string = window.location.href;
 var url = new URL(url_string);
-var c = url.searchParams.get('id');
+
+var c = url.search
 
 const fE = document.getElementById(c);
 

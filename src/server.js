@@ -6,7 +6,8 @@ const { Server } = require("socket.io");
 const axios = require("axios");
 const { engine, create } = require("express-handlebars");
 const connection = require("./configs/connectDB");
-// const socket = require('./socket');
+var os = require("os");
+
 const route = require("./routes");
 var bodyParser = require("body-parser");
 const dotenv = require("dotenv");
@@ -19,6 +20,7 @@ global.pool = {};
 var cors = require("cors");
 
 const domainConfirmDomainMiddleWare = require("./util/middleware/domain");
+const { log } = require("console");
 app.use(cors());
 // resize();
 //view emgine config

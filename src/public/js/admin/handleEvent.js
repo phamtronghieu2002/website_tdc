@@ -1,3 +1,6 @@
+
+
+
 const splitUrlImage = (url) => {
 
   const keyword = "interface";
@@ -1192,22 +1195,48 @@ const handleEvent = {
             body["tags"] = tagsNewsData.toString();
             body["is_blog"] = categoryNewsData;
             body["featured"] = featuredNewsData;
-            // console.log(body);
+            console.log(body);
             tools.displayOpacity(
               "show",
               `Xác nhận thêm và ${hidden ? "ẩn" : "hiện"} bài viết?`
             );
-            tools.confirm(() => {
-              tools.postData(ADD_NEWS_API, body).then((feedback) => {
+
+            tools.confirm(async() => {
+              tools.postData(ADD_NEWS_API, body).then(async(feedback) => {
+                 const slug =feedback.data.slug;
+                 body["slug"] = slug; 
                 if (feedback.data.status === 1) {
                   tools.displayOpacity("hidden");
-                  showToast(
-                    "Thành công",
-                    "success",
-                    `Đã thêm và ${hidden ? "ẩn" : "hiện"} một bài viết mới`,
-                    toast_duration
-                  );
-                  reloadBtn.click();
+
+
+
+
+
+                  try {
+
+
+                  const res =  await axios.post("/api/sendMail", body)
+                  console.log("res >>>",res);
+                    showToast(
+                      "Thành công",
+                      "success",
+                      `Đã thêm và ${hidden ? "ẩn" : "hiện"} một bài viết mới`,
+                      toast_duration
+                    );
+  
+                  
+
+                  
+                    reloadBtn.click();
+                  } catch (error) {
+                    showToast(
+                      "Thất bại khi gửi mail cho khách",
+                      "fail",
+    
+                      toast_duration
+                    );
+  
+                  }
                 } else {
                   tools.displayOpacity("hidden");
                   showToast(

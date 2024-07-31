@@ -18,21 +18,6 @@ const sqlConfig = {
 };
 var pool = mysql.createPool(sqlConfig);
 
-const command = `mysqldump -h ${sqlConfig.host} -u ${sqlConfig.user} -p${sqlConfig.password} ${sqlConfig.database} > ${OUTPUT_FILE}`;
-
-// Thực thi câu lệnh
-// exec(command, (error, stdout, stderr) => {
-//   if (error) {
-//     console.error(`Error executing command: ${error.message}`);
-//     return;
-//   }
-//   if (stderr) {
-//     console.error(`stderr: ${stderr}`);
-//     return;
-//   }
-//   console.log('Database backup completed successfully!');
-// });
-
 
 module.exports = {
   query: function () {
