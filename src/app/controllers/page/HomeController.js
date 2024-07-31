@@ -91,7 +91,7 @@ class HomeController {
               layout: "main" + template_id,
               title: "TDC: Giám sát hành trình 5G-GPS",
               style: "home" + template_id,
-              classwrapper: "",
+              classwrapper: "homePage",
               active: 0,
               content: contentRows,
               root: inforBasicPage.root,

@@ -1441,22 +1441,27 @@ button.swiper-pagination-bullet {
     padding: 0;
     margin: 0 0 0 auto;
 }
-.wrapper-about-us-page ul{
+
+.wrapper-about-us-page ul {
     padding: 0;
-    list-style: none ;
-}
-.wrapper-solution-page ul{
     list-style: none;
-    padding: 0 ;
 }
-.wrapper-news-page ul{
-    list-style: none;
-    padding: 0 ;
-}
-.wrapper-contact-page ul{
+
+.wrapper-solution-page ul {
     list-style: none;
     padding: 0;
 }
+
+.wrapper-news-page ul {
+    list-style: none;
+    padding: 0;
+}
+
+.wrapper-contact-page ul {
+    list-style: none;
+    padding: 0;
+}
+
 .navbar-wrap ul li {
     position: relative;
     display: block;
@@ -1654,16 +1659,20 @@ button.swiper-pagination-bullet {
     position: relative;
     display: block;
 }
-.list-news-featured{
+
+.list-news-featured {
     padding: 0;
 }
-.blog-recent-post ul{
+
+.blog-recent-post ul {
     padding: 0;
 }
-.sec-list-item{
+
+.sec-list-item {
     padding: 0;
     list-style: none;
 }
+
 .header-contact-info ul,
 .header-contact-info ul li {
     position: relative;
@@ -2117,9 +2126,11 @@ h6 {
 .sec-ptb {
     padding: 100px 0px 100px;
 }
+
 .introduce-category {
-    padding-top: 100px;
+    padding: 50px 0;
 }
+
 .sec-pt {
     padding-top: 100px;
 }
@@ -2479,6 +2490,7 @@ label {
 
 .breadcumb-content ul.page-navigator {
     margin-left: auto;
+    list-style: none;
 }
 
 .breadcumb-content ul.page-navigator li {
@@ -2955,7 +2967,7 @@ label {
 
 .single-service-style2 .content-box {
     padding: 30px;
-    min-height: 315px;
+    min-height: 330px;
 }
 
 .single-service-style2 .content-box .single-service-content {
@@ -4018,9 +4030,11 @@ label {
     /* background: url(../media/footer.d3ce18c6.png) 50% / cover; */
     background-image: url(../../../_assets/images/footer/footer-bg.png);
 }
-.footer-sec .section-overlay{
-    padding-top: 90px !important;
+
+.footer-sec .section-overlay {
+    padding-top: 30px !important;
 }
+
 .footer-sec .footer-hr {
     margin-bottom: 0;
     border: 1px solid hsla(0, 0%, 100%, 0.6);
@@ -4142,7 +4156,7 @@ label {
     border-radius: 10px;
     padding: 38px 50px;
     overflow: hidden;
-    margin-bottom: -38px;
+    margin-bottom: -70px;
 }
 
 .newslatter-style2 .newslatter-text {
@@ -4855,9 +4869,9 @@ p {
     object-fit: cover;
 }
 
-.new-blog .content-box {
+/* .new-blog .content-box {
     padding-left: 25px;
-}
+} */
 
 .new-blog .new-blog-content:hover .img-box img {
     transform: scale(1.1);
@@ -4878,6 +4892,7 @@ p {
 .wrapper-about-us-page .sec-content .sec-text {
     text-align: justify;
     letter-spacing: 0.2px;
+    font-size: 18px;
 }
 
 .wrapper-about-us-page .about-sec .sec-content {
@@ -4904,11 +4919,13 @@ footer ul {
     margin: 0;
     font-size: 18px;
 }
-.blog-tags ul{
+
+.blog-tags ul {
     list-style: none;
 }
+
 .news-detail-page-wrapper .footer-recent-post .blog-sidebar-box-item .content-box .title-box h3 {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.5;
     font-weight: 600;
     margin-bottom: 0;
@@ -5273,12 +5290,42 @@ footer ul {
     border-color: var(--thm-primary);
     isolation: isolate;
 }
+
 .slider-nav .slick-prev,
 .slider-nav .slick-next {
     display: none !important;
-}   
-.about-sec .sec-images .slick-slide img{
+}
+
+.about-sec .sec-images .slick-slide img {
     width: 100%;
-    height: 450px;
+    height: 550px;
     display: inline-block;
+}
+
+.homePage .footer-sec {
+    padding-top: 90px !important;
+}
+
+.introduce-category .sec-images img {
+    height: 80%;
+    width: 80%;
+    object-fit: cover;
+    padding: 5px;
+    border: 2px solid var(--thm-green);
+    border-radius: 20px;
+}
+.wrapper-about-us-page .single-service-style2 .content-box .single-service-content i{
+    font-size: 80px;
+    color: var(--thm-teal) ;
+}
+.wrapper-about-us-page .single-service-style2 .content-box .single-service-content{
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 20px 0 !important;
+}   
+.wrapper-about-us-page .single-service-style2 .content-box .single-service-content h3{
+    color: black !important;
+}
+.wrapper-about-us-page .title-gt{
+    color: var(--thm-green);
 }
