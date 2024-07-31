@@ -1,4 +1,5 @@
 const connection = require('../../configs/connectDB');
+
 var now = new Date();
 var jsonDate = now.toJSON();
 var then = new Date(jsonDate);
@@ -6,7 +7,21 @@ var User = {
     // getAllUser: function (callback) {
     //     return connection.query('Select * from `data_users`', callback);
     // },
-
+    insertEmail: function (dbName, data, callback) {
+        return connection.query(
+            dbName,
+            'insert into data_users_emails(email) values(?)',
+            [data.email],
+            callback,
+        );
+    },
+    getMail: function (dbName, callback) {
+        return connection.query(
+            dbName,
+            'select * from  data_users_emails',
+            callback,
+        );
+    },
     getUserById: function (dbName, data, callback) {
         // console.log(data);
         return connection.query(dbName, 'select * from `data_users` where id=?', [data.id], callback);

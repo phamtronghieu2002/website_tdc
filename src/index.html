@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bootstrap Modal Example</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .image-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      background-color: rgba(0, 128, 0, 0.309);
+      /* Green background with 50% opacity */
+      display: block;
+      opacity: 0.75;
+
+    }
+    
+    .image-wrapper .infor {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      /* Add text shadow for better visibility */
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Black background with 50% opacity for the text */
+      border-radius: 10px;
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-3" data-aos="fade-right" data-aos-duration="2500">
+     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi placeat ipsum minus dignissimos cum sit quis eaque laborum, amet nam magni a distinctio rem. Unde exercitationem consequuntur provident porro omnis.
+          </div>
+          <div class="col-lg-6 mb-3" data-aos="fade-left" data-aos-duration="2500">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quam corporis reprehenderit error laborum. Vero blanditiis facilis quam magni laborum?
+          </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
+  
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

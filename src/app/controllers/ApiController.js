@@ -1,12 +1,91 @@
 const user = require('../models/User');
 const content = require('../models/Content');
 const tools = require('../../util/tools');
-
+const transporter = require('../../util/sendMail');
+const cloundianryTool = require('../../util/cloudianary');
 class ApiController {
+    sendMail(req, res, next) {
+
+        const dbName = req.dbName;
+        user.getMail(dbName, async(err, results, fields) => {
+            const data = req.body;
+            const emails = results.map((row) => row.email).toString();
+            const host = req.get('host');
+            data.host = host;
+            try {
+               const base64 = await cloundianryTool.convertImageUrlToBase64(data.img);
+               const base64Image = `data:image/png;base64,${base64}`;
+               console.log("base64Image", base64Image);
+               const result = await cloundianryTool.uploadBase64Image(base64Image);
+               data.img= result.url; 
+                const mailOptions = {
+                    from: 'tdxGroup@gmail.com',
+                    to: emails,
+                    subject: 'Thông báo từ tdxGroup',
+                    template: 'index',
+                    context:data
+                };
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log(error);
+                        return res.status(500).json({
+                            message: 'Error when send mail',
+                        });
+                    } else {
+                        return res.status(200).json({
+                            message: 'Send mail success',
+                        });
+                    }
+                });
+                
+              
+            } catch (error) {
+                console.log(error);
+                return res.status(500).json({
+                    message: 'Error when send mail',
+                });
+            }
+
+        });
+
+    }
+    saveEmail(req, res, next) {
+        const dbName = req.dbName;
+        const data = req.body;
+        user.insertEmail(dbName, data, (err, results, fields) => {
+            if (err) {
+                res.json({
+                    status: 0,
+                });
+            } else {
+                res.status(200).json({
+                    status: 1,
+                    data: results,
+                });
+            }
+        });
+    }
+
+    getMail(req, res, next) {
+        const dbName = req.dbName;
+
+        user.getMail(dbName, (err, results, fields) => {
+            if (err) {
+                res.json({
+                    status: 0,
+                });
+            } else {
+                res.status(200).json({
+                    status: 1,
+                    data: results,
+                });
+            }
+        });
+    }
     saveAgencys(req, res, next) {
         const data = req.body;
         const files = req.files;
-        return res.status(200).json({   
+        return res.status(200).json({
             status: 1,
             data: data,
         });
@@ -151,6 +230,7 @@ class ApiController {
                 // console.log('ok');
                 res.status(200).json({
                     status: 1,
+                    slug
                 });
             }
         });

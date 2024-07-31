@@ -12,7 +12,7 @@
                             <h1 class="breadcumb-title">Tin tức</h1>
                             <ul class="page-navigator">
                                 <li><a href="/">Trang chủ</a></li>
-                                <li><a href="/blog">Tin tức</a></li>
+                                <li><a href="/tin-tuc">Tin tức</a></li>
                             </ul>
                         </div>
                     </div>
@@ -94,12 +94,13 @@
             <div class="new-blog">
                 <h3 class="mb-3">Tin tức</h3>
                 {{#each news.allNews}}
-                <a href="/tin-tuc/{{this.slug}}" class="new-blog-content">
-                    <div class="row">
+                <a href="/tin-tuc/{{this.slug}}" class="new-blog-content row">
+                
                         <div class="img-box col-xl-3 col-12">
                             <div class="image-box">
-                                <img alt="blog" decoding="async" data-nimg="1"
-                                    class="h-100"
+                                <img 
+                                
+                                alt="blog" decoding="async" data-nimg="1"
                                     src="{{this.img}}">
                             </div>
                         </div>
@@ -117,7 +118,7 @@
                                 <p> {{{this.subcontent}}}</p>
                             </div>
                         </div>
-                    </div>
+                   
                 </a>
                 {{/each}}
             </div>

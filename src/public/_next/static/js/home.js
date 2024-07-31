@@ -1,3 +1,5 @@
+
+
 // carousel certificert
 try {
     var swiper = new Swiper('.mySwiper', {
@@ -194,4 +196,33 @@ try {
     console.log(error);
 }
 
+//handle email sections
+const formEmail = $('.Subscribe-form')
+const btnSubmit = formEmail.find('button[type="submit"]');
+const inputEmail = formEmail.find('input[type="email"]');
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const loader  = $('.loader');
+function validateEmail(email) {
+  return emailPattern.test(email);
+}
+btnSubmit.click( async() =>{
+ 
+    const email = inputEmail.val();
+    if(validateEmail(email)){
+     try {
+      loader.show();
+      await axios.post('/api/email', {email})
+
+      toastr.success('Đăng ký nhận tin thành công !!.', 'Success!')
+      inputEmail.val('');
+      loader.hide();
+     }
+      catch (error) {
+        console.log(error);
+        toastr.error('Đăng ký nhận tin thất bại !!.', 'Inconceivable!')
+     }
+    }else{
+      toastr.error('Email không đúng định dạng !!.', 'Inconceivable!')
+    }
+});
 AOS.init();

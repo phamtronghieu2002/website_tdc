@@ -312,7 +312,7 @@
 
   .footer-widget .footer-widget-content .footer-links ul li a {
     color: #dee2e6;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .fa-solid,
@@ -466,6 +466,7 @@
 
   .hero-content {
     margin-right: 0;
+    z-index: 1;
   }
 
   .hero-content h1.hero-title {
@@ -993,11 +994,13 @@
 
   .newslatter-style2 {
     padding: 28px 20px;
+    margin-bottom: -60px;
   }
 
   .newslatter-style2 .newslatter-text {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 24px;
+    text-align: left;
   }
 
   .newslatter .Subscribe-form button {
@@ -1013,7 +1016,6 @@
   .Subscribe-form input.form-control {
     padding: 13px 20px !important;
     width: 100%;
-    margin-bottom: 30px;
   }
 
   .Subscribe-form button {
@@ -1139,7 +1141,10 @@
     height: 100%;
   }
   .title-solution h2{
-    font-size: 30px;
+    font-size: 30px;  
+  }
+  .hero-content h1.hero-title{
+    font-size: 41px;
   }
 }
 

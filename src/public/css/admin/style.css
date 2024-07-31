@@ -2340,7 +2340,8 @@ table .order-tr {
 }
 .news-item .news-infor {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  font-style: italic;
 }
 .news-item span {
   font-size: 1.3rem;

@@ -286,5 +286,3 @@ const renderMainSection=()=>{
 }
 renderHeaderSection()
 renderMainSection()
-
-

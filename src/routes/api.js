@@ -106,4 +106,9 @@ router.get("/all-solutions",SolutionControllers.handleGetAllSolutions);
 router.delete(
   "/solutions/:id",SolutionControllers.handleDeleteSolutionById
 );
+
+router.post("/email", ApiControllers.saveEmail);
+router.post("/sendMail", ApiControllers.sendMail);
+router.get("/email", ApiControllers.getMail);
+
 module.exports = router;

@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+</head>
+<body>
+
+<div class="container">
+  <a
+  
+   href="http://{{host}}/tin-tuc/{{slug}}"
+     class="blog-sidebar-box-item blog-item d-sm-flex wow fadeInUp"
+     data-wow-delay="500ms" data-wow-duration="1500ms"
+     style="
+     text-decoration: none !important;
+
+     margin-bottom: 15px !important; padding-bottom: 15px !important; border-bottom: 1px solid rgba(56, 56, 56, 0.2) !important; cursor: pointer !important;">
+    <div class="img-box" style="border-radius: 3px !important; overflow: hidden !important; position: relative !important; flex: 1.5 !important;">
+      <img alt="blog" loading="lazy" 
+           decoding="async" data-nimg="1" class="h-100"
+           src="{{img}}" style="width: 50% !important;height: 30%; transition: all 0.3s linear !important; object-fit: cover !important;">
+    </div>
+    <div class="content-box" style="display: inline-block !important; flex: 3 !important;width: 50%; padding-top: 20px;">
+      <div class="meta-box">
+        <div class="meta-info d-flex">
+          <div class="icon">
+            <i class="flaticon-calendar"></i>
+          </div>
+          <span>{{date}}</span>
+        </div>
+      </div>
+      <div class="title-box">
+        <h3 style="font-size: 26px !important; !important;color: black !important; text-decoration: underline !important;">
+          {{title}}
+        </h3>
+        <h3 style="color: black !important;">
+          {{subcontent}}
+        </h3>
+      </div>
+      <div class="btn-box" style="margin-top: 10px !important;">
+        <div class="read-more">
+          <span class="txt" style="text-decoration: underline;">Đọc thêm</span><i
+            class="flaticon-right-arrow"></i></div>
+      </div>
+
+    </div>
+  </a>
+</div>
+</body>
+</html>
