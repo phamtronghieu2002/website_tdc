@@ -945,11 +945,12 @@
     border-radius: 10px;
     object-fit: cover;
     width: 100%;
+    height: 100%;
   }
 
-  .new-blog .content-box {
+  /* .new-blog .content-box {
     padding-left: 12px;
-  }
+  } */
 
   .new-blog-content .meta-box {
     margin: 5px 0;
@@ -1105,13 +1106,9 @@
   form.itco-cform .contact-field {
     margin-bottom: 12px;
   }
-
-  .itco-form-btn {
-    text-align: center;
-  }
-
+  
   .breadcumb-content h1.breadcumb-title {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   .phone-email {
@@ -1157,6 +1154,9 @@
 .sec-title {
   font-size: 32px;
   line-height: 48px;
+}
+.contact-page-sec .sec-content{
+  margin-bottom: 30px;
 }
 
 

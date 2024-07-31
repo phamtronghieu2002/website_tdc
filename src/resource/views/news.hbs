@@ -87,9 +87,10 @@
                 <h3 class="mb-3">Tin tức</h3>
                 {{#each news.allNews}}
                 <a href="/tin-tuc/{{this.slug}}" class="new-blog-content row">
+
                     <div class="img-box col-xl-3 col-12">
                         <div class="image-box">
-                            <img alt="blog" decoding="async" data-nimg="1" width="280" height="140" src="{{this.img}}">
+                            <img alt="blog" decoding="async" data-nimg="1" src="{{this.img}}">
                         </div>
                     </div>
                     <div class="content-box col-xl-9 col-12">
@@ -105,7 +106,8 @@
                         <div class="sub-content-box">
                             <p> {{{this.subcontent}}}</p>
                         </div>
-                   
+                    </div>
+
                 </a>
                 {{/each}}
             </div>
