@@ -7,6 +7,29 @@ var User = {
     // getAllUser: function (callback) {
     //     return connection.query('Select * from `data_users`', callback);
     // },
+    updateRegisterSolutions:function (dbName,data, callback) {
+        return connection.query(
+            dbName,
+            'update  register_solutions set isCheck = ? where id = ?',
+            [data.isCheck, data.id],
+            callback,
+        );
+    },
+    getRegisterSolutions:function (dbName, callback) {
+        return connection.query(
+            dbName,
+            'select * from register_solutions',
+            callback,
+        );
+    },
+    insertRegisterSolutions: function (dbName, data, callback) {
+        return connection.query(
+            dbName,
+            'insert into register_solutions(username,phonenumber,province,message,createdAt,isCheck,care) values(?,?,?,?,?,?,?)',
+            [data.username , data.phonenumber, data.province, data.message,new Date(),false,data.care],
+            callback,
+        );
+    },
     insertEmail: function (dbName, data, callback) {
         return connection.query(
             dbName,

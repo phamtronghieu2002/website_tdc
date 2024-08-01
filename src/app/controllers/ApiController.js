@@ -4,6 +4,54 @@ const tools = require('../../util/tools');
 const transporter = require('../../util/sendMail');
 const cloundianryTool = require('../../util/cloudianary');
 class ApiController {
+
+      updateRegisterSolution(req, res, next){
+        const dbName = req.dbName;
+        const data = req.body;
+        user.updateRegisterSolutions(dbName,data, (err, results, fields) => {
+            if (err) {
+                res.json({
+                    status: 0,
+                });
+            } else {
+                res.status(200).json({
+                    status: 1,
+                    data: results,
+                });
+            }
+        });
+    }
+    getRegisterSolution(req, res, next){
+        const dbName = req.dbName;
+        user.getRegisterSolutions(dbName, (err, results, fields) => {
+            if (err) {
+                res.json({
+                    status: 0,
+                });
+            } else {
+                res.status(200).json({
+                    status: 1,
+                    data: results,
+                });
+            }
+        });
+    }
+    registerSolution(req, res, next) {
+        const dbName = req.dbName;
+        const data = req.body;
+        user.insertRegisterSolutions(dbName, data, (err, results, fields) => {
+            if (err) {
+                res.json({
+                    status: 0,
+                });
+            } else {
+                res.status(200).json({
+                    status: 1,
+                    data: results,
+                });
+            }
+        });
+    }
     sendMail(req, res, next) {
 
         const dbName = req.dbName;
@@ -49,6 +97,7 @@ class ApiController {
         });
 
     }
+    
     saveEmail(req, res, next) {
         const dbName = req.dbName;
         const data = req.body;

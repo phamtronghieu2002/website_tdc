@@ -1,8 +1,57 @@
+
+
 const render = {
+  customerRegisterSolutions() {
+    axios.get("/api/getCustomersRegister").then(res => {
+      const data = res.data.data
+      mainContent.innerHTML = components.registerCustomerSolutionPage(data);
+     
+      $('#customer_register_table').DataTable();
+      const checkStatus = $('.check_status')
+      checkStatus.on('change', function() {
+        const isChecked = $(this).is(':checked')
+         try {
+          tools.displayOpacity("show", `xác nhận đã tư vấn cho khách này?`);
+          tools.confirm(() => {
+       
+            
+            axios.put(`/api/updateCustomersRegister`,{
+              id: $(this).attr('data-id'),
+              isCheck: isChecked
+            }).then((feedback) => {
+              if (feedback.data.status === 1) {
+                tools.displayOpacity("hidden");
+                showToast(
+                  "Thành công",
+                  "success",
+                  "Đã cập nhật",
+                  toast_duration
+                );
+             
+              } else {
+                tools.displayOpacity("hidden");
+                showToast(
+                  `Có lỗi`,
+                  "error",
+                  `Mã lỗi: <b> UPDx0${feedback.data.status}</b>`,
+                  toast_duration
+                );
+              }
+            });
+          });
+         } catch (error) {
+          
+         }
+      })
+    }).catch(error => console.log(error))
+
+
+
+  },
   solutionPage() {
     axios.get('/api/all-solutions').then((res) => {
-       dataSolutions = res.data;
-  
+      dataSolutions = res.data;
+
       mainContent.innerHTML = components.solutionPage.mainPage(dataSolutions);
       handleEvent.handleSolutionMainPage();
     });
@@ -11,11 +60,11 @@ const render = {
   solutionPageAddUI() {
     mainContent.innerHTML = components.solutionPage.addSolutionPage();
     handleEvent.handleSolutionAddPage();
-  
+
   },
   agencyPage() {
-    mainContent.innerHTML = components.agencyPage();   
-    handleEvent.handleAgentPage();    
+    mainContent.innerHTML = components.agencyPage();
+    handleEvent.handleAgentPage();
   },
   homePage: function () {
     tools.getData(HOME_CONTENT_API).then((homeView) => {

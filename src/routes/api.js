@@ -110,5 +110,7 @@ router.delete(
 router.post("/email", ApiControllers.saveEmail);
 router.post("/sendMail", ApiControllers.sendMail);
 router.get("/email", ApiControllers.getMail);
-
+router.post("/registerSolution", ApiControllers.registerSolution);
+router.get("/getCustomersRegister", ApiControllers.getRegisterSolution);
+router.put("/updateCustomersRegister", ApiControllers.updateRegisterSolution);
 module.exports = router;

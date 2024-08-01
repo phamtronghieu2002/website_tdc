@@ -2,6 +2,61 @@
     /* <button class="edit-text-home-save-btn button-circle" ><i class="fas fa-save"></i></button> */
 }
 const components = {
+    registerCustomerSolutionPage(data) {
+        function formatDateToYYYYMMDD(dateString) {
+            // Tạo một đối tượng Date từ chuỗi ngày giờ
+            const dateObj = new Date(dateString);
+        
+            // Lấy năm, tháng và ngày từ đối tượng Date
+            const year = dateObj.getUTCFullYear();
+            const month = (dateObj.getUTCMonth() + 1).toString().padStart(2, '0'); // Thêm 1 vì tháng trong Date bắt đầu từ 0
+            const day = dateObj.getUTCDate().toString().padStart(2, '0');
+        
+            // Định dạng lại thành chuỗi YYYY-MM-DD
+            return `${year}-${month}-${day}`;
+        }
+
+
+        return `
+    <div class="main-title-layout">
+        <h3 class="orange main-title-text">Khách hàng quan tâm</h3>
+     </div>
+
+                        <table class="table" id="customer_register_table">
+  <thead>
+    <tr>
+      <th scope="col">Họ tên</th>
+      <th scope="col">Tỉnh thành</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Lời nhắn</th>
+      <th scope="col">Thời gian</th>
+      <th scope="col">Đã tư vấn</th>
+    </tr>
+  </thead>
+  <tbody>
+          ${data.map(item => `
+                   <tr>
+      <th scope="row">${item.username}</th>
+      <td>${item.province}</td>
+      <td>${item.phonenumber}</td>
+      <td>
+       <textarea class="form-control">${item.message}</textarea>
+      </td>
+      <td>${formatDateToYYYYMMDD(item.createdAt)}</td>
+      <td>
+        <input data-id=${item.id} class="check_status"  type ="checkbox"  ${item.isCheck ?  "checked" :""}/>
+      </td>
+          
+    </tr>
+                `).join('')
+            }  
+ 
+  </tbody>
+</table>
+
+                
+                `
+    },
     solutionPage: {
         header({ action }) {
             return `
@@ -3587,11 +3642,19 @@ const components = {
                                         <h2>Nhãn hàng</h2>
                                     </div>
                                 </div>
+                                   <div class="main-option-l1 main-option" tab="registerSolutions-page">
+                                    <div class="main-option-l1-inner">
+                                        <i class="fas fa-caret-right"></i>
+                                        <h2>Khách hàng</h2>
+                                    </div>
+                                </div>
                                 <div class="main-option-l1 main-option" tab="solutions-page">
                                     <div class="main-option-l1-inner">
                                         <i class="fas fa-caret-right"></i>
                                         <h2>Giải pháp</h2>
                                 </div>
+                                
+                                
                               
                                 </div>
                                 <div class="main-option-l1 main-option" tab="advertisement-page">

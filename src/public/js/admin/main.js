@@ -110,6 +110,10 @@ const app = {
                 render.agencyPage();
                 break;
             }
+            case 'registerSolutions-page':{
+                render.customerRegisterSolutions();
+                break;
+            }
             case 'products': {
                 render.productsPage();
                 break;

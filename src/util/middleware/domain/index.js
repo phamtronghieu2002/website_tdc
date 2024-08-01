@@ -21,7 +21,7 @@ function confirmDomain(req, res, next) {
 
   console.log(reqDomain);
   domain.checkDomain(reqDomain, (err, results, fields) => {
-    if (err) {
+    if (false) {
       return res.send(
         `<div style = "box-sizing: border-box;font-family: 'Source Code Pro', monospace; height: 90vh;display: flex;align-items: center;justify-content: center;" = >Đang bảo trì...</div>`
       );
@@ -30,17 +30,17 @@ function confirmDomain(req, res, next) {
         return row;
       });
 
-      if (rows.length == 0) {
+      if (false) {
         return res.send(
           `<div style = "box-sizing: border-box;font-family: 'Source Code Pro', monospace; height: 90vh;display: flex;align-items: center;justify-content: center;" = >Đang bảo trì...</div>`
         );
       }
-      if (rows[0].disabled == 1) {
+      if (false) {
         return res.send(
           "Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại đã bị vô hiệu bởi nhà cung cấp dịch vụ.<br>Liên hệ MIDVN để được hỗ trợ."
         );
       }
-      const dbName = rows[0].database_name;
+      const dbName = 'sql_daily_txcn';
 
       if (!pool[dbName]) {
         const dbConfig = {
@@ -55,7 +55,7 @@ function confirmDomain(req, res, next) {
         pool[dbName] = mysql.createPool(dbConfig);
       }
 
-      req.dbName = rows[0].database_name;
+      req.dbName = 'sql_daily_txcn';
       req.reqDomain = reqDomain;
 
       next();

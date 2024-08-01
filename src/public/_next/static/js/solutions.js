@@ -1,11 +1,10 @@
-;
 
 // variables
-const headerSectionSolutions =document.querySelector('.header-section-solutions')
-const Components =  {
-    province:()=> {
-return `
- <select class="form-select" name="province_id"
+const headerSectionSolutions = document.querySelector('.header-section-solutions')
+const Components = {
+    province: () => {
+        return `
+ <select class="form-select select-province" name="province_id"
                                                     data-gtm-form-interact-field-id="2">
                                                     <option value="0" selected="" disabled="">Khu vực</option>
                                                     <option value="101">Hà&nbsp;Nội</option>
@@ -74,7 +73,7 @@ return `
                                                 </select>
 `
     },
-    headerSection:(data)=>{
+    headerSection: (data) => {
         return data.map(item => `
                  <div class="col-md-6 col-lg-4">
                     <div class="single-service-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms"
@@ -95,12 +94,12 @@ return `
                 </div>
             `).join('')
     },
-    mainSection:(data)=>{
+    mainSection: (data) => {
         return data.map(item => `
-              <section id="section-solution-${item.id}" class="solution sec-ptb  ">
+              <section id="section-solution-${item.id}" class="solution sec-ptb">
         <div class="container">
             <div class="title-solution">
-                <h2>THIẾT BỊ CẢM BIẾN DẦU</h2>
+                <h2>${item.name}</h2>
                 <p class="text-center">Giải pháp hoàn hảo để quản lý nhiên liệu.</p>
             </div>
 
@@ -112,24 +111,24 @@ return `
                 <div class="col-lg-6 mb-5">
                   <div class="slider-product">
                         <div class=" slider fade1">
-                            ${item.images.map(item=>`
+                            ${item.images.map(item => `
                                  
                               <div style="height: 350px;">
                                 <img src="/static/images/solutions/${item}" alt="Second slide">
                             </div>
                              `
-                            ).join('')}
+        ).join('')}
                    
                         </div>
                         <div class="slider slider-nav">
-                            ${item.images.map(item=>`
+                            ${item.images.map(item => `
                                   <div> 
                             <img class="d-block"
                              src="/static/images/solutions/${item}"
                             alt="Third slide">
                             </div>
                              `
-                            ).join('')}
+        ).join('')}
                    
                         </div>
                         <div class="support-btn">
@@ -143,28 +142,36 @@ return `
                             <div class="modal fade" id="form-support" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Đăng ký nhận tư vấn</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="modal-item"> <input class="form-control" type="text"
-                                                    placeholder="Nhập họ tên" name="fullname">
+                                            <div class="modal-item">
+                                                 <input class="form-control fullname" type="text" placeholder="Nhập họ tên" name="fullname">
                                             </div>
-                                            <div class="modal-item"> <input class="form-control" type="text"
-                                                    placeholder="Nhập số điện thoại  " name="phone">
+                                            <div class="modal-item"> 
+                                                <input class="form-control phonenumber" type="text"
+                                                    placeholder="Nhập số điện thoại  " name="phonenumber">
+                                            </div>
+                                              <div class="modal-item"> 
+                                                <input
+                                                hidden
+                                                value="${item.name}"
+                                                class="form-control  care" type="text"
+                                                 >
                                             </div>
                                             <div class="modal-item">
-                                                    ${Components.province()}
+                                                ${Components.province()}
                                             </div>
-                                            <div class="modal-item"><textarea class="form-control" type="text"
+                                            <div class="modal-item"><textarea class="form-control message" type="text"
                                                     placeholder="Nhập lời nhắn" name="message"
                                                     data-gtm-form-interact-field-id="3"></textarea></div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Gửi</button>
+                                            <button type="button" class="btn btn-primary btn_register_solution">Gửi</button>
                                         </div>
                                     </div>
                                 </div>
@@ -229,18 +236,18 @@ return `
        `).join('')
     }
 }
-const renderHeaderSection=()=>{
-    
-        headerSectionSolutions.innerHTML=Components.headerSection(Datasolutions)
+const renderHeaderSection = () => {
+
+    headerSectionSolutions.innerHTML = Components.headerSection(Datasolutions)
 
 }
 
-const renderMainSection=()=>{
-   const mainSectionSolutions=document.querySelector('.main-section-solutions')
-    mainSectionSolutions.innerHTML=Components.mainSection(Datasolutions)
-    $(document).ready(function() {
+const renderMainSection = () => {
+    const mainSectionSolutions = document.querySelector('.main-section-solutions')
+    mainSectionSolutions.innerHTML = Components.mainSection(Datasolutions)
+    $(document).ready(function () {
         const smallScreenWidth = 768; // Ví dụ: 768px là ngưỡng cho màn hình nhỏ
-        
+
         function checkScreenSize() {
             if (window.innerWidth <= smallScreenWidth) {
                 $('.fade1').slick({
@@ -256,7 +263,8 @@ const renderMainSection=()=>{
                     asNavFor: '.fade1',
                     dots: true,
                     centerMode: true,
-                    focusOnSelect: true
+                    focusOnSelect: true,
+                    vertical: true 
                 });
             } else {
                 $('.fade1').slick({
@@ -272,17 +280,64 @@ const renderMainSection=()=>{
                     asNavFor: '.fade1',
                     dots: true,
                     centerMode: true,
-                    focusOnSelect: true
+                    focusOnSelect: true,
+                    vertical: true 
                 });
             }
         }
-    
+
         // Gọi hàm kiểm tra kích thước màn hình khi tải trang
         checkScreenSize();
-    
+
         // Bắt sự kiện thay đổi kích thước cửa sổ
         window.addEventListener('resize', checkScreenSize);
     })
 }
+
+
 renderHeaderSection()
 renderMainSection()
+
+
+$('#form-support').one('shown.bs.modal', function () {
+    console.log("xin chao");
+    const btn_save_register = $('.btn_register_solution')
+    btn_save_register.click(async () => {
+        const username = $('.fullname').val()
+        const phonenumber = $('.phonenumber').val()
+        const message = $('.message').val()
+        const care = $('.care').val()
+        const province = $('.select-province option:selected').text()
+
+        if (!username || !phonenumber  || !province) {
+            toastr.error('Vui lòng điển đủ thông tin !!.', 'fail!')
+            return
+        } else {
+            try {
+                const res = await axios.post("/api/registerSolution", {
+                    username,
+                    phonenumber,
+                    message,
+                    province,
+                    care
+                    
+                }
+                )
+                console.log(res.data);
+                if(res.data.status===1){
+                    toastr.success('Nhận tư vấn thành công !!.', 'thành công!')
+
+                }
+
+            } catch (error) {
+                toastr.error('Gửi lỗi vui lòng thử lại !!.', 'fail!')
+                console.log(error);
+            }
+        }
+
+
+    })
+
+});
+
+

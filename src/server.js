@@ -6,7 +6,7 @@ const { Server } = require("socket.io");
 const axios = require("axios");
 const { engine, create } = require("express-handlebars");
 const connection = require("./configs/connectDB");
-var os = require("os");
+
 
 const route = require("./routes");
 var bodyParser = require("body-parser");
@@ -14,16 +14,25 @@ const dotenv = require("dotenv");
 const path = require("path");
 const HandlebarsRegisterHelper = require("./util/handlebarsRH");
 const resize = require("./util/resizeImg");
-// const getBasicInforPage = require('./util/getData/pageBasicInfor');
-// global.inforBasicPage = {};
+var cookieParser = require('cookie-parser');
+const webPush = require('./configs/webpush');
 global.pool = {};
 var cors = require("cors");
-
+var LocalStorage = require('node-localstorage').LocalStorage
 const domainConfirmDomainMiddleWare = require("./util/middleware/domain");
 const { log } = require("console");
-app.use(cors());
+
+app.use(cors({
+  origin: ['http://localhost:4018', 'http://192.168.1.100:4018'] // Cho phép truy cập từ cả localhost và địa chỉ IP
+}));
 // resize();
 //view emgine config
+
+
+
+
+app.use(cookieParser())
+
 app.engine(
   "hbs",
   engine({
@@ -60,8 +69,7 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.use(express.json({ limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "50mb" }));
-//connect DB
-// connection.connect();
+
 
 app.use("/robots.txt", function (req, res, next) {
   res.type("text/plain");
@@ -81,12 +89,42 @@ app.use(function (req, res, next) {
   next();
 });
 
+
+global.subscriptions = [];
+
+app.post('/subscribe', (req, res) => {
+  const subscription = req.body;
+  global.subscriptions.push(subscription);
+  res.status(201).json({});
+});
+
+
+app.post('/register', (req, res) => {
+  const { name, email } = req.body;
+  console.log(name, email);
+  const payload = JSON.stringify({
+      title: '1 Khách hàng vừa yêu cầu tư vấn',
+      body: `Name: ${name}, Email: ${email}`
+  });
+  const options = {
+    TTL: 60
+};
+  subscriptions.forEach(subscription => {
+  
+      webPush.sendNotification(subscription, payload,options);
+     
+  });
+
+  res.status(201).json({ message: 'User registered and notification sent' });
+});
+
 app.use("/appapi", (req, res, next) => {
   req.isApi = true;
   next();
 });
 app.use("*", domainConfirmDomainMiddleWare);
 
+    
 // app.get('/', (req, res, next) => {
 //     res.send('<h1>Hello world_</h1>');
 //     // next;
@@ -102,6 +140,6 @@ route(app);
 //io config
 // socket.config(io, server);
 
-server.listen(PORT, () => {
+server.listen(PORT,'0.0.0.0', () => {
   console.log(`listening on *: ${PORT}`);
 });
