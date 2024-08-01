@@ -78,7 +78,8 @@ const Components = {
                  <div class="col-md-6 col-lg-4">
                     <div class="single-service-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms"
                         style="visibility: visible; animation-duration: 1500ms; animation-delay: 300ms;">
-                        <div class="img-box"><img alt="service" loading="lazy" width="auto" height="120"
+                        <div class="img-box">
+                        <img alt="service" loading="lazy" width="auto" height="120"
                                 decoding="async" data-nimg="1" class="h-h-100"
                                 src="/static/images/interface/${item.thumbnail}" style="color: transparent;"></div>
                         <div class="boxer">
@@ -102,8 +103,8 @@ const Components = {
                 <img src="/static/images/interface/${item.banner}"
                     alt="">
             </div>
-            <div class="product row mt-5">
-                <div class="col-lg-6 mb-5">
+            <div class="product row mt-5 mb-5">
+                <div class="col-lg-6 mb-2">
                   <div class="slider-product">
                         <div class=" slider fade1">
                             ${item.images.map(item => `
@@ -130,22 +131,22 @@ const Components = {
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                data-bs-target="#nav-home-${item.id}" type="button" role="tab" aria-controls="nav-home-${item.id}"
                                 aria-selected="true"> <i class="fa-solid fa-code"></i> TÍNH NĂNG  </button>
                             <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                data-bs-target="#nav-profile-${item.id}" type="button" role="tab" aria-controls="nav-profile-${item.id}"
                                 aria-selected="false"> <i class="fa-sharp fa-solid fa-gears"></i> THÔNG SỐ KỸ THUẬT</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                        <div class="tab-pane fade show active" id="nav-home-${item.id}" role="tabpanel"
                             aria-labelledby="nav-home-tab" tabindex="0">
                                     <div class="content">
                                         ${item.content}
                                     </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+                        <div class="tab-pane fade" id="nav-profile-${item.id}" role="tabpanel" aria-labelledby="nav-profile-tab"
                             tabindex="0">
                             <div class="solution-des">
                                     <div class="content">
