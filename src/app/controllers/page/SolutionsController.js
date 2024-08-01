@@ -7,6 +7,7 @@ class SolutionsController {
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
         const template_id = inforBasicPage.companyInfor.information[0].template_id || '';
+        const lang = req.params.lang  || 'vi';
         if (!inforBasicPage || !dbName) {
             return res.send('Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source.');
         }
@@ -36,6 +37,8 @@ class SolutionsController {
                     layout: 'main' + template_id,
                     style: 'solutions' + template_id,
                     classwrapper: 'page',
+                    language: JSON.stringify({lang}),
+                    lang,
                     active: 3,
                     root: inforBasicPage.root,
                     companyInfor: inforBasicPage.companyInfor,

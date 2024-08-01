@@ -5,7 +5,7 @@ class HomeController {
   async index(req, res, next) {
     const dbName = req.dbName;
     const inforBasicPage = req.inforBasicPage;
-
+    const lang = req.params.lang  || 'vi';
     if (!inforBasicPage || !dbName) {
       return res.send(
         "Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source."
@@ -93,7 +93,10 @@ class HomeController {
               style: "home" + template_id,
               classwrapper: "homePage",
               active: 0,
+           
               content: contentRows,
+              language: JSON.stringify({lang}),
+              lang,
               root: inforBasicPage.root,
               companyInfor: inforBasicPage.companyInfor,
               agencysImages,

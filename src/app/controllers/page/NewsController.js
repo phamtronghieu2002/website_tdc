@@ -5,11 +5,12 @@ class NewsController {
        
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
+        const lang = req.params.lang  || 'vi';
+        console.log("lang",lang);
         if (!inforBasicPage || !dbName) {
             return res.send('Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source.');
         }
         const template_id = inforBasicPage.companyInfor.information[0].template_id || '';
-
         pageInterface.getDataNewsPage(dbName, (err, results, fields) => {
             if (err) {
                 res.render('error');
@@ -37,6 +38,8 @@ class NewsController {
                     layout: 'main' + template_id,
                     style: 'news' + template_id,
                     classwrapper: 'page',
+                    language: JSON.stringify({lang}),
+                    lang,
                     active: 3,
                     root: inforBasicPage.root,
                     companyInfor: inforBasicPage.companyInfor,
@@ -88,6 +91,8 @@ class NewsController {
                     title: newsRows[0].title,
                     style: 'newsDetail' + template_id,
                     classwrapper: 'page',
+                    language: JSON.stringify({lang}),
+                    lang,
                     active: 3,
                     root: inforBasicPage.root,
                     companyInfor: inforBasicPage.companyInfor,
@@ -133,6 +138,8 @@ class NewsController {
                     classwrapper: 'page',
                     active: 3,
                     root: inforBasicPage.root,
+                    language: JSON.stringify({lang}),
+                    lang,
                     companyInfor: inforBasicPage.companyInfor,
                     news: {
                         featuredMain: featuredMain,

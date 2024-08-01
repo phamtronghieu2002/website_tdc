@@ -1,8 +1,10 @@
+const { json } = require('body-parser');
 const pageInterface = require('../../models/PageInterface');
 
 class IntroduceController {
     index(req, res, next) {
         // console.log(req.data);
+       const lang = req.params.lang  || 'vi';
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
         if (!inforBasicPage || !dbName) {
@@ -55,6 +57,8 @@ class IntroduceController {
                     style: 'introduce' + template_id,
                     classwrapper: 'page',
                     active: 4,
+                    language: JSON.stringify({lang}),
+                    lang,
                     content: contentRows,
                     root: inforBasicPage.root,
                     companyInfor: inforBasicPage.companyInfor,

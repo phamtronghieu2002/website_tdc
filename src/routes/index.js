@@ -20,7 +20,7 @@ const docsPageRouter = require("./page/docs");
 const eventPageRouter = require("./page/event");
 const solutionsPageRouter = require("./page/solutions");
 function route(app) {
-  app.use("/", homePageRouter);
+
 
   app.use("/auth", authRouter);
   app.use("/api", apiRouter);
@@ -29,7 +29,7 @@ function route(app) {
   app.use("/order", orderRouter);
   app.use("/pageinterface", pageInterfaceRouter);
 
-  app.use("/trang-chu", homePageRouter);
+
   app.use("/gioi-thieu", introducePageRouter);
   //   app.use("/san-pham", productPageRouter);
   //   app.use("/dich-vu", servicePageRouter);
@@ -40,11 +40,12 @@ function route(app) {
   //   app.use("/gio-hang", cartPageRouter);
   app.use("/thanh-toan", orderPageRouter);
   app.use("/admin", adminPageRouter);
+  app.use("/trang-chu", homePageRouter);
   app.use("/tim-kiem", searchPageRouter);
   app.use("/chinh-sach", policysPageRouter);
   app.use("/tai-lieu", docsPageRouter);
   app.use("/su-kien", eventPageRouter);
-
+  app.use("/", homePageRouter);
   app.use("/:slug", productPageRouter);
 }
 

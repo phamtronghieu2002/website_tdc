@@ -176,6 +176,26 @@ function HandlebarsRegisterHelper(hbs) {
         `;
   });
 
+  hbs.handlebars.registerHelper("menuItems", function (lang="") {
+
+    const langPath = lang && lang =="en" ? `/${lang}` : "";
+       return `
+          <a class="nav-link" href="${langPath}" data-lang="home">Trang chủ</a>
+</li>
+<li class="menu-item-has-children">
+  <a class="nav-link" href='/gioi-thieu${langPath}' data-lang="about">Giới thiệu</a>
+</li>
+<li class="menu-item-has-children">
+  <a class="nav-link" href="/giai-phap${langPath}" data-lang="solutions">Giải pháp</a>
+</li>
+<li class="menu-item-has-children">
+  <a class="nav-link" href='/tin-tuc${langPath}' data-lang="news">Tin tức</a>
+</li>
+<li class="menu-item-has-children">
+  <a class="nav-link" href='/lien-he${langPath}' data-lang="contact">Liên hệ</a>
+</li>
+       `     
+  });
   hbs.handlebars.registerHelper("dateFormatDDMMYY", function (date) {
     // console.log(date);
     d = new Date(date);

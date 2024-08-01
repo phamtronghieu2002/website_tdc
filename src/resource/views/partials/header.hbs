@@ -11,14 +11,14 @@
               </div>
               <i onclick="ToggleMenuMobile(true)" class="fas fa-bars position-absolute start-0"
                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
-              {{!-- <div class="change-lang-wrapper  position-absolute end-0">
+              <div class="change-lang-wrapper  position-absolute end-0">
                 <div class="div flag d-none">
                   <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
                 </div>
                 <div class="flag">
                   <img width="48" height="35" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
                 </div>
-              </div> --}}
+              </div>
             </div>
             <div class="menu-wrap">
               <nav class="menu-nav">
@@ -79,19 +79,10 @@
                       <div class="navbar-wrap main-menu">
                         <ul class="navigation">
                           <li class="menu-item-has-children">
-                            <a class="nav-link" href="/">Trang chủ</a>
-                          </li>
-                          <li class="menu-item-has-children">
-                            <a class="nav-link" href='/gioi-thieu'>Giới thiệu</a>
-                          </li>
-                          <li  class="menu-item-has-children">
-                            <a class="nav-link" href="/giai-phap">Giải pháp</a>
-                          </li>
-                          <li class="menu-item-has-children">
-                            <a class="nav-link" href='/tin-tuc'>Tin tức</a>
-                          </li>
-                          <li class="menu-item-has-children">
-                            <a class="nav-link" href='/lien-he'>Liên hệ</a>
+                        <li>
+
+                                {{#menuItems lang}}{{/menuItems}}
+
                           </li>
                         </ul>
                       </div>
@@ -101,10 +92,10 @@
                       <div class="btn-box">
                         <a target="_blank" aria-label="Đăng Nhập" class="thm-btn"
                           href="https://my.taixecongnghe.com/login">
-                          <span class="txt">Đăng Nhập</span>
+                          <span class="txt" data-lang="login_title">Đăng Nhập</span>
                         </a>
                       </div>
-                      {{!-- <div style="margin-right: -22px;
+                      <div style="margin-right: -22px;
     margin-left: 30px;" class="change-lang-wrapper">
                         <div class="div flag d-none">
                           <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
@@ -112,7 +103,7 @@
                         <div class="flag">
                           <img width="43" height="30" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
                         </div>
-                      </div> --}}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -344,31 +335,31 @@
                     background-color: #f3f3f3;
                   }
                 </style>
-                <li class="ps-menuitem-root css-1t8x7v1">
-                  <a class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0" href="/gioi-thieu"><span
-                      class="ps-menu-label css-12w9als">
-                      <div data-bs-dismiss="offcanvas" aria-label="Close">
-                        Giới thiệu
-                      </div>
-                    </span></a>
-                </li>
-                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
-                  <a 
-                  href="/giai-phap"
-                  class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0"><span>Giải pháp</span>
-                  </a>
-                </li>
-                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
-                  <a 
-                  href='/tin-tuc'
-                  class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0"><span>Tin tức</span>
-                  </a>
-                </li>
-                <li class="ps-menuitem-root ps-submenu-root css-16jesut">
-                  <a 
-                  href='/lien-he'
-                  class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0">Liên hệ</span></span></a>
-                </li>
+         <li class="ps-menuitem-root css-1t8x7v1">
+  <a class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0" href="/gioi-thieu">
+    <span class="ps-menu-label css-12w9als">
+      <div data-bs-dismiss="offcanvas" aria-label="Close" data-lang="about">
+        Giới thiệu
+      </div>
+    </span>
+  </a>
+</li>
+<li class="ps-menuitem-root ps-submenu-root css-16jesut">
+  <a href="/giai-phap" class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0">
+    <span data-lang="solutions">Giải pháp</span>
+  </a>
+</li>
+<li class="ps-menuitem-root ps-submenu-root css-16jesut">
+  <a href='/tin-tuc' class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0">
+    <span data-lang="news">Tin tức</span>
+  </a>
+</li>
+<li class="ps-menuitem-root ps-submenu-root css-16jesut">
+  <a href='/lien-he' class="ps-menu-button" data-testid="ps-menu-button-test-id" tabindex="0">
+    <span data-lang="contact">Liên hệ</span>
+  </a>
+</li>
+
               </ul>
             </nav>
           </div>

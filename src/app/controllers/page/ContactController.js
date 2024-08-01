@@ -4,6 +4,7 @@ class HomeController {
     index(req, res, next) {
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
+        const lang = req.params.lang  || 'vi';
         if (!inforBasicPage || !dbName) {
             return res.send('Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source.');
         }
@@ -28,6 +29,8 @@ class HomeController {
                     title: 'Liên hệ',
                     style: 'contact' + template_id,
                     classwrapper: 'page',
+                    language: JSON.stringify({lang}),
+                    lang,
                     active: 5,
                     content: contentRows,
                     root: inforBasicPage.root,

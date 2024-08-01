@@ -5089,7 +5089,7 @@ footer ul {
 }
 
 .slider img {
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
 
@@ -5139,8 +5139,8 @@ footer ul {
 .slider-nav img {
     border: 1px solid;
     border-radius: 15px;
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
     object-fit: cover;
 }
 
@@ -5207,7 +5207,7 @@ footer ul {
 /* modal */
 .support-btn {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .modal-backdrop.show {
@@ -5427,12 +5427,18 @@ footer ul {
     width: 100%;
 }
 .product .content{
-    border: 2px dashed var(--thm-primary);
-    padding: 15px;
+    border: 2px solid var(--thm-primary);
+    padding: 20px;
     border-top: 0;
     margin-top: -21px;
     height: 450px;
     width: 100%;
     overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(176, 172, 172) transparent;   
+
 }
 
+.main-section-solutions .fade:not(.show) {
+    display: none;
+}
