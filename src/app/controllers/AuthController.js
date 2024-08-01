@@ -73,6 +73,8 @@ class AuthController {
                         // console.log(rs);
                         if (rs) {
                             const accessToken = jwt.sign({ id: results[0].id, code: 'code' }, process.env.JWT_KEY);
+                            //set cookies
+            
                             return res.status(200).json({
                                 status: 1,
                                 userData: {

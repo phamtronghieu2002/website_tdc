@@ -5329,6 +5329,7 @@ footer ul {
     width: 100%;
     height: 550px;
     display: inline-block;
+    object-fit: cover;
 }
 
 .homePage .footer-sec {
