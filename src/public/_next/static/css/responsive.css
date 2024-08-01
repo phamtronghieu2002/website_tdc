@@ -1106,7 +1106,7 @@
   form.itco-cform .contact-field {
     margin-bottom: 12px;
   }
-  
+
   .breadcumb-content h1.breadcumb-title {
     font-size: 35px;
   }
@@ -1260,7 +1260,8 @@
 }
 
 .mobile-menu-unset .social-links ul {
-  justify-content: flex-start;
+  justify-content: center !important;;
+  
 }
 
 .ui-active-parent-1 {

@@ -2126,6 +2126,9 @@ h6 {
 .sec-ptb {
     padding: 100px 0px 100px;
 }
+.sec-ptb2{
+    padding: 50px 0;;
+}
 
 .introduce-category {
     padding: 50px 0;
@@ -2216,7 +2219,7 @@ h6 {
 
 .sec-sub-title {
     padding-bottom: 14px;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 500;
     line-height: 20px;
     color: var(--thm-teal);
@@ -2261,7 +2264,7 @@ h6 {
     display: block;
     position: absolute;
     background: var(--thm-teal);
-   
+
     transition: all 0.3s ease-in-out;
 }
 
@@ -5174,6 +5177,8 @@ footer ul {
 
 .slider-product {
     padding: 0 20px;
+    /* display: flex;
+    justify-content: space-between; */
 }
 
 .product-name h3,
@@ -5182,10 +5187,21 @@ footer ul {
     margin-bottom: 10px;
 }
 
-.solution-banner img {
+
+.solution-banner {
     width: 100vw;
-    /* margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw); */
+    overflow: hidden;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    background-color: #1790A1;;
+}
+
+.solution-banner img {
+    width: 80%;
+    height: 550px;
+    display: block;
+    margin: 0 auto;
+    /* object-fit: cover; */
 }
 
 /* modal */
@@ -5266,7 +5282,7 @@ footer ul {
 }
 
 .product .nav-tabs {
-    border-bottom: 1px solid var(--thm-primary);
+    border-bottom: 2px solid var(--thm-primary);
     MARGIN-BOTTOM: 20px;
 }
 
@@ -5296,19 +5312,20 @@ footer ul {
     display: none !important;
 }
 
-.about-sec .sec-images .slick-slide img {
-}   
+.about-sec .sec-images .slick-slide img {}
 
-.breadcumb-content ul{
+.breadcumb-content ul {
     list-style: none;
     padding: 0;
 }
+
 .service-list ul {
     list-style: none;
     padding: 0;
 
 }
-.about-sec .sec-images .slick-slide img{
+
+.about-sec .sec-images .slick-slide img {
     width: 100%;
     height: 550px;
     display: inline-block;
@@ -5326,21 +5343,26 @@ footer ul {
     border: 2px solid var(--thm-green);
     border-radius: 20px;
 }
-.wrapper-about-us-page .single-service-style2 .content-box .single-service-content i{
+
+.wrapper-about-us-page .single-service-style2 .content-box .single-service-content i {
     font-size: 80px;
-    color: var(--thm-teal) ;
+    color: var(--thm-teal);
 }
-.wrapper-about-us-page .single-service-style2 .content-box .single-service-content{
+
+.wrapper-about-us-page .single-service-style2 .content-box .single-service-content {
     justify-content: space-between;
     align-items: center;
     margin: 0 0 20px 0 !important;
-}   
-.wrapper-about-us-page .single-service-style2 .content-box .single-service-content h3{
+}
+
+.wrapper-about-us-page .single-service-style2 .content-box .single-service-content h3 {
     color: black !important;
 }
-.wrapper-about-us-page .title-gt{
+
+.wrapper-about-us-page .title-gt {
     color: var(--thm-green);
 }
+
 .loader {
     width: 20px;
     height: 20px;
@@ -5348,28 +5370,68 @@ footer ul {
     margin-left: 30px;
     animation: rotate 1s linear infinite;
     display: none;
-  }
-  .loader::before {
+}
+
+.loader::before {
     content: "";
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
     border: 2px solid #FFF;
-    animation: prixClipFix 2s linear infinite ;
-  }
+    animation: prixClipFix 2s linear infinite;
+}
 
-  @keyframes rotate {
-    100%   {transform: rotate(360deg)}
-  }
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
 
-  @keyframes prixClipFix {
-      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
-  }
-  .position-relative{
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+.position-relative {
     position: relative;
-  }
+}
+
+.ps-menu-button {
+    font-weight: 600;
+    font-size: 22px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(56, 56, 56, 0.3);
+}
+
+.offcanvas-backdrop {
+    height: 100%;
+    width: 100%;
+}
+.product .content{
+    border: 2px dashed var(--thm-primary);
+    padding: 15px;
+    border-top: 0;
+    margin-top: -21px;
+    height: 450px;
+    width: 100%;
+    overflow-y: auto;
+}
+

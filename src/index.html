@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Modal Example</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Vertical Slider</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
   <style>
-    .image-wrapper {
-      position: relative;
-      display: inline-block;
+    .slider-container {
+      display: flex;
+      flex-direction: row; /* Sắp xếp slider chính và nav bên cạnh nhau */
+      width: 100%;
+      height: 500px;
     }
-
-    .image-wrapper img {
+    .main-slide {
+      flex: 3;
+      overflow: hidden;
+    }
+    .slider-nav {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column; /* Đặt các phần tử con theo chiều dọc */
+      justify-content: center;
+    }
+    .slider-nav .slick-slide {
+      margin-bottom: 10px; /* Khoảng cách giữa các slide nhỏ */
+      height: 100px; /* Chiều cao của mỗi slide nhỏ */
+      width: 100%;
+    }
+    .slider-nav .slick-slide img {
       width: 100%;
       height: auto;
-      background-color: rgba(0, 128, 0, 0.309);
-      /* Green background with 50% opacity */
-      display: block;
-      opacity: 0.75;
-
-    }
-    
-    .image-wrapper .infor {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-      /* Add text shadow for better visibility */
-      padding: 10px;
-      background-color: rgba(0, 0, 0, 0.5);
-      /* Black background with 50% opacity for the text */
-      border-radius: 10px;
     }
   </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-6 mb-3" data-aos="fade-right" data-aos-duration="2500">
-     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi placeat ipsum minus dignissimos cum sit quis eaque laborum, amet nam magni a distinctio rem. Unde exercitationem consequuntur provident porro omnis.
-          </div>
-          <div class="col-lg-6 mb-3" data-aos="fade-left" data-aos-duration="2500">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quam corporis reprehenderit error laborum. Vero blanditiis facilis quam magni laborum?
-          </div>
-        </div>
-    </div>
-  
+
+<div class="slider-container">
+  <div class="main-slide fade1">
+    <div><img src="https://i.ytimg.com/vi/7Eg1xkQBVfQ/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBidBTgGrfTuloqXh2xSrv0MMGDyA" alt="Main Image 1"></div>
+    <div><img src="https://i.ytimg.com/vi/a10-_Xz6aQ4/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBBsXKC0unE__q8ZJh_SXbgtxwMLg" alt="Main Image 2"></div>
+    <div><img src="https://i.ytimg.com/vi/7Eg1xkQBVfQ/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBidBTgGrfTuloqXh2xSrv0MMGDyA" alt="Main Image 3"></div>
+    <!-- Thêm các slide chính khác nếu cần -->
+  </div>
+  <div class="slider-nav">
+    <div><img src="https://i.ytimg.com/vi/7Eg1xkQBVfQ/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBidBTgGrfTuloqXh2xSrv0MMGDyA" alt="Thumbnail 1"></div>
+    <div><img src="https://i.ytimg.com/vi/a10-_Xz6aQ4/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBBsXKC0unE__q8ZJh_SXbgtxwMLg" alt="Thumbnail 2"></div>
+    <div><img src="https://i.ytimg.com/vi/7Eg1xkQBVfQ/oar2.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLBidBTgGrfTuloqXh2xSrv0MMGDyA" alt="Thumbnail 3"></div>
+    <!-- Thêm các thumbnail khác nếu cần -->
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.fade1').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      fade: true,
+      asNavFor: '.slider-nav',
+      vertical: true // Hiển thị theo chiều dọc
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.fade1',
+      dots: true,
+      centerMode: true,
+      focusOnSelect: true,
+      vertical: true // Hiển thị theo chiều dọc
+    });
+  });
+</script>
 
 </body>
-
 </html>

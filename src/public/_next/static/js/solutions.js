@@ -1,10 +1,9 @@
-;
 
 // variables
-const headerSectionSolutions =document.querySelector('.header-section-solutions')
-const Components =  {
-    province:()=> {
-return `
+const headerSectionSolutions = document.querySelector('.header-section-solutions')
+const Components = {
+    province: () => {
+        return `
  <select class="form-select" name="province_id"
                                                     data-gtm-form-interact-field-id="2">
                                                     <option value="0" selected="" disabled="">Khu vực</option>
@@ -74,7 +73,7 @@ return `
                                                 </select>
 `
     },
-    headerSection:(data)=>{
+    headerSection: (data) => {
         return data.map(item => `
                  <div class="col-md-6 col-lg-4">
                     <div class="single-service-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms"
@@ -95,15 +94,10 @@ return `
                 </div>
             `).join('')
     },
-    mainSection:(data)=>{
+    mainSection: (data) => {
         return data.map(item => `
-              <section id="section-solution-${item.id}" class="solution sec-ptb  ">
+              <section id="section-solution-${item.id}" class="solution">
         <div class="container">
-            <div class="title-solution">
-                <h2>THIẾT BỊ CẢM BIẾN DẦU</h2>
-                <p class="text-center">Giải pháp hoàn hảo để quản lý nhiên liệu.</p>
-            </div>
-
             <div class="solution-banner">
                 <img src="/static/images/interface/${item.banner}"
                     alt="">
@@ -112,27 +106,56 @@ return `
                 <div class="col-lg-6 mb-5">
                   <div class="slider-product">
                         <div class=" slider fade1">
-                            ${item.images.map(item=>`
+                            ${item.images.map(item => `
                                  
                               <div style="height: 350px;">
-                                <img src="/static/images/solutions/${item}" alt="Second slide">
+                                <img src="/static/images/solutions/${item}" alt="Ảnh SP">
                             </div>
                              `
-                            ).join('')}
+        ).join('')}
                    
                         </div>
                         <div class="slider slider-nav">
-                            ${item.images.map(item=>`
+                            ${item.images.map(item => `
                                   <div> 
                             <img class="d-block"
-                             src="/static/images/solutions/${item}"
-                            alt="Third slide">
+                            src="/static/images/solutions/${item}"
+                            alt="Ảnh SP">
                             </div>
-                             `
-                            ).join('')}
-                   
+                             `).join('')}
                         </div>
-                        <div class="support-btn">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                aria-selected="true"> <i class="fa-solid fa-code"></i> TÍNH NĂNG  </button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                aria-selected="false"> <i class="fa-sharp fa-solid fa-gears"></i> THÔNG SỐ KỸ THUẬT</button>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab" tabindex="0">
+                                    <div class="content">
+                                        ${item.content}
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+                            tabindex="0">
+                            <div class="solution-des">
+                                    <div class="content">
+                                       ${item.technum} 
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                        <div class="support-btn">
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#form-support">
@@ -143,7 +166,7 @@ return `
                             <div class="modal fade" id="form-support" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
+                                    <div class="modal-content">a
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Đăng ký nhận tư vấn</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -170,77 +193,23 @@ return `
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6">
-                    <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                aria-selected="true">THÔNG SỐ KỸ THUẬT</button>
-                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                                aria-selected="false">TÍNH NĂNG</button>
-                        </div>
-                    </nav>
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                            aria-labelledby="nav-home-tab" tabindex="0">
-                            <div class="solution-product">
-                                <div class="product-name">
-                                    <h3>${item.name}</h3>
-                                </div>
-                                <p>
-                                  ${item.description}
-                                </p>
-                                <div class="policy">
-                                    <h3 class="i-title"><i class="fa-sharp fa-solid fa-gears"></i> Thông số kỹ thuật
-                                    </h3>
-                                    <ul class="content">
-                                        ${item.technum}
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
-                            tabindex="0">
-                            <div class="solution-des">
-                                <div class="solution-des-item">
-                                 
-                                    <div class="content-item">
-                                       <p>
-                                       ${item.content}
-                                       </p>
-                                    </div>
-                                </div>
-                           
-                            
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
             </div>
     </section>
        `).join('')
     }
 }
-const renderHeaderSection=()=>{
-    
-        headerSectionSolutions.innerHTML=Components.headerSection(Datasolutions)
+const renderHeaderSection = () => {
+
+    headerSectionSolutions.innerHTML = Components.headerSection(Datasolutions)
 
 }
 
-const renderMainSection=()=>{
-   const mainSectionSolutions=document.querySelector('.main-section-solutions')
-    mainSectionSolutions.innerHTML=Components.mainSection(Datasolutions)
-    $(document).ready(function() {
+const renderMainSection = () => {
+    const mainSectionSolutions = document.querySelector('.main-section-solutions')
+    mainSectionSolutions.innerHTML = Components.mainSection(Datasolutions)
+    $(document).ready(function () {
         const smallScreenWidth = 768; // Ví dụ: 768px là ngưỡng cho màn hình nhỏ
-        
+
         function checkScreenSize() {
             if (window.innerWidth <= smallScreenWidth) {
                 $('.fade1').slick({
@@ -256,7 +225,8 @@ const renderMainSection=()=>{
                     asNavFor: '.fade1',
                     dots: true,
                     centerMode: true,
-                    focusOnSelect: true
+                    focusOnSelect: true,
+                    vertical: true
                 });
             } else {
                 $('.fade1').slick({
@@ -272,14 +242,15 @@ const renderMainSection=()=>{
                     asNavFor: '.fade1',
                     dots: true,
                     centerMode: true,
-                    focusOnSelect: true
+                    focusOnSelect: true,
+
                 });
             }
         }
-    
+
         // Gọi hàm kiểm tra kích thước màn hình khi tải trang
         checkScreenSize();
-    
+
         // Bắt sự kiện thay đổi kích thước cửa sổ
         window.addEventListener('resize', checkScreenSize);
     })
