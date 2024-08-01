@@ -945,11 +945,12 @@
     border-radius: 10px;
     object-fit: cover;
     width: 100%;
+    height: 100%;
   }
 
-  .new-blog .content-box {
+  /* .new-blog .content-box {
     padding-left: 12px;
-  }
+  } */
 
   .new-blog-content .meta-box {
     margin: 5px 0;
@@ -994,7 +995,7 @@
 
   .newslatter-style2 {
     padding: 28px 20px;
-    margin-bottom: -60px;
+    margin-bottom: -86px;
   }
 
   .newslatter-style2 .newslatter-text {
@@ -1106,12 +1107,8 @@
     margin-bottom: 12px;
   }
 
-  .itco-form-btn {
-    text-align: center;
-  }
-
   .breadcumb-content h1.breadcumb-title {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   .phone-email {
@@ -1146,6 +1143,23 @@
   .hero-content h1.hero-title{
     font-size: 41px;
   }
+  .about-sec .sec-images .slick-slide img {
+    width: 100%;
+    height: 250px;
+    display: inline-block;
+}
+.single-service-style2 .content-box{
+  min-height: 285px;
+}
+.sec-title {
+  font-size: 32px;
+  line-height: 48px;
+}
+.contact-page-sec .sec-content{
+  margin-bottom: 30px;
+}
+
+
 }
 
 @media (max-width: 375px) {
@@ -1246,7 +1260,8 @@
 }
 
 .mobile-menu-unset .social-links ul {
-  justify-content: flex-start;
+  justify-content: center !important;;
+  
 }
 
 .ui-active-parent-1 {

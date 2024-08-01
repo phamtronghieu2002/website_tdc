@@ -137,7 +137,7 @@ const contentService2 =service2.next('.accordion-body');
 
 const secImages = $('.introduce-category .sec-images img');
 
-contentService1.hide();
+// contentService1.hide();
 contentService2.hide();
 service1.click(function () {
     $(this)

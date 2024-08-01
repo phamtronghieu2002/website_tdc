@@ -1,4 +1,4 @@
- <div class="fix wrapper-news-page page">
+<div class="fix wrapper-news-page page">
     <div id="preloader" style="display:block">
         <div id="loader"></div>
     </div>
@@ -27,11 +27,9 @@
                 <div class="col-xl-7">
                     <div class="blog-item-wrapper">
                         <!-- map -->
-                        <a href="/tin-tuc/{{news.featuredMain.0.slug}}"
-                            class="blog-left-box blog-item">
+                        <a href="/tin-tuc/{{news.featuredMain.0.slug}}" class="blog-left-box blog-item">
                             <div class="img-box">
-                                <img alt="blog" decoding="async" data-nimg="1"
-                                    class="h-100"
+                                <img alt="blog" decoding="async" data-nimg="1" class="h-100"
                                     src="{{news.featuredMain.0.img}}">
                             </div>
                             <div class="content-box">
@@ -48,8 +46,7 @@
                                     <h3>{{news.featuredMain.0.title}}</h3>
                                 </div>
                                 <div class="blog-body">
-                                    <p
-                                        class="mt-2">{{news.featuredMain.0.subcontent}}.</p>
+                                    <p class="mt-2">{{news.featuredMain.0.subcontent}}.</p>
                                 </div>
                             </div>
                         </a>
@@ -60,19 +57,14 @@
                         <div class="sidebar-item">
                             <div class="blog-recent-post footer-recent-post">
                                 {{#each news.featuredNews}}
-                                <a href='/tin-tuc/{{this.slug}}'
-                                    class="blog-sidebar-box-item blog-item d-flex">
-                                    <div class="img-box"><img alt="blog"
-                                            width="120" height="120"
-                                            decoding="async" data-nimg="1"
-                                            src="{{this.img}}"
-                                            style="color: transparent;"></div>
+                                <a href='/tin-tuc/{{this.slug}}' class="blog-sidebar-box-item blog-item d-flex">
+                                    <div class="img-box"><img alt="blog" width="120" height="120" decoding="async"
+                                            data-nimg="1" src="{{this.img}}" style="color: transparent;"></div>
                                     <div class="content-box">
                                         <div class="meta-box">
                                             <ul class="meta-info">
                                                 <li>
-                                                    <i
-                                                        class="flaticon-calendar"></i>
+                                                    <i class="flaticon-calendar"></i>
                                                     <span>{{#dateFormatDDMMYY
                                                         this.date
                                                         }}{{/dateFormatDDMMYY}}</span>
@@ -95,37 +87,34 @@
                 <h3 class="mb-3">Tin tức</h3>
                 {{#each news.allNews}}
                 <a href="/tin-tuc/{{this.slug}}" class="new-blog-content row">
-                
-                        <div class="img-box col-xl-3 col-12">
-                            <div class="image-box">
-                                <img 
-                                
-                                alt="blog" decoding="async" data-nimg="1"
-                                    src="{{this.img}}">
+
+                    <div class="img-box col-xl-3 col-12">
+                        <div class="image-box">
+                            <img alt="blog" decoding="async" data-nimg="1" src="{{this.img}}">
+                        </div>
+                    </div>
+                    <div class="content-box col-xl-9 col-12">
+                        <div class="title-box">
+                            <h4>{{this.title}}</h4>
+                        </div>
+                        <div class="meta-box">
+                            <div class="meta-info d-flex">
+                                <i class="flaticon-calendar"></i>
+                                <span>{{#dateFormatDDMMYY this.date}}{{/dateFormatDDMMYY}} </span>
                             </div>
                         </div>
-                        <div class="content-box col-xl-9 col-12">
-                            <div class="title-box">
-                                <h4>{{this.title}}</h4>
-                            </div>
-                            <div class="meta-box">
-                                <div class="meta-info d-flex">
-                                    <i class="flaticon-calendar"></i>
-                                    <span>{{#dateFormatDDMMYY this.date}}{{/dateFormatDDMMYY}} </span>
-                                </div>
-                            </div>
-                            <div class="sub-content-box">
-                                <p> {{{this.subcontent}}}</p>
-                            </div>
+                        <div class="sub-content-box">
+                            <p> {{{this.subcontent}}}</p>
                         </div>
-                   
+                    </div>
+
                 </a>
                 {{/each}}
             </div>
             <div class="paging">
                 <div class="blog-pagination">
                     <ul>
-                      {{#paging news.pageNums news.pageActive}}{{/paging}}
+                        {{#paging news.pageNums news.pageActive}}{{/paging}}
                     </ul>
                 </div>
             </div>

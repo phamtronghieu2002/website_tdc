@@ -1142,11 +1142,20 @@ const components = {
             <span class='update-all-value-title'><span class='orange'>*</span> Tên </span>
             <input  type='text' id="news-title" data-name='title' class='news-title required-infor' placeholder="Nhập tên chính sách" value='${newData.title}'/>
         </div>
+        <div class="update-all-value">
+            <span class='update-all-value-title'><span class='orange'>*</span> Tên (tiếng anh) </span>
+            <input  type='text' id="news-title" data-name='title-en' class='news-title required-infor' placeholder="Nhập tên chính sách (tiếng anh)" value='${newData.title_en}'/>
+        </div>
         
         <div class="update-all-value update-all-value-textarea">
             <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung chính sách</span>
             <textarea type='number' id="news-content-input" data-name='content'  placeholder="Viết nội dung chính sách">${newData.content}</textarea>
         </div>
+        <div class="update-all-value update-all-value-textarea">
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung chính sách (tiếng anh)</span>
+            <textarea type='number' id="news-content-input" data-name='content-en'  placeholder="Viết nội dung chính sách (tiếng anh)">${newData.content_en}</textarea>
+        </div>
+        
         `;
     },
 
@@ -1186,10 +1195,18 @@ const components = {
             <span class='update-all-value-title'><span class='orange'>*</span> Tên </span>
             <input  type='text' id="news-title" data-name='title' class='news-title required-infor' placeholder="Nhập tên chính sách" value=''/>
         </div>
+        <div class="update-all-value">
+            <span class='update-all-value-title'><span class='orange'>*</span> Tên (tiếng anh) </span>
+            <input  type='text' id="news-title" data-name='title_en' class='news-title required-infor' placeholder="Nhập tên chính sách (tiếng anh)" value=''/>
+        </div>
         
         <div class="update-all-value update-all-value-textarea">
             <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung chính sách</span>
             <textarea type='number' id="news-content-input" data-name='content'  placeholder="Viết nội dung chính sách"></textarea>
+        </div>
+        <div class="update-all-value update-all-value-textarea">
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung chính sách</span>
+            <textarea type='number' id="news-content-input" data-name='content_en'  placeholder="Viết nội dung chính sách (tiếng anh)"></textarea>
         </div>
         `;
     },

@@ -59,10 +59,9 @@ var Content = {
     addPolicys: function (dbName, data, callback) {
         return connection.query(
             dbName,
-            `insert into policys(title, content, name) value(?,?, ?)`,
-            [data.title, data.content, data.name],
-            callback,
-        );
+            `insert into policys(title, title_en, content, content_en, name, name_en) value (?,?,?,?,?,?)`,
+            [data.title, data.title_en, data.content, data.content_en, data.name, data.name_en],
+            callback,        );
     },
 
     addNews: function (dbName, data, callback) {

@@ -289,11 +289,24 @@ class ApiController {
         const dbName = req.dbName;
         // data.dbName = dbName;
         if (data.title) {
+            console.log(data.title);
             const slug =
                 tools.removeAccents(data.title).toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') +
                 '-' +
                 Math.floor(Math.random() * 1000000);
             data.name = slug;
+        } else {
+            res.json({
+                status: 0,
+            });
+        }
+        if (data.title_en) {
+            console.log(data.title_en);
+            const slug =
+                tools.removeAccents(data.title_en).toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') +
+                '-' +
+                Math.floor(Math.random() * 1000000);
+            data.name_en = slug;
         } else {
             res.json({
                 status: 0,
