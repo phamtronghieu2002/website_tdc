@@ -131,10 +131,10 @@ const Components = {
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-home-${item.id}" type="button" role="tab" aria-controls="nav-home-${item.id}"
-                                aria-selected="true"> <i class="fa-solid fa-code"></i> TÍNH NĂNG  </button>
+                                aria-selected="true" data-lang="solutions_tinhnang"> <i class="fa-solid fa-code"></i> TÍNH NĂNG  </button>
                             <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-profile-${item.id}" type="button" role="tab" aria-controls="nav-profile-${item.id}"
-                                aria-selected="false"> <i class="fa-sharp fa-solid fa-gears"></i> THÔNG SỐ KỸ THUẬT</button>
+                                aria-selected="false" data-lang="solutions_thongso"> <i class="fa-sharp fa-solid fa-gears"></i> THÔNG SỐ KỸ THUẬT</button>
                         </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -158,7 +158,7 @@ const Components = {
                                         <div class="support-btn">
                             <!-- Button trigger modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#form-support">
+                                data-bs-target="#form-support" data-lang="solutions_dangky">
                                 ĐĂNG KÝ TƯ VẤN
                             </button>
 
@@ -168,7 +168,7 @@ const Components = {
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Đăng ký nhận tư vấn</h1>
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel" data-lang="solutions_tuvan">Đăng ký nhận tư vấn</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -195,7 +195,7 @@ const Components = {
                                                     data-gtm-form-interact-field-id="3"></textarea></div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary btn_register_solution">Gửi</button>
+                                            <button type="button" class="btn btn-primary btn_register_solution" data-lang="solutions_gui">Gửi</button>
                                         </div>
                                     </div>
                                 </div>

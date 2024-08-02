@@ -9,10 +9,10 @@
                 <div class="row">
                     <div class="col">
                         <div class="breadcumb-content">
-                            <h1 class="breadcumb-title">Tin tức</h1>
+                            <h1 class="breadcumb-title" data-lang="news">Tin tức</h1>
                             <ul class="page-navigator">
-                                <li><a href="/">Trang chủ</a></li>
-                                <li><a href="/tin-tuc">Tin tức</a></li>
+                                <li><a href="/" data-lang="home">Trang chủ</a></li>
+                                <li><a href="/tin-tuc" data-lang="news">Tin tức</a></li>
                             </ul>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
     <section class="blog-page-sec sec-ptb">
         <div class="container">
             <div class="row mb-5">
-                <h3 class="title-hot-blog mb-4">Tin tức nổi bật</h3>
+                <h3 class="title-hot-blog mb-4" data-lang="news_tinnoibat">Tin tức nổi bật</h3>
                 <div class="col-xl-7">
                     <div class="blog-item-wrapper">
                         <!-- map -->
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="new-blog">
-                <h3 class="mb-3">Tin tức</h3>
+                <h3 class="mb-3" data-lang="news">Tin tức</h3>
                 {{#each news.allNews}}
                 <a href="/tin-tuc/{{../lang}}/{{getLocalizedField this 'slug' ../lang}}" class="new-blog-content row">
 

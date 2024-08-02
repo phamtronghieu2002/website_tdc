@@ -5200,7 +5200,7 @@ footer ul {
 
 .solution-banner img {
     width: 80%;
-    height: 550px;
+    height: 600px;
     display: block;
     margin: 0 auto;
     /* object-fit: cover; */
@@ -5443,4 +5443,7 @@ footer ul {
 
 .main-section-solutions .fade:not(.show) {
     display: none;
+}
+.hero-title-en{
+    font-size: 59px !important;
 }
