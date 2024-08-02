@@ -22,9 +22,7 @@ var LocalStorage = require('node-localstorage').LocalStorage
 const domainConfirmDomainMiddleWare = require("./util/middleware/domain");
 const { log } = require("console");
 
-app.use(cors({
-  origin: ['http://localhost:4018', 'http://192.168.1.100:4018'] // Cho phép truy cập từ cả localhost và địa chỉ IP
-}));
+app.use(cors());
 // resize();
 //view emgine config
 
@@ -90,33 +88,9 @@ app.use(function (req, res, next) {
 });
 
 
-global.subscriptions = [];
-
-app.post('/subscribe', (req, res) => {
-  const subscription = req.body;
-  global.subscriptions.push(subscription);
-  res.status(201).json({});
-});
 
 
-app.post('/register', (req, res) => {
-  const { name, email } = req.body;
-  console.log(name, email);
-  const payload = JSON.stringify({
-      title: '1 Khách hàng vừa yêu cầu tư vấn',
-      body: `Name: ${name}, Email: ${email}`
-  });
-  const options = {
-    TTL: 60
-};
-  subscriptions.forEach(subscription => {
-  
-      webPush.sendNotification(subscription, payload,options);
-     
-  });
 
-  res.status(201).json({ message: 'User registered and notification sent' });
-});
 
 app.use("/appapi", (req, res, next) => {
   req.isApi = true;
@@ -140,6 +114,6 @@ route(app);
 //io config
 // socket.config(io, server);
 
-server.listen(PORT,'0.0.0.0', () => {
+server.listen(PORT, () => {
   console.log(`listening on *: ${PORT}`);
 });

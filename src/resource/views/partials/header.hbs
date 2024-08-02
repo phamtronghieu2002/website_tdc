@@ -12,12 +12,15 @@
               <i onclick="ToggleMenuMobile(true)" class="fas fa-bars position-absolute start-0"
                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"></i>
               <div class="change-lang-wrapper  position-absolute end-0">
-                <div class="div flag d-none">
-                  <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
-                </div>
-                <div class="flag">
-                  <img width="48" height="35" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
-                </div>
+                                 {{#ifEquals lang 'en'}}
+  <a href="/" class=" d-block  flag">
+    <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
+  </a>
+{{else}}
+  <a  href="/en"class=" d-block flag">
+    <img width="43" height="30" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
+  </a>
+{{/ifEquals}}
               </div>
             </div>
             <div class="menu-wrap">
@@ -96,13 +99,18 @@
                         </a>
                       </div>
                       <div style="margin-right: -22px;
-    margin-left: 30px;" class="change-lang-wrapper">
-                        <div class="div flag d-none">
-                          <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
-                        </div>
-                        <div class="flag">
-                          <img width="43" height="30" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
-                        </div>
+                          margin-left: 30px;" class="change-lang-wrapper">
+                     {{#ifEquals lang 'en'}}
+  <a href="/" class=" d-block  flag">
+    <img width="43" height="30" src="/static/_assets/images/header/vietnamflag.png" alt="txcn-flag" />
+  </a>
+{{else}}
+  <a  href="/en"class=" d-block flag">
+    <img width="43" height="30" src="/static/_assets/images/header/usflag.png" alt="txcn-vn" />
+  </a>
+{{/ifEquals}}
+                     
+                       
                       </div>
                     </div>
                   </div>

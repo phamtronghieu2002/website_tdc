@@ -75,11 +75,14 @@ class ApiController {
                 };
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
-                        console.log(error);
+                        console.log("loi khi send mail ",error);
+              
                         return res.status(500).json({
                             message: 'Error when send mail',
                         });
                     } else {
+                   
+
                         return res.status(200).json({
                             message: 'Send mail success',
                         });
@@ -88,7 +91,7 @@ class ApiController {
                 
               
             } catch (error) {
-                console.log(error);
+                console.log("loi khi send mail ",error);
                 return res.status(500).json({
                     message: 'Error when send mail',
                 });
