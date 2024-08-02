@@ -5,7 +5,7 @@ const splitUrlImage = (url) => {
 
   const keyword = "interface";
   const index = url.indexOf(keyword);
-  
+
   if (index !== -1) {
     // Add the length of the keyword to the index to start after the keyword
     const result = url.substring(index + keyword.length + 1); // +1 to skip the '/'
@@ -13,7 +13,7 @@ const splitUrlImage = (url) => {
   } else {
 
   }
-  
+
 }
 
 const registerMarkDownSolution = () => {
@@ -26,7 +26,7 @@ const registerMarkDownSolution = () => {
 
   );
 
-   pond = FilePond.create(document.querySelector(".filepond"), {
+  pond = FilePond.create(document.querySelector(".filepond"), {
     allowVideoPreview: true,
     allowAudioPreview: true,
     dropOnPage: true,
@@ -43,10 +43,10 @@ const registerMarkDownSolution = () => {
   tinymce.remove("#edit-technum-solution");
   tools.config.tinymceInit("#edit-technum-solution", "400");
 };
-const refgisterImageSelectBox =()=>{
+const refgisterImageSelectBox = () => {
   const plusImageItem = $$_(".plus-image-item");
 
-  plusImageItem.forEach((plusImageItem,index) => {
+  plusImageItem.forEach((plusImageItem, index) => {
     plusImageItem.onclick = (e) => {
       tools.displayOpacity("show", "Hình ảnh");
       tools.confirm(
@@ -57,15 +57,15 @@ const refgisterImageSelectBox =()=>{
             console.log("url", url);
             plusImageItem.style.backgroundImage = `url('${url}')`;
             $_(".news-img-item").innerHTML = "";
-            if(index ==0 ){
-            console.log("index",  document.getElementById("banner-image-input"));
-              document.getElementById("banner-image-input").setAttribute("value",url);
-            }else{
-              document.getElementById("thumbnail-image-input").setAttribute("value",url);
+            if (index == 0) {
+              console.log("index", document.getElementById("banner-image-input"));
+              document.getElementById("banner-image-input").setAttribute("value", url);
+            } else {
+              document.getElementById("thumbnail-image-input").setAttribute("value", url);
             }
-  
+
           } else {
-          
+
           }
           tools.displayOpacity("hidden");
         },
@@ -157,15 +157,15 @@ const handleEvent = {
           solutionItem.classList.remove("active");
         });
 
-        
+
         this.classList.add("active");
         contentRight.innerHTML =
           components.solutionPage.contentRight(solutionItemTarget);
         registerMarkDownSolution();
         refgisterImageSelectBox();
-     
+
         const handleEvent = () => {
-      
+
           if (solutionImages.length > 0) {
             const createFileFromUrl = async (url) => {
               const response = await fetch(url);
@@ -193,7 +193,7 @@ const handleEvent = {
       tools.displayOpacity("show", `Xác nhận xóa giải pháp này?`);
       tools.confirm(() => {
         const solutionId = solutionItemActive.getAttribute("solution-id");
-      
+
         axios.delete(`/api/solutions/${solutionId}`).then((feedback) => {
           if (feedback.data.status === 1) {
             tools.displayOpacity("hidden");
@@ -220,67 +220,67 @@ const handleEvent = {
 
     updateSolutionBtn.onclick = (e) => {
 
-        tools.displayOpacity("show", `Xác nhận cập nhật giải pháp mới?`);
-        tools.confirm(() => {
+      tools.displayOpacity("show", `Xác nhận cập nhật giải pháp mới?`);
+      tools.confirm(() => {
 
-          const solutionItemActive = $_(".solution-item.active");
-          if (!solutionItemActive) {
-            return;
-          }
-          const solutionId = solutionItemActive.getAttribute("solution-id");
-          const nameSolution = $_(".solution_input").value;
-          const prioritySolution = $_(".solutions_select").value;
-          const contentSolution = tinymce
-            .get("edit-content-solution")
-            .getContent();
-          const technumSolution = tinymce
-            .get("edit-technum-solution")
-            .getContent();
-          const files = pond.getFiles();
-          const images = [];
-          files.forEach((fileItem) => {
-            const file = fileItem.file;
-            const fileSizeInBytes = file.size;
-            images.push(file);
-          });
-  
-          const body = new FormData();
-          images.forEach((image) => {
-            body.append("images", image);
-          });
-          const description = document.getElementById("description").value;
-          const thumbnail = splitUrlImage(document.getElementById("thumbnail-image-input").value)
-          const banner = splitUrlImage(document.getElementById("banner-image-input").value);
-          const json = {
-            name: nameSolution,
-            priority: prioritySolution,
-            content: contentSolution,
-            technum: technumSolution,
-            description: description,
-            thumbnail: thumbnail,
-            banner: banner,
-            id: solutionId
-          };
-          body.append("data", JSON.stringify(json));
-          axios
-            .put("/api/update-solutions", body)
-            .then((response) => {
-              tools.displayOpacity("hidden");
-              showToast("Thành công", "success", "Đã cập nhật", toast_duration);
-              reloadBtn.click();
-            })
-            .catch((error) => {
-              console.log(error);
-              tools.displayOpacity("hidden");
-              showToast(
-                "Có lỗi",
-                "error",
-                "Có lỗi khi cập nhật giải pháp mới",
-                toast_duration
-              );
-            });
+        const solutionItemActive = $_(".solution-item.active");
+        if (!solutionItemActive) {
+          return;
+        }
+        const solutionId = solutionItemActive.getAttribute("solution-id");
+        const nameSolution = $_(".solution_input").value;
+        const prioritySolution = $_(".solutions_select").value;
+        const contentSolution = tinymce
+          .get("edit-content-solution")
+          .getContent();
+        const technumSolution = tinymce
+          .get("edit-technum-solution")
+          .getContent();
+        const files = pond.getFiles();
+        const images = [];
+        files.forEach((fileItem) => {
+          const file = fileItem.file;
+          const fileSizeInBytes = file.size;
+          images.push(file);
         });
-      };
+
+        const body = new FormData();
+        images.forEach((image) => {
+          body.append("images", image);
+        });
+        const description = document.getElementById("description").value;
+        const thumbnail = splitUrlImage(document.getElementById("thumbnail-image-input").value)
+        const banner = splitUrlImage(document.getElementById("banner-image-input").value);
+        const json = {
+          name: nameSolution,
+          priority: prioritySolution,
+          content: contentSolution,
+          technum: technumSolution,
+          description: description,
+          thumbnail: thumbnail,
+          banner: banner,
+          id: solutionId
+        };
+        body.append("data", JSON.stringify(json));
+        axios
+          .put("/api/update-solutions", body)
+          .then((response) => {
+            tools.displayOpacity("hidden");
+            showToast("Thành công", "success", "Đã cập nhật", toast_duration);
+            reloadBtn.click();
+          })
+          .catch((error) => {
+            console.log(error);
+            tools.displayOpacity("hidden");
+            showToast(
+              "Có lỗi",
+              "error",
+              "Có lỗi khi cập nhật giải pháp mới",
+              toast_duration
+            );
+          });
+      });
+    };
 
   },
   handleSolutionAddPage: function async() {
@@ -297,7 +297,7 @@ const handleEvent = {
         const nameSolution = $_(".solution_name_input").value;
         const prioritySolution = $_(".solutions_select").value;
         const contentSolution = tinymce
-        
+
           .get("edit-content-solution")
           .getContent();
         const technumSolution = tinymce
@@ -311,8 +311,8 @@ const handleEvent = {
           images.push(file);
         });
         const description = document.getElementById("description").value;
-        const thumbnail =splitUrlImage(document.getElementById("thumbnail-image-input").value)
-        const banner =splitUrlImage(document.getElementById("banner-image-input").value);
+        const thumbnail = splitUrlImage(document.getElementById("thumbnail-image-input").value)
+        const banner = splitUrlImage(document.getElementById("banner-image-input").value);
 
         const body = new FormData();
         images.forEach((image) => {
@@ -775,8 +775,7 @@ const handleEvent = {
         inputRequire.forEach((input) => {
           if (!input.value) {
             warningText.push(
-              `<b>- ${
-                tools.handleNameGuide(input.getAttribute("data-name"))[0]
+              `<b>- ${tools.handleNameGuide(input.getAttribute("data-name"))[0]
               }</b> </br>`
             );
             // if (input.type === 'file') {
@@ -929,6 +928,8 @@ const handleEvent = {
           let isValid = true;
           const requiredInfor = $$_(".required-infor");
           const newsContent = tinymce.get("news-content-input").getContent();
+          const newsContentEN = tinymce.get("news-en-content-input").getContent();
+
           const tagsNewsData = tagsNews.val();
           const categoryNewsData = categoryNews.val();
           const featuredNewsData = featuredNews.val();
@@ -966,6 +967,7 @@ const handleEvent = {
             return;
           }
           body["content"] = newsContent;
+          body["content_en"] = newsContentEN;
           body["tags"] = tagsNewsData.toString();
           body["is_blog"] = categoryNewsData;
           body["featured"] = featuredNewsData;
@@ -1156,6 +1158,7 @@ const handleEvent = {
             let isValid = true;
             const requiredInfor = $$_(".required-infor");
             const newsContent = tinymce.get("news-content-input").getContent();
+            const newsContent_en = tinymce.get("news-en-content-input").getContent();
             const tagsNewsData = tagsNews.val();
             const categoryNewsData = categoryNews.val();
             const featuredNewsData = featuredNews.val();
@@ -1191,6 +1194,9 @@ const handleEvent = {
               return;
             }
             body["content"] = newsContent;
+
+            body["content_en"] = newsContent_en;
+
             body["hidden"] = hidden;
             body["tags"] = tagsNewsData.toString();
             body["is_blog"] = categoryNewsData;
@@ -1201,10 +1207,10 @@ const handleEvent = {
               `Xác nhận thêm và ${hidden ? "ẩn" : "hiện"} bài viết?`
             );
 
-            tools.confirm(async() => {
-              tools.postData(ADD_NEWS_API, body).then(async(feedback) => {
-                 const slug =feedback.data.slug;
-                 body["slug"] = slug; 
+            tools.confirm(async () => {
+              tools.postData(ADD_NEWS_API, body).then(async (feedback) => {
+                const slug = feedback.data.slug;
+                body["slug"] = slug;
                 if (feedback.data.status === 1) {
                   tools.displayOpacity("hidden");
 
@@ -1215,27 +1221,27 @@ const handleEvent = {
                   try {
 
 
-                  const res =  await axios.post("/api/sendMail", body)
-                  console.log("res >>>",res);
+                    const res = await axios.post("/api/sendMail", body)
+                    console.log("res >>>", res);
                     showToast(
                       "Thành công",
                       "success",
                       `Đã thêm và ${hidden ? "ẩn" : "hiện"} một bài viết mới`,
                       toast_duration
                     );
-  
-                  
 
-                  
+
+
+
                     reloadBtn.click();
                   } catch (error) {
                     showToast(
                       "Thất bại khi gửi mail cho khách",
                       "fail",
-    
+
                       toast_duration
                     );
-  
+
                   }
                 } else {
                   tools.displayOpacity("hidden");
@@ -1252,6 +1258,9 @@ const handleEvent = {
           tinymce.remove("#news-content-input");
           tools.config.tinymceInit("#news-content-input", "1200");
 
+          tinymce.remove("#news-en-content-input");
+          tools.config.tinymceInit("#news-en-content-input", "1200");
+
           const tagsNews = $("#tags-news");
           const categoryNews = $("#category-news");
           const featuredNews = $("#featured-news");
@@ -1266,8 +1275,9 @@ const handleEvent = {
           });
         };
         tinymce.remove("#news-content-input");
+        tinymce.remove("#news-en-content-input");
         tools.config.tinymceInit("#news-content-input", "1200");
-
+        tools.config.tinymceInit("#news-en-content-input", "1200");
         const tagsNews = $("#tags-news");
         const categoryNews = $("#category-news");
         const featuredNews = $("#featured-news");
@@ -1364,8 +1374,9 @@ const handleEvent = {
         });
       }
       tinymce.remove("#news-content-input");
+      tinymce.remove("#news-en-content-input");
       tools.config.tinymceInit("#news-content-input", "1200");
-
+      tools.config.tinymceInit("#news-en-content-input", "1200");
       const tagsNews = $("#tags-news");
       const categoryNews = $("#category-news");
       const featuredNews = $("#featured-news");
@@ -1516,7 +1527,8 @@ const handleEvent = {
 
         tinymce.remove("#news-content-input");
         tools.config.tinymceInit("#news-content-input", "1200");
-
+        tinymce.remove("#news-en-content-input");
+        tools.config.tinymceInit("#news-en-content-input", "1200");
         const tagsNews = $("#tags-news");
         const categoryNews = $("#category-news");
         const featuredNews = $("#featured-news");
@@ -1669,7 +1681,8 @@ const handleEvent = {
       }
       tinymce.remove("#news-content-input");
       tools.config.tinymceInit("#news-content-input", "1200");
-
+      tinymce.remove("#news-en-content-input");
+      tools.config.tinymceInit("#news-en-content-input", "1200");
       const tagsNews = $("#tags-news");
       const categoryNews = $("#category-news");
       const featuredNews = $("#featured-news");
@@ -1911,10 +1924,11 @@ const handleEvent = {
           }, `Lưu ý: Bài viết bị xoá sẽ không được khôi phục lại bằng trang admin`);
         };
         // // handle add news
-        c;
+
         tinymce.remove("#news-content-input");
         tools.config.tinymceInit("#news-content-input", "1200");
-
+        tinymce.remove("#news-en-content-input");
+        tools.config.tinymceInit("#news-en-content-input", "1200");
         const tagsNews = $("#tags-news");
         const categoryNews = $("#category-news");
         const featuredNews = $("#featured-news");
@@ -2171,8 +2185,7 @@ const handleEvent = {
 
           tools.displayOpacity(
             "show",
-            `Xác nhận ${hiddenStatus ? "ẩn" : "hiển thị"} dịch vụ ${
-              serviceTarget.name
+            `Xác nhận ${hiddenStatus ? "ẩn" : "hiển thị"} dịch vụ ${serviceTarget.name
             }`
           );
           tools.confirm(() => {

@@ -24,6 +24,12 @@ function HandlebarsRegisterHelper(hbs) {
     return arg1 == arg2 ? options.fn(this) : options.inverse(this);
   });
 
+  hbs.handlebars.registerHelper('getLocalizedField', function (obj, field, lang) {
+
+    
+    return lang === 'en' ? obj[`${field}_en`] : obj[field];
+  });
+
   hbs.handlebars.registerHelper(
     "eachLimitSPHome",
     function (arr, limit, cateName) {
@@ -180,7 +186,7 @@ function HandlebarsRegisterHelper(hbs) {
 
     const langPath = lang && lang =="en" ? `/${lang}` : "";
        return `
-          <a class="nav-link" href="${langPath}" data-lang="home">Trang chủ</a>
+          <a class="nav-link" href="${langPath == "" ? "/" :langPath}" data-lang="home">Trang chủ</a>
 </li>
 <li class="menu-item-has-children">
   <a class="nav-link" href='/gioi-thieu${langPath}' data-lang="about">Giới thiệu</a>
@@ -196,6 +202,10 @@ function HandlebarsRegisterHelper(hbs) {
 </li>
        `     
   });
+
+  hbs.handlebars.registerHelper('eq', function(a, b) {
+    return a === b;
+});
   hbs.handlebars.registerHelper("dateFormatDDMMYY", function (date) {
     // console.log(date);
     d = new Date(date);

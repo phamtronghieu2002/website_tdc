@@ -71,7 +71,7 @@ var Content = {
         // console.log(arr);
         return connection.query(
             dbName,
-            `insert into blog(title, date, slug, subcontent, content , tags, img, is_blog, featured, hidden) value(?,?,?,?,?,?,?,?,?,?)`,
+            `insert into blog(title, date, slug, subcontent, content , tags, img, is_blog, featured, hidden,title_en,subcontent_en,content_en,slug_en) value(?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
             [
                 data.title,
                 data.date,
@@ -83,6 +83,10 @@ var Content = {
                 data.is_blog,
                 data.featured,
                 data.hidden,
+                data.title_en,
+                data.subcontent_en,
+                data.content_en,
+                data.slug_en,
             ],
             callback,
         );

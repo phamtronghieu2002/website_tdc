@@ -268,8 +268,9 @@ class ApiController {
         const dbName = req.dbName;
         // data.dbName = dbName;
         const slug = tools.removeAccents(data.title).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
+        const slug_en = tools.removeAccents(data.title).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
         data.slug = slug;
-
+        data.slug_en = slug_en;
         content.addNews(dbName, data, (err, results, fields) => {
             if (err) {
                 res.json({
@@ -279,7 +280,8 @@ class ApiController {
                 // console.log('ok');
                 res.status(200).json({
                     status: 1,
-                    slug
+                    slug,
+                    slug_en
                 });
             }
         });
