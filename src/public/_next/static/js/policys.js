@@ -22,7 +22,9 @@ policysItem.forEach((item) => {
         console.log("itemId", itemId);
         const target = dataP.find((data) => data.name === itemId);
 
-        policysContent.innerHTML = target.content;
+        const field =  `content_${lang == "vi" ? "" : "en"}`;
+
+    policysContent.innerHTML = target[field];
 
         policysItem.forEach((item) => {
             item.classList.remove('active');
@@ -35,5 +37,9 @@ policysItemMobile.addEventListener('change', (e) => {
     const itemId = e.target.value;
     console.log("itemId", itemId);
     const target = dataP.find((data) => data.name === itemId);
-    policysContent.innerHTML = target.content;
+    console.log("target", target);
+    
+    const field =  `content_${lang == "vi" ? "" : "en"}`;
+
+    policysContent.innerHTML = target[field];
 });
