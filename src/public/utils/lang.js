@@ -9,7 +9,23 @@ const dataLang = {
         // footer
         footer_lienhe: "CONTACT",
         footer_chinhsach: "POLICY",
-        footer_bando: "MAP",
+        footer_bando: "MAPS",
+        //home
+        home_header: "Optimal Solutions for the Transportation Industry",
+        home_header_content: "80% of signal loss issues are caused by physical SIMs (according to customer service statistics). The pioneering 5G GPS tracking device with eSim technology eliminates the challenges in transportation management and operation.",
+        home_xemthem: "Read more",
+        home_cnvt: "TRANSPORTATION TECHNOLOGY",
+        home_uuviet: "EXCELLENT",
+        home_taiapp: "Download the app and scan the QR code to experience it with us",
+        home_docthem: "Read more",
+        home_doitac: "Our Partners",
+        home_chungnhan: "Certification",
+        home_khachhang: "Customers",
+        home_nguoidung: "Users",
+        home_phuongtien: "Vehicles",
+        home_box_email: "Enter your email to receive the latest news",
+
+
         //news
         news_tinnoibat: "Featured News",
         //contact
@@ -43,7 +59,7 @@ const dataLang = {
         intro_content_conghien: "With the motto 'Dedication, work hard', perfecting every day to become the 'best version' to bring experiences and serve customers beyond expectations.",
         intro_sangtao: "Creation",
         intro_content_sangtao: "Creation, constant innovation, creating differences in each product with a breakthrough in technology."
-        
+
 
 
 
@@ -61,8 +77,22 @@ const dataLang = {
         footer_lienhe: "LIÊN HỆ",
         footer_chinhsach: "CHÍNH SÁCH",
         footer_bando: "BẢN ĐỒ",
+        //home
+        home_header: "Giải Pháp Tối Ưu Cho Ngành Vận Tải",
+        home_header_content: "80% lỗi mất tín hiệu do sim vật lý gây ra(theo CSKH thống kê).Thiết bị giám sát hành trình 5G GPS tiên phong công nghệ eSim xóa bỏ những vấn đề khó khăn trong quản lý, vận hành vận tải.",
+        home_xemthem: "Xem thêm",
+        home_cnvt: "CÔNG NGHỆ VẬN TẢI",
+        home_uuviet: "ƯU VIỆT",
+        home_taiapp: "Tải app và quét mã QRcode để trải nghiệm ngay cùng chúng tôi",
+        home_docthem: "Đọc thêm",
+        home_doitac: "Đối Tác Của Chúng Tôi",
+        home_chungnhan: "Chứng nhận",
+        home_khachhang: "Khách Hàng",
+        home_nguoidung: "Người Dùng",
+        home_phuongtien: "Phương Tiện",
+        home_box_email: "Nhập Email để có thể nhận được các tin tức mới nhất",
         //news
-        news_tinnoibat:"Tin tức nổi bật",
+        news_tinnoibat: "Tin tức nổi bật",
         //contact
         contact_header: "Kết nối với chúng tôi",
         contact_goingay: "Gọi ngay",
@@ -71,13 +101,13 @@ const dataLang = {
         contact_diachi: "Địa chỉ",
         contact_gui: "Gửi",
         //solution
-        solutions_giaiphap:"GIẢI PHÁP",
-        solutions_cuachungtoi:"của chúng tôi",
-        solutions_tinhnang:"TÍNH NĂNG",
-        solutions_thongso:"THÔNG SỐ KỸ THUẬT",
-        solutions_dangky:"ĐĂNG KÝ TƯ VẤN",
-        solutions_tuvan:"Đăng ký nhận tư vấn",
-        solutions_gui:"Gửi",
+        solutions_giaiphap: "GIẢI PHÁP",
+        solutions_cuachungtoi: "của chúng tôi",
+        solutions_tinhnang: "TÍNH NĂNG",
+        solutions_thongso: "THÔNG SỐ KỸ THUẬT",
+        solutions_dangky: "ĐĂNG KÝ TƯ VẤN",
+        solutions_tuvan: "Đăng ký nhận tư vấn",
+        solutions_gui: "Gửi",
         // introduce
         intro_header: "Tài xế công nghệ - TDC",
         intro_content_sec_text1: "Tài xế công nghệ - Technology Driver Corporation được thành lập từ đội ngũ năng động, trình độ chuyên môn cao, nhiệt huyết và được đào tạo chuyên nghiệp. Chúng tôi thấm nhuần phương châm “Lấy khách hàng làm trọng tâm” để phục vụ tốt nhất và không ngừng cải tiến, nghiên cứu để tìm ra giải pháp giải quyết mọi vấn đề của ngành Vận tải.",
