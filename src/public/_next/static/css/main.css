@@ -6,7 +6,9 @@
         url(../media/flaticon_itco.686f9596.eot#iefix) format('embedded-opentype'),
         url(../media/flaticon_itco.18b2d69a.svg#flaticon_itco) format('svg');
 }
-
+.flag{
+    margin-right: 10px;
+}
 i[class*=' flaticon-']:before,
 i[class^='flaticon-']:before {
     font-family: flaticon_itco !important;

@@ -43,10 +43,10 @@
                                     </ul>
                                 </div>
                                 <div class="title-box blog-title">
-                                    <h3>{{news.featuredMain.0.title}}</h3>
+                                     <h3>{{getLocalizedField news.featuredMain.[0] 'title' lang}}</h3>  
                                 </div>
                                 <div class="blog-body">
-                                    <p class="mt-2">{{news.featuredMain.0.subcontent}}.</p>
+                                    <p class="mt-2"> {{getLocalizedField news.featuredMain.[0] 'subcontent' lang}}.</p>
                                 </div>
                             </div>
                         </a>
@@ -72,7 +72,7 @@
                                             </ul>
                                         </div>
                                         <div class="title-box">
-                                            <h3>{{this.title}}.</h3>
+                                            <h3>{{getLocalizedField this 'title' ../lang}}<h3>
                                         </div>
                                     </div>
                                 </a>
