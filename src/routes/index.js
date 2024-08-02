@@ -40,12 +40,12 @@ function route(app) {
   //   app.use("/gio-hang", cartPageRouter);
   app.use("/thanh-toan", orderPageRouter);
   app.use("/admin", adminPageRouter);
-  app.use("/trang-chu", homePageRouter);
   app.use("/tim-kiem", searchPageRouter);
   app.use("/chinh-sach", policysPageRouter);
   app.use("/tai-lieu", docsPageRouter);
   app.use("/su-kien", eventPageRouter);
   app.use("/", homePageRouter);
+  app.use("/trang-chu", homePageRouter);
   app.use("/:slug", productPageRouter);
 }
 

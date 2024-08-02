@@ -4,73 +4,72 @@ const headerSectionSolutions = document.querySelector('.header-section-solutions
 const Components = {
     province: () => {
         return `
- <select class="form-select select-province" name="province_id"
-                                                    data-gtm-form-interact-field-id="2">
-                                                    <option value="0" selected="" disabled="">Khu vực</option>
-                                                    <option value="101">Hà&nbsp;Nội</option>
-                                                    <option value="701">TP&nbsp;Hồ&nbsp;Chí&nbsp;Minh</option>
-                                                    <option value="501">Đà&nbsp;Nẵng</option>
-                                                    <option value="805">An&nbsp;Giang</option>
-                                                    <option value="717">Bà&nbsp;Rịa&nbsp;-&nbsp;Vũng&nbsp;Tàu</option>
-                                                    <option value="207">Bắc&nbsp;Cạn</option>
-                                                    <option value="221">Bắc&nbsp;Giang</option>
-                                                    <option value="821">Bạc&nbsp;Liêu</option>
-                                                    <option value="223">Bắc&nbsp;Ninh</option>
-                                                    <option value="811">Bến&nbsp;Tre</option>
-                                                    <option value="507">Bình&nbsp;Định</option>
-                                                    <option value="711">Bình&nbsp;Dương</option>
-                                                    <option value="707">Bình&nbsp;Phước</option>
-                                                    <option value="715">Bình&nbsp;Thuận</option>
-                                                    <option value="823">Cà&nbsp;Mau</option>
-                                                    <option value="815">Cần&nbsp;Thơ</option>
-                                                    <option value="203">Cao&nbsp;Bằng</option>
-                                                    <option value="605">Đắc&nbsp;Lắc</option>
-                                                    <option value="606">Đắk&nbsp;Nông</option>
-                                                    <option value="301">Điện&nbsp;Biên</option>
-                                                    <option value="713">Đồng&nbsp;Nai</option>
-                                                    <option value="803">Đồng&nbsp;Tháp</option>
-                                                    <option value="603">Gia&nbsp;Lai</option>
-                                                    <option value="201">Hà&nbsp;Giang</option>
-                                                    <option value="111">Hà&nbsp;Nam</option>
-                                                    <option value="405">Hà&nbsp;Tĩnh</option>
-                                                    <option value="107">Hải&nbsp;Dương</option>
-                                                    <option value="103">Hải&nbsp;Phòng</option>
-                                                    <option value="816">Hậu&nbsp;Giang</option>
-                                                    <option value="305">Hòa&nbsp;Bình</option>
-                                                    <option value="109">Hưng&nbsp;Yên</option>
-                                                    <option value="511">Khánh&nbsp;Hòa</option>
-                                                    <option value="813">Kiên&nbsp;Giang</option>
-                                                    <option value="601">Kon&nbsp;Tum</option>
-                                                    <option value="302">Lai&nbsp;Châu</option>
-                                                    <option value="703">Lâm&nbsp;Đồng</option>
-                                                    <option value="209">Lạng&nbsp;Sơn</option>
-                                                    <option value="205">Lào&nbsp;Cai</option>
-                                                    <option value="801">Long&nbsp;An</option>
-                                                    <option value="113">Nam&nbsp;Định</option>
-                                                    <option value="403">Nghệ&nbsp;An</option>
-                                                    <option value="117">Ninh&nbsp;Bình</option>
-                                                    <option value="705">Ninh&nbsp;Thuận</option>
-                                                    <option value="217">Phú&nbsp;Thọ</option>
-                                                    <option value="509">Phú&nbsp;Yên</option>
-                                                    <option value="407">Quảng&nbsp;Bình</option>
-                                                    <option value="503">Quảng&nbsp;Nam</option>
-                                                    <option value="505">Quảng&nbsp;Ngãi</option>
-                                                    <option value="225">Quảng&nbsp;Ninh</option>
-                                                    <option value="409">Quảng&nbsp;Trị</option>
-                                                    <option value="819">Sóc&nbsp;Trăng</option>
-                                                    <option value="303">Sơn&nbsp;La</option>
-                                                    <option value="709">Tây&nbsp;Ninh</option>
-                                                    <option value="115">Thái&nbsp;Bình</option>
-                                                    <option value="215">Thái&nbsp;Nguyên</option>
-                                                    <option value="401">Thanh&nbsp;Hoá</option>
-                                                    <option value="411">Thừa&nbsp;Thiên&nbsp;-&nbsp;Huế</option>
-                                                    <option value="807">Tiền&nbsp;Giang</option>
-                                                    <option value="211">Tuyên&nbsp;Quang</option>
-                                                    <option value="817">Trà&nbsp;Vinh</option>
-                                                    <option value="809">Vĩnh&nbsp;Long</option>
-                                                    <option value="219">Vĩnh&nbsp;Phúc</option>
-                                                    <option value="213">Yên&nbsp;Bái</option>
-                                                </select>
+ <select class="form-select select-province" name="province_id" data-gtm-form-interact-field-id="2">
+    <option value="0" disabled="">Khu vực</option>
+    <option value="101" selected>Hà Nội</option>
+    <option value="701">TP Hồ Chí Minh</option>
+    <option value="501">Đà Nẵng</option>
+    <option value="805">An Giang</option>
+    <option value="717">Bà Rịa - Vũng Tàu</option>
+    <option value="207">Bắc Cạn</option>
+    <option value="221">Bắc Giang</option>
+    <option value="821">Bạc Liêu</option>
+    <option value="223">Bắc Ninh</option>
+    <option value="811">Bến Tre</option>
+    <option value="507">Bình Định</option>
+    <option value="711">Bình Dương</option>
+    <option value="707">Bình Phước</option>
+    <option value="715">Bình Thuận</option>
+    <option value="823">Cà Mau</option>
+    <option value="815">Cần Thơ</option>
+    <option value="203">Cao Bằng</option>
+    <option value="605">Đắc Lắc</option>
+    <option value="606">Đắk Nông</option>
+    <option value="301">Điện Biên</option>
+    <option value="713">Đồng Nai</option>
+    <option value="803">Đồng Tháp</option>
+    <option value="603">Gia Lai</option>
+    <option value="201">Hà Giang</option>
+    <option value="111">Hà Nam</option>
+    <option value="405">Hà Tĩnh</option>
+    <option value="107">Hải Dương</option>
+    <option value="103">Hải Phòng</option>
+    <option value="816">Hậu Giang</option>
+    <option value="305">Hòa Bình</option>
+    <option value="109">Hưng Yên</option>
+    <option value="511">Khánh Hòa</option>
+    <option value="813">Kiên Giang</option>
+    <option value="601">Kon Tum</option>
+    <option value="302">Lai Châu</option>
+    <option value="703">Lâm Đồng</option>
+    <option value="209">Lạng Sơn</option>
+    <option value="205">Lào Cai</option>
+    <option value="801">Long An</option>
+    <option value="113">Nam Định</option>
+    <option value="403">Nghệ An</option>
+    <option value="117">Ninh Bình</option>
+    <option value="705">Ninh Thuận</option>
+    <option value="217">Phú Thọ</option>
+    <option value="509">Phú Yên</option>
+    <option value="407">Quảng Bình</option>
+    <option value="503">Quảng Nam</option>
+    <option value="505">Quảng Ngãi</option>
+    <option value="225">Quảng Ninh</option>
+    <option value="409">Quảng Trị</option>
+    <option value="819">Sóc Trăng</option>
+    <option value="303">Sơn La</option>
+    <option value="709">Tây Ninh</option>
+    <option value="115">Thái Bình</option>
+    <option value="215">Thái Nguyên</option>
+    <option value="401">Thanh Hoá</option>
+    <option value="411">Thừa Thiên Huế</option>
+    <option value="807">Tiền Giang</option>
+    <option value="211">Tuyên Quang</option>
+    <option value="817">Trà Vinh</option>
+    <option value="809">Vĩnh Long</option>
+    <option value="219">Vĩnh Phúc</option>
+    <option value="213">Yên Bái</option>
+</select>
 `
     },
     headerSection: (data) => {
@@ -268,46 +267,97 @@ const renderMainSection = () => {
 renderHeaderSection()
 renderMainSection()
 
+let currentLocation ="";
 
-$('#form-support').one('shown.bs.modal', function () {
-    console.log("xin chao");
-    const btn_save_register = $('.btn_register_solution')
-    btn_save_register.click(async () => {
-        const username = $('.fullname').val()
-        const phonenumber = $('.phonenumber').val()
-        const message = $('.message').val()
-        const care = $('.care').val()
-        const province = $('.select-province option:selected').text()
+function getLocation() {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    } else {
+      reject(new Error("Geolocation is not supported by this browser."));
+    }
+  });
+}
 
-        if (!username || !phonenumber  || !province) {
-            toastr.error('Vui lòng điển đủ thông tin !!.', 'fail!')
-            return
-        } else {
-            try {
-                const res = await axios.post("/api/registerSolution", {
-                    username,
-                    phonenumber,
-                    message,
-                    province,
-                    care
-                    
-                }
-                )
-                console.log(res.data);
-                if(res.data.status===1){
-                    toastr.success('Nhận tư vấn thành công !!.', 'thành công!')
+async function showPosition(position) {
+  const lat = position.coords.latitude;
+  const lon = position.coords.longitude;
+  try {
+    const res = await axios.get(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=vi`);
+    console.log(res.data.city);
+    currentLocation = res.data.city;
+    return currentLocation;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
 
-                }
+async function updateLocation() {
+  try {
+    const position = await getLocation();
+    await showPosition(position);
+    console.log("currentLocation inside updateLocation >>", currentLocation);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
 
-            } catch (error) {
-                toastr.error('Gửi lỗi vui lòng thử lại !!.', 'fail!')
-                console.log(error);
-            }
+// Gọi hàm updateLocation và chờ nó hoàn thành
+updateLocation().then(() => {
+
+
+    $('#form-support').one('shown.bs.modal', function () {
+        if(currentLocation){
+            $('.select-province').css("display", "none");
         }
-
-
-    })
-
+        const btn_save_register = $('.btn_register_solution')
+        btn_save_register.click(async () => {
+            const username = $('.fullname').val()
+            const phonenumber = $('.phonenumber').val()
+            const message = $('.message').val()
+            const care = $('.care').val()
+            let province = $('.select-province option:selected').text()
+            console.log("province >>", province);
+            
+            if(currentLocation){
+                province = currentLocation;
+            }
+            if (!username || !phonenumber  || !province) {
+                toastr.error('Vui lòng điển đủ thông tin !!.', 'fail!')
+                return
+            } else {
+                try {
+                    
+    
+                    const res = await axios.post("/api/registerSolution", {
+                        username,
+                        phonenumber,
+                        message,
+                        province,
+                        care
+                        
+                    }
+                    )
+                    console.log(res.data);
+                    if(res.data.status===1){
+                        toastr.success('Nhận tư vấn thành công !!.', 'thành công!')
+    
+                    }
+    
+                } catch (error) {
+                    toastr.error('Gửi lỗi vui lòng thử lại !!.', 'fail!')
+                    console.log(error);
+                }
+            }
+    
+    
+        })
+    
+    });
+    
+    
 });
+
 
 

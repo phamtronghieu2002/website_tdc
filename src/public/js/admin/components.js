@@ -15,8 +15,6 @@ const components = {
             // Định dạng lại thành chuỗi YYYY-MM-DD
             return `${year}-${month}-${day}`;
         }
-
-
         return `
     <div class="main-title-layout">
         <h3 class="orange main-title-text">Khách hàng quan tâm</h3>
@@ -1363,8 +1361,13 @@ const components = {
         // console.log(tools.handleTimeDDMMYY(newData.date));
         return `
         <div class="update-all-value">
-            <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề </span>
+            <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề tiếng việt </span>
             <input  type='text' id="news-title" data-name='title' class='news-title required-infor' placeholder="Nhập tiêu đề bài viết" value='${newData.title
+            }'/>
+        </div>
+        <div class="update-all-value">
+            <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề tiếng anh</span>
+            <input  type='text' id="news-en-title" data-name='title_en' class='news-title required-infor' placeholder="Nhập tiêu đề bài viết" value='${newData.title_en
             }'/>
         </div>
         <div class="update-all-value">
@@ -1423,13 +1426,23 @@ const components = {
             </select> 
         </div>
         <div class="update-all-value update-all-value-textarea">
-            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Mô tả</span>
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Mô tả tiếng việt</span>
             <textarea type='number' id="news-description-input" data-name='subcontent' class='required-infor'  placeholder="Viết mô tả">${newData.subcontent
+            }</textarea>
+        </div>
+          <div class="update-all-value update-all-value-textarea">
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Mô tả tiếng anh</span>
+            <textarea type='number' id="news-en-description-input" data-name='subcontent_en' class='required-infor'  placeholder="Viết mô tả">${newData.subcontent_en
             }</textarea>
         </div>
         <div class="update-all-value update-all-value-textarea">
             <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung bài đăng</span>
             <textarea type='number' id="news-content-input" data-name='content'  placeholder="Viết nội dung dịch vụ">${newData.content
+            }</textarea>
+        </div>
+              <div class="update-all-value update-all-value-textarea">
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung bài đăng tiếng anh</span>
+            <textarea type='number' id="news-en-content-input" data-name='content_en'  placeholder="Viết nội dung dịch vụ">${newData.content_en
             }</textarea>
         </div>
         `;
@@ -1467,8 +1480,12 @@ const components = {
     addNewDetailUI: function () {
         return `
         <div class="update-all-value">
-            <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề </span>
+            <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề tiếng việt </span>
             <input  type='text' id="news-title" data-name='title' class='news-title required-infor' placeholder="Nhập tiêu đề bài viết" value=''/>
+        </div>
+            <div class="update-all-value">
+            <span class='update-all-value-title'><span class='orange'>*</span> Tiêu đề tiếng anh </span>
+            <input  type='text' id="news-title-en" data-name='title_en' class='news-title required-infor' placeholder="Nhập tiêu đề bài viết" value=''/>
         </div>
         <div class="update-all-value">
             <span class='update-all-value-title'><span class='orange'>*</span> Ngày đăng </span>
@@ -1518,12 +1535,20 @@ const components = {
             </select> 
         </div>
         <div class="update-all-value update-all-value-textarea">
-            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Mô tả</span>
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Mô tả Tiếng việt</span>
             <textarea type='number' id="news-description-input" data-name='subcontent' class='required-infor'  placeholder="Viết mô tả"></textarea>
         </div>
+          <div class="update-all-value update-all-value-textarea">
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Mô tả Tiếng Anh</span>
+            <textarea type='number' id="news-en-description-input" data-name='subcontent_en' class='required-infor'  placeholder="Viết mô tả"></textarea>
+        </div>
         <div class="update-all-value update-all-value-textarea">
-            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung bài đăng</span>
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung bài đăng tiếng việt</span>
             <textarea type='number' id="news-content-input" data-name='content'  placeholder="Viết nội dung dịch vụ"></textarea>
+        </div>
+           <div class="update-all-value update-all-value-textarea">
+            <span class='update-all-value-title update-all-value-title-textarea'><span class='orange'>*</span> Nội dung bài đăng tiếng anh</span>
+            <textarea type='number' id="news-en-content-input" data-name='content_en'  placeholder="Viết nội dung dịch vụ"></textarea>
         </div>
         `;
     },
