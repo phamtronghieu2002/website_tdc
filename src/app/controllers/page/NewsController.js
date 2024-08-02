@@ -57,12 +57,17 @@ class NewsController {
     slug(req, res, next) {
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
+
+        const lang = req.params.lang || 'vi';
+        console.log("lang",lang);
+        
         if (!inforBasicPage || !dbName) {
             return res.send('Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source.');
         }
         const template_id = inforBasicPage.companyInfor.information[0].template_id || '';
 
         const slug = req.params.slug;
+        const slugField=lang == "vi" ? "slug" : "slug_en";
         pageInterface.getDataNewsDetailPage(dbName, slug, (err, results, fields) => {
             if (err) {
                 res.render('error');
@@ -100,11 +105,12 @@ class NewsController {
                     ortherNewsRows: ortherNewsRows,
                 });
             }
-        });
+        },slugField);
     }
     paging(req, res, next) {
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
+        const lang = req.params.lang || 'vi';
         if (!inforBasicPage || !dbName) {
             return res.send('Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source.');
         }

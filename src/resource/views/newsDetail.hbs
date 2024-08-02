@@ -43,10 +43,10 @@
                                     data-wow-delay="0.5s"
                                     data-wow-duration="1500ms"
                                     style="visibility: visible; animation-duration: 1500ms; animation-delay: 0.5s;">
-                                    <h3><a>{{news.title}}</a></h3>
+                                    <h3><a> {{getLocalizedField news 'title' lang}} </a></h3>
                                 </div>
                                 <div class="blog-body">
-                                    {{{news.content}}}
+                               {{{getLocalizedField news 'content' lang}}}
                                 </div>
                                 <div class="blog-tags-share wow fadeInUp"
                                     data-wow-delay="0ms"
@@ -92,7 +92,7 @@
                                 <ul>
                                     {{#each ortherNewsRows}}
                                     <a
-                                        href='/tin-tuc/{{this.slug}}'
+                                        href='/tin-tuc/{{../lang}}/{{getLocalizedField this 'slug' ../lang}}'
                                         class="blog-sidebar-box-item blog-item d-flex">
                                         <div class="img-box"><img alt="blog"
                                                 loading="lazy" width="109"
@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="title-box">
                                                 <h3 class="c-black">
-                                                    {{this.title}}</h3>
+                                                   {{getLocalizedField this 'title' ../lang}}</h3>
                                             </div>
                                         </div>
                                     </a>

@@ -126,9 +126,10 @@ function HandlebarsRegisterHelper(hbs) {
     return arg1 == arg2 ? options.inverse(this) : options.fn(this);
   });
 
-  hbs.handlebars.registerHelper("paging", function (pageNums_, pageActive_) {
+  hbs.handlebars.registerHelper("paging", function (pageNums_, pageActive_,lang) {
     const pageNums = Number(pageNums_);
     const pageActive = Number(pageActive_);
+  
     if (Number(pageActive) > Number(pageNums)) {
       return "";
     }
@@ -136,36 +137,36 @@ function HandlebarsRegisterHelper(hbs) {
     return `
         ${
           pageActive - 3 > 0
-            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${
+            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${
                 pageActive - 1
               }'><i class="fa-solid fa-angles-left"></i></a></li>`
             : ""
         }
         ${
           pageActive - 2 > 0
-            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${
+            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${
                 pageActive - 2
               }'><div>${pageActive - 2}</div></a> </li>  `
             : ""
         }
         ${
           pageActive - 1 > 0
-            ? `<li class='pagination-item'> <a   href='/tin-tuc/trang/${
+            ? `<li class='pagination-item'> <a   href='/tin-tuc/trang/${lang}/${
                 pageActive - 1
               }'><div>${pageActive - 1}</div></a> </li>`
             : ""
         }
-       <li class='pagination-item'>  <a class="active" href='/tin-tuc/trang/${pageActive}'><div class="paging-item">${pageActive}</div></a></li> 
+       <li class='pagination-item'>  <a class="active" href='/tin-tuc/trang/${lang}/${pageActive}'><div class="paging-item">${pageActive}</div></a></li> 
         ${
           pageActive + 1 <= pageNums
-            ? `<li class='pagination-item'>  <a   href='/tin-tuc/trang/${
+            ? `<li class='pagination-item'>  <a   href='/tin-tuc/trang/${lang}/${
                 pageActive + 1
               }'><div>${pageActive + 1}</div></a></li>`
             : ""
         }
         ${
           pageActive + 2 <= pageNums
-            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${
+            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${
                 pageActive + 2
               }'><div>${pageActive + 2}</div></a> </li> `
             : ""
@@ -173,7 +174,7 @@ function HandlebarsRegisterHelper(hbs) {
 
         ${
           pageActive + 3 <= pageNums
-            ? `<li class='pagination-item'><a href='/tin-tuc/trang/${
+            ? `<li class='pagination-item'><a href='/tin-tuc/trang/${lang}/${
                 pageActive + 1
               }'><div class="paging-item"><i class="fa-solid fa-angles-right"></i></div></a> </li> `
             : ""

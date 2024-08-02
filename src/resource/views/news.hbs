@@ -27,7 +27,7 @@
                 <div class="col-xl-7">
                     <div class="blog-item-wrapper">
                         <!-- map -->
-                        <a href="/tin-tuc/{{news.featuredMain.0.slug}}" class="blog-left-box blog-item">
+                        <a href="/tin-tuc/{{getLocalizedField news.featuredMain.[0] 'slug' lang}}" class="blog-left-box blog-item">
                             <div class="img-box">
                                 <img alt="blog" decoding="async" data-nimg="1" class="h-100"
                                     src="{{news.featuredMain.0.img}}">
@@ -57,7 +57,7 @@
                         <div class="sidebar-item">
                             <div class="blog-recent-post footer-recent-post">
                                 {{#each news.featuredNews}}
-                                <a href='/tin-tuc/{{this.slug}}' class="blog-sidebar-box-item blog-item d-flex">
+                                <a href='/tin-tuc/{{getLocalizedField this 'slug' ../lang}}' class="blog-sidebar-box-item blog-item d-flex">
                                     <div class="img-box"><img alt="blog" width="120" height="120" decoding="async"
                                             data-nimg="1" src="{{this.img}}" style="color: transparent;"></div>
                                     <div class="content-box">
@@ -86,7 +86,7 @@
             <div class="new-blog">
                 <h3 class="mb-3">Tin tức</h3>
                 {{#each news.allNews}}
-                <a href="/tin-tuc/{{../lang}}/{{this.slug}}" class="new-blog-content row">
+                <a href="/tin-tuc/{{../lang}}/{{getLocalizedField this 'slug' ../lang}}" class="new-blog-content row">
 
                     <div class="img-box col-xl-3 col-12">
                         <div class="image-box">
@@ -114,7 +114,7 @@
             <div class="paging">
                 <div class="blog-pagination">
                     <ul>
-                        {{#paging news.pageNums news.pageActive}}{{/paging}}
+                        {{#paging news.pageNums news.pageActive lang}}{{/paging}}
                     </ul>
                 </div>
             </div>

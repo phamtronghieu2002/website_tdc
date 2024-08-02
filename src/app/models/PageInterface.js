@@ -107,10 +107,10 @@ var PageInterface = {
     );
   },
 
-  getDataNewsDetailPage: function (dbName, slug, callback) {
+  getDataNewsDetailPage: function (dbName, slug, callback,slugFỉeld) {
     return connection.query(
       dbName,
-      "select * from blog where is_deleted = 0 AND hidden = 0 AND slug = ?; select * from blog where is_deleted = 0 AND hidden = 0 order by id DESC,date DESC",
+      `select * from blog where is_deleted = 0 AND hidden = 0 AND ${slugFỉeld} = ?; select * from blog where is_deleted = 0 AND hidden = 0 order by id DESC,date DESC`,
       [slug],
       callback
     );
