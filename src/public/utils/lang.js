@@ -6,6 +6,8 @@ const dataLang = {
         news: "News",
         contact: "Contact",
         login_title: "Login",
+        //policy
+        policy: "Policy",
         // footer
         footer_lienhe: "CONTACT",
         footer_chinhsach: "POLICY",
@@ -77,6 +79,9 @@ const dataLang = {
         footer_lienhe: "LIÊN HỆ",
         footer_chinhsach: "CHÍNH SÁCH",
         footer_bando: "BẢN ĐỒ",
+        //policy
+        policy: "Chính sách",
+
         //home
         home_header: "Giải Pháp Tối Ưu Cho Ngành Vận Tải",
         home_header_content: "80% lỗi mất tín hiệu do sim vật lý gây ra(theo CSKH thống kê).Thiết bị giám sát hành trình 5G GPS tiên phong công nghệ eSim xóa bỏ những vấn đề khó khăn trong quản lý, vận hành vận tải.",

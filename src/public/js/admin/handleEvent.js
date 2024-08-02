@@ -1324,6 +1324,8 @@ const handleEvent = {
         let isValid = true;
         const requiredInfor = $$_(".required-infor");
         const newsContent = tinymce.get("news-content-input").getContent();
+        const newsENContent = tinymce.get("news-en-content-input").getContent();
+
         const tagsNewsData = tagsNews.val();
 
         const body = {};
@@ -1347,6 +1349,7 @@ const handleEvent = {
           return;
         }
         body["content"] = newsContent;
+        body["content_en"] = newsENContent;
 
         console.log(body);
         tools.displayOpacity("show", `Xác nhận thêm chính sách?`);
@@ -1420,6 +1423,7 @@ const handleEvent = {
           let isValid = true;
           const requiredInfor = $$_(".required-infor");
           const newsContent = tinymce.get("news-content-input").getContent();
+          const newsContentEN = tinymce.get("news-en-content-input").getContent();
 
           const newsActive = $_(".news-item.active");
           if (!newsActive) {
@@ -1449,6 +1453,7 @@ const handleEvent = {
             return;
           }
           body["content"] = newsContent;
+          body["content_en"] = newsContentEN;
 
           console.log(body);
           tools.displayOpacity("show", "Xác nhận thay đổi?");
