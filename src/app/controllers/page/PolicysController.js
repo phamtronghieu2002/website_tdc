@@ -4,6 +4,8 @@ class PolicysController {
     index(req, res, next) {
         const dbName = req.dbName;
         const inforBasicPage = req.inforBasicPage;
+
+        const lang = req.params.lang || 'vi';
         if (!inforBasicPage || !dbName) {
             return res.send('Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại không tồn tại source.');
         }
@@ -24,13 +26,15 @@ class PolicysController {
 
                 const address = JSON.stringify(inforBasicPage.companyInfor);
                 const dataP = JSON.stringify(contentRows);
-            
+
 
                 return res.render('policys' + template_id, {
                     title: 'Chính sách',
                     layout: 'main' + template_id,
                     style: 'policys' + template_id,
                     classwrapper: 'page',
+                    language: JSON.stringify({ lang }),
+                    lang,
                     active: -1,
                     content: contentRows,
                     dataP: dataP,

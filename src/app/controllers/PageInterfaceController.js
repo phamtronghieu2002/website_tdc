@@ -415,6 +415,8 @@ class PageInterfaceController {
 
         pageInterface.updatePolicys(dbName, data, (err, results, fields) => {
             if (err) {
+                console.log("err", err);
+                
                 res.json({
                     status: 0,
                 });

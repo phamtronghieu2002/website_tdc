@@ -31,7 +31,11 @@
                                 {{#each content}}
                                 <li
                                     class="policys-item"
-                                    id="{{this.name}}"><a> {{this.title}}<i
+                                    id="{{this.name}}"><a> 
+                                        {{getLocalizedField this 'title' ../lang}}
+                                      
+                                        
+                                        <i
                                             class="flaticon-right-arrow child"></i></a></li>
 
                                 {{/each}}
@@ -43,17 +47,21 @@
                 <div class="col-xl-8">
                     <div class="service-details-wrapper">
                         <select class="hide-on-pc show-on-mobile form-select policys-item-mobile"
-                           id="policys-item-mobile">
+                           id="policys-item-mobile">    
                             {{#each content}}
                             <option value="{{this.name}}">
-                               {{this.title}}
+                                  {{getLocalizedField this 'title' ../lang}}
+                                      
+
                             </option>
                             {{/each}}
 
                         </select>
                         <div
+                         {{getLocalizedField this 'title' ../lang}}
                             class="service-details-content     policys-content">
-                            {{{content.0.content}}}
+                              {{{getLocalizedField content.[0] 'content' lang}}}
+                       
                         </div>
                     </div>
                 </div>

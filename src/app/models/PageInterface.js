@@ -369,15 +369,15 @@ var PageInterface = {
   },
 
   updatePolicys: function (dbName, data, callback) {
-    // console.log(data);
+    console.log("data >>",data);
+    const id = data.id;
     const keys = Object.keys(data);
     const keys_ = keys.map((key) => ` ${key} = ?`);
-    const arr = keys.map((key) => ` ${key} = '${data[key]}'`);
-    return connection.query(
-      dbName,
-      "update policys set" + arr + " where id = " + data.id,
-      callback
-    );
-  },
+    const arr = keys.map((key) => data[key]);
+    // console.log(arr);
+    return connection.query(dbName, `update policys set ` + keys_ + ` where id = ${id}`, [...arr], callback);
+},
+
+
 };
 module.exports = PageInterface;
