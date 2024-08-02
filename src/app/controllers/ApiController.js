@@ -225,7 +225,10 @@ class ApiController {
     updateNews(req, res, next) {
         const data = req.body;
         const dbName = req.dbName;
-
+        const slug_en = tools.removeAccents(data.title_en).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
+        const slug_vi = tools.removeAccents(data.title).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
+        data.slug_en = slug_en;
+        data.slug = slug_vi;
         content.updateNews(dbName, data, (err, results, fields) => {
             if (err) {
                 res.json({
@@ -271,7 +274,7 @@ class ApiController {
         const dbName = req.dbName;
         // data.dbName = dbName;
         const slug = tools.removeAccents(data.title).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
-        const slug_en = tools.removeAccents(data.title).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
+        const slug_en = tools.removeAccents(data.title_en).toLowerCase() + '-' + Math.floor(Math.random() * 1000000);
         data.slug = slug;
         data.slug_en = slug_en;
         content.addNews(dbName, data, (err, results, fields) => {

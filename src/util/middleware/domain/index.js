@@ -1,4 +1,3 @@
-const { log } = require("console");
 const domain = require("../../../app/models/Domain");
 var mysql = require("mysql");
 var url = require("url");
@@ -21,7 +20,7 @@ function confirmDomain(req, res, next) {
 
   console.log(reqDomain);
   domain.checkDomain(reqDomain, (err, results, fields) => {
-    if (false) {
+    if (err) {
       return res.send(
         `<div style = "box-sizing: border-box;font-family: 'Source Code Pro', monospace; height: 90vh;display: flex;align-items: center;justify-content: center;" = >Đang bảo trì...</div>`
       );
@@ -30,17 +29,17 @@ function confirmDomain(req, res, next) {
         return row;
       });
 
-      if (false) {
+      if (rows.length == 0) {
         return res.send(
           `<div style = "box-sizing: border-box;font-family: 'Source Code Pro', monospace; height: 90vh;display: flex;align-items: center;justify-content: center;" = >Đang bảo trì...</div>`
         );
       }
-      if (false) {
+      if (rows[0].disabled == 1) {
         return res.send(
           "Opp!, Có gì đó không ổn! </br>Có vẻ như domain hiện tại đã bị vô hiệu bởi nhà cung cấp dịch vụ.<br>Liên hệ MIDVN để được hỗ trợ."
         );
       }
-      const dbName = 'sql_daily_txcn';
+      const dbName = rows[0].database_name;
 
       if (!pool[dbName]) {
         const dbConfig = {
@@ -55,7 +54,7 @@ function confirmDomain(req, res, next) {
         pool[dbName] = mysql.createPool(dbConfig);
       }
 
-      req.dbName = 'sql_daily_txcn';
+      req.dbName = rows[0].database_name;
       req.reqDomain = reqDomain;
 
       next();

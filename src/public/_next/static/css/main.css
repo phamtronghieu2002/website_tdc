@@ -5342,9 +5342,9 @@ footer ul {
     height: 80%;
     width: 80%;
     object-fit: cover;
-    padding: 5px;
-    border: 2px solid var(--thm-green);
-    border-radius: 20px;
+    /* padding: 5px;
+    border: 2px solid var(--thm-green); */
+  
 }
 
 .wrapper-about-us-page .single-service-style2 .content-box .single-service-content i {
