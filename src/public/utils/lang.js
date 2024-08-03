@@ -38,7 +38,7 @@ const dataLang = {
         contact_diachi: "Address",
         contact_gui: "Send",
         //solution
-        solutions_giaiphap: "SOLUTION",
+        solutions_giaiphap: "SOLUTIONS",
         solutions_cuachungtoi: "ours",
         solutions_tinhnang: "FEATURES",
         solutions_thongso: "TECHNICAL SPECIFICATIONS",
