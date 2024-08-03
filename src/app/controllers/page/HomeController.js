@@ -87,6 +87,7 @@ class HomeController {
               Number(1 - 1) * numNewsOfPage,
               numNewsOfPage
             );
+            
             return res.render("home" + template_id, {
               layout: "main" + template_id,
               title: "TDC: Giám sát hành trình 5G-GPS",

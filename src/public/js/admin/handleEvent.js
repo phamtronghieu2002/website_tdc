@@ -42,6 +42,12 @@ const registerMarkDownSolution = () => {
   tools.config.tinymceInit("#edit-content-solution", "400");
   tinymce.remove("#edit-technum-solution");
   tools.config.tinymceInit("#edit-technum-solution", "400");
+
+
+  tinymce.remove("#edit-content-en-solution");
+  tools.config.tinymceInit("#edit-content-en-solution", "400");
+  tinymce.remove("#edit-technum-en-solution");
+  tools.config.tinymceInit("#edit-technum-en-solution", "400");
 };
 const refgisterImageSelectBox = () => {
   const plusImageItem = $$_(".plus-image-item");
@@ -229,12 +235,20 @@ const handleEvent = {
         }
         const solutionId = solutionItemActive.getAttribute("solution-id");
         const nameSolution = $_(".solution_input").value;
+        const nameSolution_en = $_(".solution_name_en_input").value;
         const prioritySolution = $_(".solutions_select").value;
         const contentSolution = tinymce
           .get("edit-content-solution")
           .getContent();
         const technumSolution = tinymce
           .get("edit-technum-solution")
+          .getContent();
+
+          const contentSolution_en = tinymce
+          .get("edit-content-en-solution")
+          .getContent();
+        const technumSolution_en = tinymce
+          .get("edit-technum-en-solution")
           .getContent();
         const files = pond.getFiles();
         const images = [];
@@ -249,6 +263,7 @@ const handleEvent = {
           body.append("images", image);
         });
         const description = document.getElementById("description").value;
+        const description_en = document.getElementById("description_en").value;
         const thumbnail = splitUrlImage(document.getElementById("thumbnail-image-input").value)
         const banner = splitUrlImage(document.getElementById("banner-image-input").value);
         const json = {
@@ -257,6 +272,10 @@ const handleEvent = {
           content: contentSolution,
           technum: technumSolution,
           description: description,
+          name_en: nameSolution_en,
+          content_en: contentSolution_en,
+          technum_en: technumSolution_en,
+          description_en: description_en,
           thumbnail: thumbnail,
           banner: banner,
           id: solutionId
@@ -281,7 +300,6 @@ const handleEvent = {
           });
       });
     };
-
   },
   handleSolutionAddPage: function async() {
     //handle when click button add solutions
@@ -295,13 +313,21 @@ const handleEvent = {
       tools.displayOpacity("show", `Xác nhận thêm giải pháp mới?`);
       tools.confirm(() => {
         const nameSolution = $_(".solution_name_input").value;
+        const nameSolution_en = $_(".solution_name_en_input").value;
+
         const prioritySolution = $_(".solutions_select").value;
         const contentSolution = tinymce
-
           .get("edit-content-solution")
           .getContent();
         const technumSolution = tinymce
           .get("edit-technum-solution")
+          .getContent();
+
+          const contentSolution_en = tinymce
+          .get("edit-content-en-solution")
+          .getContent();
+        const technumSolution_en = tinymce
+          .get("edit-technum-en-solution")
           .getContent();
         const files = pond.getFiles();
         const images = [];
@@ -311,6 +337,8 @@ const handleEvent = {
           images.push(file);
         });
         const description = document.getElementById("description").value;
+        const description_en = document.getElementById("description_en").value;
+
         const thumbnail = splitUrlImage(document.getElementById("thumbnail-image-input").value)
         const banner = splitUrlImage(document.getElementById("banner-image-input").value);
 
@@ -324,6 +352,10 @@ const handleEvent = {
           content: contentSolution,
           technum: technumSolution,
           description: description,
+          name_en: nameSolution_en,
+          content_en: contentSolution_en,
+          technum_en: technumSolution_en,
+          description_en: description_en,
           thumbnail: thumbnail,
           banner: banner
         };

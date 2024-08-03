@@ -4708,7 +4708,7 @@ body.compensate-for-scrollbar {
 
 .agents .agent-image img {
     object-fit: scale-down;
-    /* filter: brightness(100); */
+    filter: brightness(100);
 }
 
 .agents .owl-nav {
@@ -5130,6 +5130,7 @@ footer ul {
 
 .slick-slide img {
     margin: 0 auto;
+    object-fit: contain !important;
 }
 
 .slider-nav .slick-track {
@@ -5140,12 +5141,13 @@ footer ul {
 
 .slider-nav img {
     border: 1px solid;
-    border-radius: 15px;
     height: 70px;
     width: 70px;
     object-fit: cover;
 }
-
+.slider-nav .sub_thumb {
+        object-fit: cover !important;
+}
 .solution-product {
     display: flex;
     justify-content: space-around;
@@ -5203,7 +5205,7 @@ footer ul {
     height: 600px;
     display: block;
     margin: 0 auto;
-    /* object-fit: cover; */
+    object-fit: fill;
 }
 
 /* modal */

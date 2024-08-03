@@ -56,9 +56,10 @@
                 <ul>
                   {{#each companyInfor.policys}}
                   <li>
-                    <a href="/chinh-sach/{{this.name}}">
-                      +
-                      {{this.title}}
+                    <a href="/chinh-sach/{{../lang}}/{{this.name}}">
+                      
+                      {{getLocalizedField this 'title' ../lang}}
+                     
                     </a>
                   </li>
                   {{/each}}

@@ -101,24 +101,44 @@ const components = {
             return `
          <div class="content-right">
                           <div class="update-all-value">
-                           <span class="update-all-value-title"><span class="orange">*</span> Tên giải pháp </span>
+                           <span class="update-all-value-title"><span class="orange">*</span> Tên giải pháp(tiếng việt) </span>
                             <input 
                              type="text"
                              value="${data ? data.name : ""}"
                              class="solution_input solution_name_input"
                              name="name-solution"
-                             placeholder="Nhập Tên giải pháp" 
+                             placeholder="Nhập Tên giải pháp(tiếng việt)" 
                             />
                           </div>
                             <div class="update-all-value">
-                                  <span class="update-all-value-title"><span class="orange">*</span> Mô tả giải pháp </span>
+                           <span class="update-all-value-title"><span class="orange">*</span> Tên giải pháp(tiếng anh) </span>
+                            <input 
+                             type="text"
+                             value="${data ? data.name_en : ""}"
+                             class="solution_input solution_name_en_input"
+                             name="name-solution"
+                             placeholder="Nhập Tên giải pháp(tiếng anh)" 
+                            />
+                          </div>
+                            <div class="update-all-value">
+                                  <span class="update-all-value-title"><span class="orange">*</span> Mô tả giải pháp(tiếng việt) </span>
                             <input
                             id="description"
                             type="text"
                             value="${data ? data.description : ""}"
                             class="solution_input " 
                             name="desc-solution"
-                            placeholder="Nhập Mô tả giải pháp" />
+                            placeholder="Nhập Mô tả giải pháp(tiếng việt)" />
+                            </div>
+                           <div class="update-all-value">
+                                  <span class="update-all-value-title"><span class="orange">*</span> Mô tả giải pháp(tiếng anh) </span>
+                            <input
+                            id="description_en"
+                            type="text"
+                            value="${data ? data.description_en : ""}"
+                            class="solution_input " 
+                            name="desc-solution"
+                            placeholder="Nhập Mô tả giải pháp(tiếng anh)" />
                             </div>
 
                                <div class="update-all-value">
@@ -128,7 +148,7 @@ const components = {
              id="banner-image-input"
              data-name="img"
              class="news-image-input required-infor" style="display: none" 
-             value="">
+             value="${data ? data.banner : ''}">
             <div class="set-image-item plus-image-item" style="background-image: url('/static/images/interface/${data ? data.banner : ''}');">
                 <div class="plus-alt-wrapper news-img-item">
                     <div class="plus alt"></div>
@@ -143,7 +163,7 @@ const components = {
             data-name="img"
             class="news-image-input
             required-infor" style="display: none"
-            value="">
+            value="${data ? data.thumbnail : ''}">
             <div class="set-image-item plus-image-item" style="background-image: url('/static/images/interface/${data ? data.thumbnail : ''}');">
                 <div class="plus-alt-wrapper news-img-item">
                     <div class="plus alt"></div>
@@ -179,21 +199,37 @@ const components = {
                             </div>
      
                             <div class="update-all-value">
-                                <span class="update-all-value-title"><span class="orange">*</span> Nội dung </span>
+                                <span class="update-all-value-title"><span class="orange">*</span> Nội dung(tiếng việt) </span>
 
                                 <textarea id="edit-content-solution">
                                     ${data ? data.content : ""}
                                      </textarea>
                                         
                             </div>
-                        
+                              <div class="update-all-value">
+                                <span class="update-all-value-title"><span class="orange">*</span> Nội dung(tiếng anh) </span>
+
+                                <textarea id="edit-content-en-solution">
+                                    ${data ? data.content_en : ""}
+                                     </textarea>
+                                        
+                            </div>
                         <div class="update-all-value">
-                            <span class="update-all-value-title"><span class="orange">*</span> Thông số kĩ thuật</span>
+                            <span class="update-all-value-title"><span class="orange">*</span> Thông số kĩ thuật(tiếng việt)</span>
 
                         <textarea id="edit-technum-solution">
                             ${data ? data.technum : ""}
                             </textarea>
                         </div>
+
+                            <div class="update-all-value">
+                            <span class="update-all-value-title"><span class="orange">*</span> Thông số kĩ thuật(tiếng anh)</span>
+
+                        <textarea id="edit-technum-en-solution">
+                            ${data ? data.technum_en : ""}
+                            </textarea>
+                        </div>
+                  
                   
                            
 </div>       

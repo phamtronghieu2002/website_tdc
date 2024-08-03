@@ -57,7 +57,7 @@
                         <div class="sidebar-item">
                             <div class="blog-recent-post footer-recent-post">
                                 {{#each news.featuredNews}}
-                                <a href='/tin-tuc/{{getLocalizedField this 'slug' ../lang}}' class="blog-sidebar-box-item blog-item d-flex">
+                                <a href='/tin-tuc/{{../lang}}/{{getLocalizedField this 'slug' ../lang}}' class="blog-sidebar-box-item blog-item d-flex">
                                     <div class="img-box"><img alt="blog" width="120" height="120" decoding="async"
                                             data-nimg="1" src="{{this.img}}" style="color: transparent;"></div>
                                     <div class="content-box">

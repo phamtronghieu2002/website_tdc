@@ -73,6 +73,9 @@ const Components = {
 `
     },
     headerSection: (data) => {
+        const descField =`description_${lang}`
+        const nameField =`name_${lang}`
+
         return data.map(item => `
                  <div class="col-md-6 col-lg-4">
                     <div class="single-service-style2 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms"
@@ -83,8 +86,8 @@ const Components = {
                                 src="/static/images/interface/${item.thumbnail}" style="color: transparent;"></div>
                         <div class="boxer">
                             <div class="single-service-content">
-                                <h3>${item.name}</h3>
-                                <p>${item.description}.</p>
+                                <h3>${item[nameField]}</h3>
+                                <p>${item[descField]}.</p>
                             </div>
                         </div>
                         <div class="downPage">
@@ -95,6 +98,9 @@ const Components = {
             `).join('')
     },
     mainSection: (data) => {
+              const contentField =`content_${lang}`
+              const technumField =`technum_${lang}`
+
         return data.map(item => `
               <section id="section-solution-${item.id}" class="solution">
         <div class="container">
@@ -118,7 +124,7 @@ const Components = {
                         <div class="slider slider-nav">
                             ${item.images.map(item => `
                                   <div> 
-                            <img class="d-block"
+                            <img class="d-block sub_thumb"
                             src="/static/images/solutions/${item}"
                             alt="Ảnh SP">
                             </div>
@@ -141,7 +147,7 @@ const Components = {
                         <div class="tab-pane fade show active" id="nav-home-${item.id}" role="tabpanel"
                             aria-labelledby="nav-home-tab" tabindex="0">
                                     <div class="content">
-                                        ${item.content}
+                                        ${item[contentField]}
                                     </div>
                             </div>
                         </div>
@@ -149,7 +155,7 @@ const Components = {
                             tabindex="0">
                             <div class="solution-des">
                                     <div class="content">
-                                       ${item.technum} 
+                                       ${item[technumField]} 
                                     </div>
                             </div>
                         </div>
