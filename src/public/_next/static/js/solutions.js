@@ -73,8 +73,17 @@ const Components = {
 `
     },
     headerSection: (data) => {
-        const descField =`description_${lang}`
-        const nameField =`name_${lang}`
+     
+        let descField;
+        let nameField;
+        if(lang === 'vi'){
+            descField    =`description`
+            nameField    =`name`
+        }else{
+
+         descField =`description_${lang}`
+         nameField =`name_${lang}`
+        }
 
         return data.map(item => `
                  <div class="col-md-6 col-lg-4">
@@ -98,9 +107,15 @@ const Components = {
             `).join('')
     },
     mainSection: (data) => {
-              const contentField =`content_${lang}`
-              const technumField =`technum_${lang}`
-
+                let contentField;
+                let technumField;
+                if(lang === 'vi'){
+                    contentField    =`content`
+                    technumField    =`technum`
+                }else{
+                    contentField    =`content_${lang}`
+                    technumField    =`technum_${lang}`
+                }
         return data.map(item => `
               <section id="section-solution-${item.id}" class="solution">
         <div class="container">

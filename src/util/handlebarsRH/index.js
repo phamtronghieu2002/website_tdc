@@ -26,8 +26,16 @@ function HandlebarsRegisterHelper(hbs) {
 
   hbs.handlebars.registerHelper('getLocalizedField', function (obj, field, lang) {
 
-    
+
     return lang === 'en' ? obj[`${field}_en`] : obj[field];
+  });
+  hbs.handlebars.registerHelper('getBreadcurmb', function (pathName, lang,slug) {
+    const langPath = lang && lang == "en" ? `/${lang}` : "";
+
+    return `
+                                <li><a href="/" data-lang="home">Trang chủ</a></li>
+                                <li><a href="/${slug}/${langPath}" data-lang="news">${pathName}</a></li>
+   `
   });
 
   hbs.handlebars.registerHelper(
@@ -40,11 +48,10 @@ function HandlebarsRegisterHelper(hbs) {
           if (index < 4) {
             return `<div class='product-item'>
                 <a href='/san-pham/${sp.slug}'>
-                    ${
-                      sp?.discount
-                        ? `<div class='top-discount'>- ${sp.discount}%</div>`
-                        : ""
-                    }
+                    ${sp?.discount
+                ? `<div class='top-discount'>- ${sp.discount}%</div>`
+                : ""
+              }
                     <div class='product-image'>
                         <img alt='hinh-anh-san-pham' src='${sp.thumbnail}' />
                     </div>
@@ -100,9 +107,8 @@ function HandlebarsRegisterHelper(hbs) {
     return adv
       .map((ad, index) => {
         return `
-                <li data-target='#banner-main' data-slide-to='${index}' ${
-          !index ? 'class="active"' : ""
-        }></li>
+                <li data-target='#banner-main' data-slide-to='${index}' ${!index ? 'class="active"' : ""
+          }></li>
             `;
       })
       .join("");
@@ -126,68 +132,56 @@ function HandlebarsRegisterHelper(hbs) {
     return arg1 == arg2 ? options.inverse(this) : options.fn(this);
   });
 
-  hbs.handlebars.registerHelper("paging", function (pageNums_, pageActive_,lang) {
+  hbs.handlebars.registerHelper("paging", function (pageNums_, pageActive_, lang) {
     const pageNums = Number(pageNums_);
     const pageActive = Number(pageActive_);
-  
+
     if (Number(pageActive) > Number(pageNums)) {
       return "";
     }
 
     return `
-        ${
-          pageActive - 3 > 0
-            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${
-                pageActive - 1
-              }'><i class="fa-solid fa-angles-left"></i></a></li>`
-            : ""
-        }
-        ${
-          pageActive - 2 > 0
-            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${
-                pageActive - 2
-              }'><div>${pageActive - 2}</div></a> </li>  `
-            : ""
-        }
-        ${
-          pageActive - 1 > 0
-            ? `<li class='pagination-item'> <a   href='/tin-tuc/trang/${lang}/${
-                pageActive - 1
-              }'><div>${pageActive - 1}</div></a> </li>`
-            : ""
-        }
+        ${pageActive - 3 > 0
+        ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${pageActive - 1
+        }'><i class="fa-solid fa-angles-left"></i></a></li>`
+        : ""
+      }
+        ${pageActive - 2 > 0
+        ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${pageActive - 2
+        }'><div>${pageActive - 2}</div></a> </li>  `
+        : ""
+      }
+        ${pageActive - 1 > 0
+        ? `<li class='pagination-item'> <a   href='/tin-tuc/trang/${lang}/${pageActive - 1
+        }'><div>${pageActive - 1}</div></a> </li>`
+        : ""
+      }
        <li class='pagination-item'>  <a class="active" href='/tin-tuc/trang/${lang}/${pageActive}'><div class="paging-item">${pageActive}</div></a></li> 
-        ${
-          pageActive + 1 <= pageNums
-            ? `<li class='pagination-item'>  <a   href='/tin-tuc/trang/${lang}/${
-                pageActive + 1
-              }'><div>${pageActive + 1}</div></a></li>`
-            : ""
-        }
-        ${
-          pageActive + 2 <= pageNums
-            ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${
-                pageActive + 2
-              }'><div>${pageActive + 2}</div></a> </li> `
-            : ""
-        }
+        ${pageActive + 1 <= pageNums
+        ? `<li class='pagination-item'>  <a   href='/tin-tuc/trang/${lang}/${pageActive + 1
+        }'><div>${pageActive + 1}</div></a></li>`
+        : ""
+      }
+        ${pageActive + 2 <= pageNums
+        ? `<li class='pagination-item'><a   href='/tin-tuc/trang/${lang}/${pageActive + 2
+        }'><div>${pageActive + 2}</div></a> </li> `
+        : ""
+      }
 
-        ${
-          pageActive + 3 <= pageNums
-            ? `<li class='pagination-item'><a href='/tin-tuc/trang/${lang}/${
-                pageActive + 1
-              }'><div class="paging-item"><i class="fa-solid fa-angles-right"></i></div></a> </li> `
-            : ""
-        }
+        ${pageActive + 3 <= pageNums
+        ? `<li class='pagination-item'><a href='/tin-tuc/trang/${lang}/${pageActive + 1
+        }'><div class="paging-item"><i class="fa-solid fa-angles-right"></i></div></a> </li> `
+        : ""
+      }
       
         `;
   });
 
-  hbs.handlebars.registerHelper("menuItems", function (lang="") {
+  hbs.handlebars.registerHelper("menuItems", function (lang = "") {
 
-    const langPath = lang && lang =="en" ? `/${lang}` : "";
-       return `
-          <a class="nav-link" href="${langPath == "" ? "/" :langPath}" data-lang="home">Trang chủ</a>
+    const langPath = lang && lang == "en" ? `/${lang}` : "";
+    return `
+          <a class="nav-link" href="${langPath == "" ? "/" : langPath}" data-lang="home">Trang chủ</a>
 </li>
 <li class="menu-item-has-children">
   <a class="nav-link" href='/gioi-thieu${langPath}' data-lang="about">Giới thiệu</a>
@@ -201,12 +195,12 @@ function HandlebarsRegisterHelper(hbs) {
 <li class="menu-item-has-children">
   <a class="nav-link" href='/lien-he${langPath}' data-lang="contact">Liên hệ</a>
 </li>
-       `     
+       `
   });
 
-  hbs.handlebars.registerHelper('eq', function(a, b) {
+  hbs.handlebars.registerHelper('eq', function (a, b) {
     return a === b;
-});
+  });
   hbs.handlebars.registerHelper("dateFormatDDMMYY", function (date) {
     // console.log(date);
     d = new Date(date);
