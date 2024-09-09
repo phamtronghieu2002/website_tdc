@@ -182,11 +182,10 @@ const Components = {
                                 data-bs-target="#form-support" data-lang="solutions_dangky">
                                 ĐĂNG KÝ TƯ VẤN
                             </button>
-
                             <!-- Modal -->
                             <div class="modal fade" id="form-support" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel" data-lang="solutions_tuvan">Đăng ký nhận tư vấn</h1>
